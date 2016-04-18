@@ -6,16 +6,31 @@ Currently it has a full support for Android and iOS. As of 1.7 release (March 20
 At first sight this might seem very similar to Hybrid app development popularised by PhoneGap.
 However NativeScript belongs to the JavaScript Native category of building mobile apps, where you use JavaScript to build apps with a 100% Native UI. This has a significant impact on the User Experience and Perfromance of the apps that you can build, with the outcome being almost identical to what you can achieve by building the same apps with a pure native code.
 
-# Why NativeScript -> Benefits
+# Why NativeScript?
 
-* Skills reuse
-  * Standards-based JavaScript, CSS, optionally TypeScript
-* Code reuse
-  * npm modules, 3rd-party iOS and Android libraries
-* Easily use native APIs
-  * No wrappers to access native APIs
-  * Use native UI elements
-* Open source!
+## Skills reuse
+NativeScript has a very strong appeal to people who use web based languages like **JavaScript**, **TypeScript** and **CSS**.
+Further more if you are coming from the Angular backgroud, you coud use NativeScript with **Angular 2.0**.
+
+##Code reuse
+With NativeScript you can take advantage of a vast array of existing npm modules or just plain JavaScript libraries. Just remember that since NativeScript is not based on a browser and there is no DOM, the modules cannot be browser dependant.
+
+So if you need to deal with dates just call **npm install moment** and then you can start using it like this:
+```javascript
+var moment = require("moment");
+var formattedTime = new moment().format("HH:mm:ss");
+```
+
+You can also import existing 3rd party Native iOS and Android libraries. This means that you are not limited to what is in NativeScript out of the box, but you can add your own Native UI components or Native libraries (i.e. to communicate with your vendors beacons).
+
+*As an example: there is a package called* **UI for NativeScript** *, which are simply 3rd party Native (iOS and Android) UI components packaged up as NativeScript UI components.*
+
+## Direct access to the native APIs
+* No wrappers to access native APIs
+* Use native UI elements
+
+## Open Source
+
 
 # Abstraction Layer
 
