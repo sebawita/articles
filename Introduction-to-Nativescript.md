@@ -31,7 +31,7 @@ var formattedTime = new moment().format("HH:mm:ss");
 
 You can also import existing 3rd party Native iOS and Android libraries. This means that you are not limited to what is in NativeScript out of the box, but you can add your own Native UI components or Native libraries (i.e. to communicate with your vendors beacons).
 
-*As an example: there is a package called* **UI for NativeScript** *, which are simply 3rd party Native (iOS and Android) UI components packaged up as NativeScript UI components.*
+*As an example: there is a package called* **UI for NativeScript** *, which is simply a collection of 3rd party Native (iOS and Android) UI components packaged up as NativeScript UI components.*
 
 ## Direct access to the native APIs
 NativeScript gives you direct access to the Native APIs, which is a big advantage over other JavaScript Native frameworks like React Native and Appcelerator.
@@ -115,22 +115,19 @@ With the CSS you can define from simple things like background-color and font-si
 
 The set of properties however differs from what’s available in the web CSS since it is targeting the common denominator of three different mobile frameworks, providing different features than the HTML DOM.
 
-
 # Taking it to the next level
-ANGULAR 2
+![NativeScript Loves Angular](./images/nativescript-loves-angular.png "NativeScript Loves Angular")
 
-# Some code examples => Angular Components
+
+> Some code examples => Angular Components
 
 # How does this change your mobile strategy
 
-## The bigger picture Mobile/Web/Desktop
+## The bigger picture > Mobile/Web/Desktop
 ![Multi-Platform](./images/AngularMultiPlatform.png "Multi-Platform")
 
 ## Dev team setup
 ![Team Setup](./images/TeamSetup.png "Team Setup")
-
-
-
 
 # Other 
 ## Getting started pointers -> http://docs.nativescript.org/getting-started
