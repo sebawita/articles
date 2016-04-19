@@ -9,13 +9,18 @@ However NativeScript belongs to the JavaScript Native category of building mobil
 # Why NativeScript?
 
 ## Skills reuse
+### ??? ver 1 ???
+If you already know **JavaScript**, *(optionally)* **TypesScript** and **CSS**, then you already have a big chunk of skills required to build mobile apps. You don't need to learn **Xcode**, **Java** and **C#** to target multiple platforms.
+
+### ??? ver 2 ???
 NativeScript has a very strong appeal to people who use web based languages like **JavaScript**, **TypeScript** and **CSS**.
+
 Further more if you are coming from the Angular backgroud, you coud use NativeScript with **Angular 2.0**.
 
 ##Code reuse
-With NativeScript you can take advantage of a vast array of existing npm modules or just plain JavaScript libraries. Just remember that since NativeScript is not based on a browser and there is no DOM, the modules cannot be browser dependant.
+With NativeScript you can take advantage of a vast array of existing **npm modules** or just plain JavaScript libraries. Just remember that there is no DOM NativeScript, so the modules cannot be browser dependant.
 
-So if you need to deal with dates just call **npm install moment** and then you can start using it like this:
+If you need to deal with dates, just call **npm install moment** and then you can start using it like this:
 ```javascript
 var moment = require("moment");
 var formattedTime = new moment().format("HH:mm:ss");
@@ -26,23 +31,50 @@ You can also import existing 3rd party Native iOS and Android libraries. This me
 *As an example: there is a package called* **UI for NativeScript** *, which are simply 3rd party Native (iOS and Android) UI components packaged up as NativeScript UI components.*
 
 ## Direct access to the native APIs
-* No wrappers to access native APIs
-* Use native UI elements
+NativeScript gives you direct access to the Native APIs, which is a big advantage over other JavaScript Native frameworks like React Native and Appcelerator.
+This means that you can call any native function or use any native type that exists in each supported platform or any imported 3rd party library.
 
 ## Open Source
-
+The team working on NativeScript is made of around 35 people, however the whole of the framework is OpenSource and it is available to everyone for free.
+You get the best of the two worlds, a great piece of technology supported by a strong dedicated team and an active OpenSource community working to push the boundries of mobile app development.
 
 # Abstraction Layer
+> Need a segway into this section ???
 
+### ver 1
+NativeScript let's you target multiple platforms without you having to write a single line of a platform specific code. 
+This can be achieved thanks to **tns-core-modules** (available from npm) an **Abstraction Layer** that contains platform specific implementation for each supported platfrom. It provides with modules that cover many different aspects of a mobile app from **UI abstraction**, through **Device Sensors** to **Hardaware Access** and many more.
+
+### ver 2
 With NativeScript you can build awesome apps without having to write a single line of platform specific code.
 This can be achieved thanks to **tns-core-modules** (available from npm) an **Abstraction Layer** that contains platform specific implementation for each supported platfrom. It provides with modules that cover many different aspects of a mobile app from **UI abstraction**, through **Device Sensors** to **Hardaware Access** and many more.
 
 ![Abstraction Layer](./images/Abstraction-Layer.png "Abstraction Layer")
 
-Thanks to the **tns core modules** you no longer need to think on how to perform the same operation using 3 different Platform API’s, but instead you can concentrate on the what and not how. You can trust a NativeScript module to know how to call each of the Platform Specific APIs.
+Thanks to the **tns core modules** you no longer need to think on how to perform the same operation using 3 different Platform APIs, but instead you can concentrate on the what and not how.
 
+## UI Abstraction Layer
+The Abstraction Layer not only lets you share the business logic for your app, but the same applies to the UI.
+This is handled by the **UI Abstraction Layer**, which lets you define the UI using **XML** tags like **Button**, **TextField**, **DatePicker** and more. For example:
+
+```xml
+<Page>
+  <StackLayout>
+    <Label text="Name"/>
+    <TextField text="{{nameAttribute}}"/>
+    <Button text="Press Me" tap="doSomething" />
+  </StackLayout>
+</Page>
+```
+
+Then when you build the app, each of these tags will be replaced with their native equivalents. For example **TextField** will give you:
+* on Android: **android.widget.EditText**
+* on iOS: **UITextField**
+
+> Do I need to summarize this point???
 
 # Direct access to the native API – Platform specific code
+
 You might wonder: how does {N} differ from other JavaScript Native frameworks like ReactNative and Appcelerator? The biggest differentiator is NativeScript's direct access to the Native API.
 
 ```javascript
