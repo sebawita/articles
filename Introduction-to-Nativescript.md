@@ -72,20 +72,33 @@ Then when you build the app, each of these tags will be replaced with their nati
 * on iOS: **UITextField**
 
 > Do I need to summarize this point???
+> Maybe something along the lines of write once and deploy everywhere
 
-# Direct access to the native API – Platform specific code
+# Platform specific code
+There might be some cases when you need to get to the platform specic code level. Like when you need to call a functionality that only exists on one platform or when you imported a 3rd party native library.
 
-You might wonder: how does {N} differ from other JavaScript Native frameworks like ReactNative and Appcelerator? The biggest differentiator is NativeScript's direct access to the Native API.
+This is where the **Direct Access to the Native API** comes in to play. Like I mentioned before you can call any native function or use any native type. Just call it as if this was part of the JavaScript framework.
 
+For example if needed to get the last modified date for a file and you had to do it with a platform specific code, then this is what your code would look like:
+
+### for Android
 ```javascript
-var myAlert = new UIAlertView();
-myAlert.message = "NativeScript rocks!";
-myAlert.show();
+var javaFile = new java.io.File(path);
+var lastModifiedDate = new Date(javaFile.lastModified());
 ```
+
+### for iOS
+```javascript
+var fileManager = NSFileManager.defaultManager();
+var attributes = fileManager.attributesOfItemAtPathError(path);
+var lastModifiedDate = attributes.objectForKey(this.keyModificationTime);
+```
+
+The best thing is that this uses exactly the same namespace, attributes, types and the whole naming convention as you can find in the iOS or Android documentation. The same applies to the Native 3rd party libraries.
 
 # How does this work
 
-{N} uses a pre-packaged JavaScript Virtual Machine. 
+NativeScript uses a pre-packaged JavaScript Virtual Machine. 
 To be precise:
   * For **Android** it is – Google’s v8 JavaScript Engine,
   * For **iOS** and **Windows Universal** it is – WebKit’s JavaScriptCore
@@ -93,7 +106,7 @@ To be precise:
 ![JavaScript Virtual Machine](./images/JavaScript-VM.png "JavaScript Virtual Machine")
 
 Just like with most modern web browsers a JavaScript Virtual Machine is a piece of software that interprets and runs JavaScript code.
-And in our case it runs {N} code.
+And in this case it runs {N} code.
 
 1. The **JS Virtual Machine** interprets and executes the JavaScript code.
 2.  All calls to the Native API are delegated to the **Metadata** - a pre-built set of all available APIs on each platform. The Metadata is used to lookup each method/type signature.
@@ -102,17 +115,15 @@ And in our case it runs {N} code.
 
 ![How Does This Work Diagram](./images/how-does-this-work.png "How does this work?")
 
-All of this means that you can access any function and any type available in each platforms API.
 
-
-# Metadata Generating Process -> Day Zero support
-
-We don’t have a bunch of people who build the API translations for each platform.
-But instead we have the {N} Metadata generating processes – the way it works, if you point it at Android SDK it will build the representation of everything in there. All functions and types. And the same thing happens for iOS as well.
+# Metadata Generating Process
+It is important to understand where the **Metadata** comes from.
+There are too many functions and types in each platform for someone to manualy build the API translations.
+But instead this is handled by the **Metadata generating processes** – the way it works, if you point it at Android SDK it will build the representation of everything in there. And the same thing happens for iOS as well.
 
 Metadata gets rebuilt every time you build the app. And to make it better, if you add a 3rd party Native plugin/library, the Metadata generating process will also include the additional metadata.
 
-So because of that mechanism {N} provides Day Zero support. So when a new version of a platform comes out, all you have to do is rebuild your app against that version of the platform. For instance we already support Android M, which was announced at Google io. Without us having to make any changes to the bridge.
+So because of that mechanism {N} provides Day Zero support. So when a new version of a platform comes out, all you have to do is rebuild your app against that version of the platform. For instance if iOS were to introduce a **Teleport functionality**, then all you would need to do is to get the latest version of Xcode and you would be able to use it straight away. Just imagine, with a few lines of code your iPhone could bend the reality and travel through space and time.
 
 # NPM modules ???
 
