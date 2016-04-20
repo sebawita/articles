@@ -98,26 +98,39 @@ NativeScript uses CSS as the styling mechanism. The implementation strictly foll
 With the CSS you can define from simple things like background-color and font-size
 ```CSS
 .small-label {
-    font-size: 20;
-    color: #284848;
-    horizontal-align: center;
+  font-size: 20;
+  color: #284848;
+  horizontal-align: center;
 }
 ```
  to complex animations
 ```CSS
 @keyframes animation {
-        from { transform: none; }
-        20% { transform: rotate(45); }
-        50% { transform: rotate(50) scale(1.2, 1.2) translate(50, 0); }
-        100% { transform: rotate(0) scale(1.5, 1.5) translate(100, 0); }
+  from { transform: none; }
+  20% { transform: rotate(45); }
+  50% { transform: rotate(50) scale(1.2, 1.2) translate(50, 0); }
+  100% { transform: rotate(0) scale(1.5, 1.5) translate(100, 0); }
 }
 ```
 
 The set of properties however differs from what’s available in the web CSS since it is targeting the common denominator of three different mobile frameworks, providing different features than the HTML DOM.
 
 # Taking it to the next level
+
+NativeScript has been created as a purely JavaScript framework, which uses XML to define the UI and style it with CSS.
+The first production ready version has been released in May 2015. Since then there have been multiple releases turning it into a very mature and robust framework.
+
 ![NativeScript Loves Angular](./images/nativescript-loves-angular.png "NativeScript Loves Angular")
 
+Then Google started working on Angular 2. They came up with a completely platform agnostic architecture, which meant that Angular 2 could be used to build mobile, web, desktop or "you name it" applications. It was just a question of providing the necessary abstraction for the required platform.
+
+Without a surprise both Google and Telerik teamed up to bring NativeScript into the Angular 2 picture. They both worked on it for almost a year now and the first production ready version is almost ready.
+
+This means that now you have another way of using NativeScript. You can build your mobile apps just like you would an Angular 2 application. In this case you use HMTL syntax to define Native UI and Angular's binding mechanism.
+
+> Reword this somehow
+Angular 2 provides the architecture and mechanisms for the application logic to communicate with the UI components, while NativeScript provides the mechanism to interact with the Native APIs and Native UI components.
+>You get the best of the two worlds: NativeScript's access to the Native UI and API and Angular's mechanisms.
 
 > Some code examples => Angular Components
 
