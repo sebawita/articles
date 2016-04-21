@@ -117,7 +117,7 @@ The set of properties however differs from what’s available in the web CSS sin
 
 # Taking it to the next level
 
-NativeScript has been created as a purely JavaScript framework, which uses XML to define the UI and style it with CSS.
+NativeScript has been created as purely a JavaScript framework, which uses XML to define the UI and style it with CSS.
 The first production ready version has been released in May 2015. Since then there have been multiple releases turning it into a very mature and robust framework.
 
 ![NativeScript Loves Angular](./images/nativescript-loves-angular.png "NativeScript Loves Angular")
@@ -126,13 +126,79 @@ Then Google started working on Angular 2. They came up with a completely platfor
 
 Without a surprise both Google and Telerik teamed up to bring NativeScript into the Angular 2 picture. They both worked on it for almost a year now and the first production ready version is almost ready.
 
-This means that now you have another way of using NativeScript. You can build your mobile apps just like you would an Angular 2 application. In this case you use HMTL syntax to define Native UI and Angular's binding mechanism.
+This means that now you have another way of using NativeScript. You can build your mobile apps just like you would an Angular 2 application. 
+
+For example if you want to add a login screen to your app you could do it in the following steps:
+
+### 1) Create a  UserService Component, which will contain the code to login.
+
+```JavaScript
+import {Injectable} from "angular2/core";
+
+@Injectable()
+export class UserService {
+  login(userName: String, password: String) {
+    return doSomeMagicHereAndReturnPromise();
+  }
+}
+```
+
+### 2) Next we need to create an Angular UI component, which will do few things:
+  * Inject the UserService(created in the previous step) component. See the constructor,
+  * Expose the login function from the UserService and do something on success or error,
+  * Assign templateUrl to an HTML file containing the UI definion
+
+```JavaScript
+import {UserService} from "./user.service";
+
+@Component({
+  selector: "my-app",
+  providers: [UserService],
+  templateUrl: "pages/login/login.html"
+})
+export class LoginPage {
+  userName: String;
+  password: String;
+
+  constructor(private _userService: UserService) {
+    this.username = "user@nativescript.org";
+    this.password = "password";
+  }
+
+  login() {
+    this._userService.login(this.username, this.password)
+      .subscribe(
+        () => doSomethingOnSuccessfulLogin(),
+        (error) => alert("Unfortunately we could not find your account.")
+      );
+  }
+}
+```
+
+### 3) Finally we need to define the UI template. Here we need:
+* a couple of text fields that are bound to **username** and **password**
+* a sign in button that will call **login()** on tap
+
+```HTML
+<StackLayout>
+  <Image src="res://logo_login" stretch="none" horizontalAlignment="center"></Image>
+  <TextField hint="Email Address" [(ngModel)]="username"></TextField>
+  <TextField hint="Password" secure="true" [(ngModel)]="password"></TextField>
+  <Button [text]="Sign in" (tap)="login()"></Button>
+</StackLayout>
+```
+
+With a bit of extra styling the Login Screen should look something like this:
+![Login Screen](./images/LoginScreen.png "Login Screen")
+
+
+
+
 
 > Reword this somehow
 Angular 2 provides the architecture and mechanisms for the application logic to communicate with the UI components, while NativeScript provides the mechanism to interact with the Native APIs and Native UI components.
 >You get the best of the two worlds: NativeScript's access to the Native UI and API and Angular's mechanisms.
 
-> Some code examples => Angular Components
 
 # How does this change your mobile strategy
 
