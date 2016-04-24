@@ -45,7 +45,7 @@ You get the best of the two worlds, a great piece of technology supported by a s
 # Abstraction Layer
 
 NativeScript lets you target multiple platforms without you having to write a single line of a platform specific code. 
-This can be achieved thanks to **tns-core-modules** (available from npm) an **Abstraction Layer** that contains platform specific implementation for each supported platfrom. It provides with modules that cover many different aspects of a mobile app from **UI abstraction**, through **Device Sensors** to **Hardaware Access** and many more.
+This can be achieved thanks to **tns-core-modules** (available from npm) an **Abstraction Layer** that contains platform specific implementation for each supported platfrom. It provides with modules that cover many different aspects of a mobile app from **UI abstraction**, through **Device Sensors** to **Hardware Access** and many more.
 
 ![Abstraction Layer](./images/Abstraction-Layer.png "Abstraction Layer")
 
