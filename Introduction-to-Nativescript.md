@@ -16,7 +16,7 @@ However NativeScript belongs to the JavaScript Native category of building mobil
 # Why NativeScript?
 
 ## Skills reuse
-If you already know **JavaScript**, *(optionally)* **TypesScript** and **CSS**, then you already have a big chunk of skills required to build mobile apps. You don't need to learn **Xcode**, **Java** and **C#** to target multiple platforms.
+If you already know **JavaScript**, *(optionally)* **TypesScript** and **CSS**, then you already have a big chunk of skills required to build mobile apps. You don't need to learn **Objective-C**, **Swift**, **Java** and/or **C#** to target multiple platforms.
 
 Further more if you are coming from the Angular backgroud, you coud use NativeScript with **Angular 2.0**. We will come back to this point in a moment, as this is a real game changer.
 
