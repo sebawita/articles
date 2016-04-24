@@ -4,7 +4,7 @@
 
 ### Die Entwicklung mobiler Anwendungen steht in einem starken Spannungsfeld. Die Ansprüche an moderne Apps sind unter anderem eine ansprechende Ästhetik, ein platformspezifisches Aussehen und natürlich bestmögliche Performance. Die übliche Lösung ist die Entwicklung einer nativen App für iOS und Android. Gleichzeitig verlangen parallele Entwicklungen nach vielen Ressourcen – sei es ein hohes Budget oder auf die jeweilige Plattform spezialisierte Entwickler. Hybride Apps zielen seit mehreren Jahren auf eine Vereinheitlichung ab. Doch durch den Einsatz von HTML und JavaScript bleiben stets technologische Grenzen bestehen. Das Open-Source Framework NativeScript schickt sich an, die letzten Grenzen einzureißen: echte native Apps mit JavaScript.
 
-Durch dieses Framework ist es möglich, mit JavaScript Anwendungen zu entwickeln, welche von einer platformspezifischen Lösung auf Basis von Objective-C / SWIFT oder JAVA nicht mehr zu unterscheiden sind. Die Anwendungen haben die gewohnte Geschwindigkeit und verwenden die normalen Bedienelemente des jeweiligen mobilen Betriebssystems.
+Durch dieses Framework ist es möglich, mit JavaScript Anwendungen zu entwickeln, welche von einer platformspezifischen Lösung auf Basis von Objective-C / Swift oder Java nicht mehr zu unterscheiden sind. Die Anwendungen haben die gewohnte Geschwindigkeit und verwenden die normalen Bedienelemente des jeweiligen mobilen Betriebssystems.
 
 
 ![iOS Screenshots](./images/Screenshots.png "iOS Screenshots")
@@ -20,3 +20,5 @@ Auf den ersten Blick erscheint das Framework ähnlich zu den bekannten hybriden 
 Im Gegensatz dazu reiht sich NativeScript in die neue Liga der „JavaScript Native“ Lösungen ein. Weitere Framworks, welche native Apps mit JavaScript ermöglichen, sind React Native and Appcelerator Titanium. Bei allen fällt der Umweg über HTML schlicht weg. Die Frameworks ermöglichen die direkte Verwendung von nativen UI Elementen aus der JavaScript-Umgebung heraus.
 
 > Sollten Sie skeptisch hinsichtlich der Performance sein, dann probieren Sie doch einfach die „Examples NativeScript“ Apps im Google Play Store oder iTunes aus. Die App enthält eine Sammlung von graphischen Beispielen welche die breiten Anwendungsmöglichkeiten von NativeScript demonstriert.
+
+# [TODO: full text, see word]
