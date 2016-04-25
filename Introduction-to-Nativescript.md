@@ -130,7 +130,7 @@ This means that now you have another way of using NativeScript. You can build yo
 
 For example if you want to add a login screen to your app you could do it in the following steps:
 
-### 1) Create a  UserService Component, which will contain the code to login.
+### 1) Create a  UserService class, which will contain the code to login.
 
 ```JavaScript
 import {Injectable} from "angular2/core";
