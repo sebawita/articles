@@ -150,7 +150,7 @@ export class UserService {
   * Assign templateUrl to an HTML file containing the UI definion
 
 ```JavaScript
-import {UserService} from "./user.service";
+import {UserService} from "./user-service";
 
 @Component({
   selector: "my-app",
