@@ -129,16 +129,16 @@ Without a surprise both Google and Telerik teamed up to bring NativeScript into 
 
 This means that now you have another way of using NativeScript. You can build your mobile apps just like you would an Angular 2 application. 
 
-For example if you want to add a login screen to your app you could do it in the following steps:
+For example if you want to add a initial sign up screen to your app you could do it in the following steps:
 
-### 1) Create a  UserService class, which will contain the code to login.
+### 1) Create a  UserService class, which will contain the code to send the new credentials to the backend.
 
 ```JavaScript
 import {Injectable} from "angular2/core";
 
 @Injectable()
 export class UserService {
-  login(userName: String, password: String) {
+  signup(userName: String, password: String) {
     return doSomeMagicHereAndReturnPromise();
   }
 }
@@ -146,7 +146,7 @@ export class UserService {
 
 ### 2) Next we need to create an Angular UI component, which will do few things:
   * Inject the UserService(created in the previous step) component. See the constructor,
-  * Expose the login function from the UserService and do something on success or error,
+  * Expose the signup function from the UserService and do something on success or error,
   * Assign templateUrl to an HTML file containing the UI definion
 
 ```JavaScript
@@ -155,9 +155,9 @@ import {UserService} from "./user.service";
 @Component({
   selector: "my-app",
   providers: [UserService],
-  templateUrl: "pages/login/login.html"
+  templateUrl: "pages/signup/signup.html"
 })
-export class LoginPage {
+export class SignUpPage {
   userName: String;
   password: String;
 
@@ -166,11 +166,11 @@ export class LoginPage {
     this.password = "password";
   }
 
-  login() {
-    this._userService.login(this.username, this.password)
+  signup() {
+    this._userService.signup(this.username, this.password)
       .subscribe(
-        () => doSomethingOnSuccessfulLogin(),
-        (error) => alert("Unfortunately we could not find your account.")
+        () => doSomethingOnSuccessfulSignup(),
+        (error) => alert("Unfortunately something went wrong.")
       );
   }
 }
@@ -178,19 +178,20 @@ export class LoginPage {
 
 ### 3) Finally we need to define the UI template. Here we need:
 * a couple of text fields that are bound to **username** and **password**
-* a sign in button that will call **login()** on tap
+* a sign in button that will call **signup()** on tap
 
 ```HTML
 <StackLayout>
-  <Image src="res://logo_login" stretch="none" horizontalAlignment="center"></Image>
-  <TextField hint="Email Address" [(ngModel)]="username"></TextField>
+  <Image src="res://logo_signup" stretch="none" horizontalAlignment="center"></Image>
+  <TextField hint="Email" [(ngModel)]="username"></TextField>
   <TextField hint="Password" secure="true" [(ngModel)]="password"></TextField>
-  <Button [text]="Sign in" (tap)="login()"></Button>
+  <Button [text]="Sign up" (tap)="signup()"></Button>
+  <Button [text]="Back to login"></Button>
 </StackLayout>
 ```
 
-With a bit of extra styling the Login Screen should look something like this:
-![Login Screen](./images/LoginScreen.png "Login Screen")
+With a bit of extra styling the sign up screen should look something like this:
+![Signup Screen](./images/SignupScreen.png "Signup Screen")
 
 
 
