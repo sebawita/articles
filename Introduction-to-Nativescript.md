@@ -47,7 +47,8 @@ You get the best of the two worlds, a great piece of technology supported by a s
 NativeScript lets you target multiple platforms without you having to write a single line of a platform specific code. 
 This can be achieved thanks to **tns-core-modules** (available from npm) an **Abstraction Layer** that contains platform specific implementation for each supported platfrom. It provides with modules that cover many different aspects of a mobile app from **UI abstraction**, through **Device Sensors** to **Hardware Access** and many more.
 
-![Abstraction Layer](./images/Abstraction-Layer.png "Abstraction Layer")
+<!--![Abstraction Layer](./images/Abstraction-Layer.png "Abstraction Layer")-->
+![Abstraction Layer](./images/Abstraction-Layer_v2.png "Abstraction Layer")
 
 Thanks to the **tns core modules** you no longer need to think on how to perform the same operation using 3 different Platform APIs, but instead you can concentrate on the what and not how.
 
@@ -200,14 +201,5 @@ Angular 2 provides the architecture and mechanisms for the application logic to 
 >You get the best of the two worlds: NativeScript's access to the Native UI and API and Angular's mechanisms.
 
 
-# How does this change your mobile strategy
 
-## The bigger picture > Mobile/Web/Desktop
-![Multi-Platform](./images/AngularMultiPlatform.png "Multi-Platform")
-
-## Dev team setup
-![Team Setup](./images/TeamSetup.png "Team Setup")
-
-# Other 
 ## Getting started pointers -> http://docs.nativescript.org/getting-started
-## Performance – Native UI ???
