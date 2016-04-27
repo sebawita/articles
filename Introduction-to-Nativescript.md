@@ -129,16 +129,16 @@ Without a surprise both Google and Telerik teamed up to bring NativeScript into 
 
 This means that now you have another way of using NativeScript. You can build your mobile apps just like you would an Angular 2 application. 
 
-For example if you want to add a initial sign up screen to your app you could do it in the following steps:
+For example if you want to add a login screen to your app you could do it in the following steps:
 
-### 1) Create a  UserService class, which will contain the code to send the new credentials to the backend.
+### 1) Create a  UserService class, which will contain the code to login.
 
 ```JavaScript
 import {Injectable} from "angular2/core";
 
 @Injectable()
 export class UserService {
-  signup(userName: String, password: String) {
+  login(userName: String, password: String) {
     return doSomeMagicHereAndReturnPromise();
   }
 }
@@ -146,18 +146,18 @@ export class UserService {
 
 ### 2) Next we need to create an Angular UI component, which will do few things:
   * Inject the UserService(created in the previous step) component. See the constructor,
-  * Expose the signup function from the UserService and do something on success or error,
+  * Expose the login function from the UserService and do something on success or error,
   * Assign templateUrl to an HTML file containing the UI definion
 
 ```JavaScript
-import {UserService} from "./user-service";
+import {UserService} from "./user.service";
 
 @Component({
   selector: "my-app",
   providers: [UserService],
-  templateUrl: "pages/signup/signup.html"
+  templateUrl: "pages/login/login.html"
 })
-export class SignUpPage {
+export class LoginPage {
   userName: String;
   password: String;
 
@@ -166,11 +166,11 @@ export class SignUpPage {
     this.password = "password";
   }
 
-  signup() {
-    this._userService.signup(this.username, this.password)
+  login() {
+    this._userService.login(this.username, this.password)
       .subscribe(
-        () => doSomethingOnSuccessfulSignup(),
-        (error) => alert("Unfortunately something went wrong.")
+        () => doSomethingOnSuccessfulLogin(),
+        (error) => alert("Unfortunately we could not find your account.")
       );
   }
 }
@@ -178,28 +178,25 @@ export class SignUpPage {
 
 ### 3) Finally we need to define the UI template. Here we need:
 * a couple of text fields that are bound to **username** and **password**
-* a sign in button that will call **signup()** on tap
+* a sign in button that will call **login()** on tap
 
 ```HTML
 <StackLayout>
-  <Image src="res://logo_signup" stretch="none" horizontalAlignment="center"></Image>
+  <Image src="res://logo_login" stretch="none" horizontalAlignment="center"></Image>
   <TextField hint="Email" [(ngModel)]="username"></TextField>
   <TextField hint="Password" secure="true" [(ngModel)]="password"></TextField>
-  <Button [text]="Sign up" (tap)="signup()"></Button>
+  <Button [text]="Sign up" (tap)="login()"></Button>
   <Button [text]="Back to login"></Button>
 </StackLayout>
 ```
 
-With a bit of extra styling the sign up screen should look something like this:
-![Signup Screen](./images/SignupScreen.png "Signup Screen")
+With a bit of extra styling the Login Screen should look something like this:
+![Login Screen](./images/LoginScreen.png "Login Screen")
 
 
-
-
-
-> Reword this somehow
+# Reword this somehow
 Angular 2 provides the architecture and mechanisms for the application logic to communicate with the UI components, while NativeScript provides the mechanism to interact with the Native APIs and Native UI components.
->You get the best of the two worlds: NativeScript's access to the Native UI and API and Angular's mechanisms.
+You get the best of the two worlds: NativeScript's access to the Native UI and API and Angular's mechanisms.
 
 
 
