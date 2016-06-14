@@ -26,10 +26,12 @@ Die Lösung für Angular 2 besteht darin, dass sehr spezifisches Markup in HTML 
 ![Angular2 with NativeScript](./images/Angular2-with-NativeScript.png "Angular2 with NativeScript")
 
 
-## Why NativeScript
+## Warum NativeScript?
 
-### It works with Angular 2
-You can use all of the [Angular 2 syntax](https://angular.io/docs/ts/latest/guide/template-syntax.html#) and get a mobile app as a result:
+### Kurzum: es funktioniert wunderbar mit Angular 2
+
+Wenn man erstmal die neue [Template-Syntax](https://angular.io/docs/ts/latest/guide/template-syntax.html) von Angular gelernt hat, dann kann man das bestehende Wissen auf eine NativeScript-App übertragen. Hier ist ein einfaches Beispiel, wie ein Button verarbeitet wird. Es fällt auf, dass dies Komponente kein normales HTML beinhaltet:
+
 ```HTML
 @Component({
   selector: "my-app",
@@ -51,7 +53,10 @@ export class MyComponent {
 }
 ```
 
-### Abstraction Layer
+### Abstraktionsschicht
+
+NativeScript hat eine 	beträchtliche Abstraktionsschicht an Board, welche die Unterschiede zwischen den unterstützen  Zielplattformen (iOS, Android, UWP) ausbügelt. Hierdurch kann man mit einer einzigen Code-Basis alle nennenswerten Geräte bedienen. Besonders wichtig ist eine gescheite UI-Abstraktion, bei der jede UI-Komponente eine eigene native Implementierung besitzen muss. Zum Glück müssen wir nicht diese spezifische Implantierungen selbst entwickeln. Es wurde bereits eine grundlegende Auswahl an Bedienelementen vom NativeScript-Team umsetzt. So können wir folgendes Markup definieren und erhalten eine Native Oberfläche, die in allen Betriebsystemen die jeweils zu erwarteten Bedienelemente besitzt:
+
 NativeScript comes with an extensive abstraction layer, which allows you to build mobile apps with the single code for all supported platforms.
 This applies to the UI Abstraction layer, where each [UI Component](http://docs.nativescript.org/ui/ui-views) has an underlying native implementation. For example the below code will give us a ***Native UI*** with a set of Native components.
 
@@ -101,8 +106,6 @@ function openFile(url) {
 }
 ```
 
-## Single codebase for all
-> Should I include this part??? or would this be too much???
 
 ## Want to learn more?
 There will be a couple of talks about NativeScript at DWX, which are really worth attending.
