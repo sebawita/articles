@@ -93,14 +93,11 @@ Obviously no abstraction layer can cover all the possible functions available on
 For example if you run the below ***JavaScript*** code on Android, you will get a new instance of a file object.
 
 ```JavaScript
-function openFile(url) {
+function openFile() {
   var myFile = new java.io.File("filePath.txt");
   return myFile;
 }
 ```
-
-## Single codebase for all
-> Should I include this part??? or would this be too much???
 
 ## Want to learn more?
 There will be a couple of talks about NativeScript at DWX, which are really worth attending.
