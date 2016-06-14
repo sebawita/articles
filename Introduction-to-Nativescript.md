@@ -16,7 +16,7 @@ However NativeScript belongs to the JavaScript Native category of building mobil
 # Why NativeScript?
 
 ## Skills reuse
-If you already know **JavaScript**, *(optionally)* **TypesScript** and **CSS**, then you already have a big chunk of skills required to build mobile apps. You don't need to learn **Xcode**, **Java** and **C#** to target multiple platforms.
+If you already know **JavaScript**, *(optionally)* **TypesScript** and **CSS**, then you already have a big chunk of skills required to build mobile apps. You don't need to learn **Objective-C**, **Swift**, **Java** and/or **C#** to target multiple platforms.
 
 Further more if you are coming from the Angular backgroud, you coud use NativeScript with **Angular 2.0**. We will come back to this point in a moment, as this is a real game changer.
 
@@ -45,9 +45,10 @@ You get the best of the two worlds, a great piece of technology supported by a s
 # Abstraction Layer
 
 NativeScript lets you target multiple platforms without you having to write a single line of a platform specific code. 
-This can be achieved thanks to **tns-core-modules** (available from npm) an **Abstraction Layer** that contains platform specific implementation for each supported platfrom. It provides with modules that cover many different aspects of a mobile app from **UI abstraction**, through **Device Sensors** to **Hardaware Access** and many more.
+This can be achieved thanks to **tns-core-modules** (available from npm) an **Abstraction Layer** that contains platform specific implementation for each supported platfrom. It provides with modules that cover many different aspects of a mobile app from **UI abstraction**, through **Device Sensors** to **Hardware Access** and many more.
 
-![Abstraction Layer](./images/Abstraction-Layer.png "Abstraction Layer")
+<!--![Abstraction Layer](./images/Abstraction-Layer.png "Abstraction Layer")-->
+![Abstraction Layer](./images/Abstraction-Layer_v2.png "Abstraction Layer")
 
 Thanks to the **tns core modules** you no longer need to think on how to perform the same operation using 3 different Platform APIs, but instead you can concentrate on the what and not how.
 
@@ -130,7 +131,7 @@ This means that now you have another way of using NativeScript. You can build yo
 
 For example if you want to add a login screen to your app you could do it in the following steps:
 
-### 1) Create a  UserService Component, which will contain the code to login.
+### 1) Create a  UserService class, which will contain the code to login.
 
 ```JavaScript
 import {Injectable} from "angular2/core";
@@ -182,9 +183,10 @@ export class LoginPage {
 ```HTML
 <StackLayout>
   <Image src="res://logo_login" stretch="none" horizontalAlignment="center"></Image>
-  <TextField hint="Email Address" [(ngModel)]="username"></TextField>
+  <TextField hint="Email" [(ngModel)]="username"></TextField>
   <TextField hint="Password" secure="true" [(ngModel)]="password"></TextField>
-  <Button [text]="Sign in" (tap)="login()"></Button>
+  <Button [text]="Sign up" (tap)="login()"></Button>
+  <Button [text]="Back to login"></Button>
 </StackLayout>
 ```
 
@@ -192,22 +194,10 @@ With a bit of extra styling the Login Screen should look something like this:
 ![Login Screen](./images/LoginScreen.png "Login Screen")
 
 
-
-
-
-> Reword this somehow
+# Reword this somehow
 Angular 2 provides the architecture and mechanisms for the application logic to communicate with the UI components, while NativeScript provides the mechanism to interact with the Native APIs and Native UI components.
->You get the best of the two worlds: NativeScript's access to the Native UI and API and Angular's mechanisms.
+You get the best of the two worlds: NativeScript's access to the Native UI and API and Angular's mechanisms.
 
 
-# How does this change your mobile strategy
 
-## The bigger picture > Mobile/Web/Desktop
-![Multi-Platform](./images/AngularMultiPlatform.png "Multi-Platform")
-
-## Dev team setup
-![Team Setup](./images/TeamSetup.png "Team Setup")
-
-# Other 
 ## Getting started pointers -> http://docs.nativescript.org/getting-started
-## Performance – Native UI ???
