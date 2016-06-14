@@ -111,7 +111,7 @@ function openFile() {
 
 ## Want to learn more?
 
-![Banner DWX](images/developer-week.jpg)
+[![Banner DWX](images/developer-week.jpg)](http://www.developer-week.de/)
 
 There will be a couple of talks about NativeScript at DWX, which are really worth attending.
  * [Introduction to NativeScript][1] on Monday 20-June at 17:00 - in this talk you will learn what NativeScript is made of, how it works inside and you will see some JavaScript examples on how to build mobile apps with it.

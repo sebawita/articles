@@ -111,7 +111,7 @@ Das Beste an der gezeigten Syntax ist die Tatsache, dass sowohl  Namespaces, als
 
 ## Lust auf mehr?
 
-![Banner DWX](images/developer-week.jpg)
+[![Banner DWX](images/developer-week.jpg)](http://www.developer-week.de/)
 
 Auf der DWX-Developer Week 2016 wird es zwei Vorträge zu NativeScript geben.
 
