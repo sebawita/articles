@@ -5,7 +5,7 @@ In den letzten Jahre haben mehr als eine Million Entwickler erfolgreich mit Angu
 
 ## Plattformunabhängige Architektur
 
-Hier wird Angular 2 interessant. Der komplette Rewrite von AngularJS 1 wurde vollständig auf Plattformunabhängigkeit ausgerichtet. Das bedeutet, dass das Framework so entworfen wurde, dass diverse Plattformen angesprochen werden können (sei es Web, Mobil, Desktop und sogar [IoT-Geräte](https://medium.com/@urish/building-simon-with-angular2-iot-fceb78bb18e5)).
+Hier wird Angular 2 interessant. Der komplette Rewrite von AngularJS 1 wurde stark auf Plattformunabhängigkeit ausgerichtet. Das bedeutet, dass das Framework so entworfen wurde, dass diverse Plattformen angesprochen werden können (sei es Web, Mobil, Desktop und sogar [IoT-Geräte](https://medium.com/@urish/building-simon-with-angular2-iot-fceb78bb18e5)).
 Vereinfacht ausgedrückt ist die Angular-2-Architektur in zwei Teile aufgeteilt:
 
 - __Plattform-unabhängiger Teil__: hier wir das Markup (HTML) durch einen DOM-Adapter geparst und in so genannte „Proto Views“ compiliert. Dieser Prozess ist nicht spezifisch für eine Zielplattform und die meisten Funktionen können in den verschiedenen Plattformen genutzt werden
@@ -19,7 +19,9 @@ Durch diese durchdachte Architektur ist es möglich, neue Ziele zu definieren. E
 
 ## Native Mobile Anwendungen
 
-Auf Grundlage der plattformunabhängigen Architektur kann [NativeScript](https://www.nativescript.org/) seine Stärken zeigen. NativeScript ist ein Open-Source-Framework, mit dem man native Apps für iOS, Android und [bald](https://www.nativescript.org/blog/details/nativescript-runtime-preview-for-windows-10) auch Windows 10 bzw. Windows Phone 10 entwickeln kann. „Nativ“ bedeutet, dass tatsächlich echte native UI-Elemente aus der JavaScript-Umgebung heraus angesprochen werden können. Seit Mitte 2015 arbeiten das Angular-Team und das NativeScript zusammen, um beide Frameworks miteinander zu verbinden. Das Ergebnis dieser Zusammenarbeit ist NativeScript 2.0 ([News](http://sdtimes.com/nativescript-2-0-brings-mobile-strategy-options-angularjs-developers/)).
+![Login Screen](./images/LoginScreen.png "Login Screen")
+
+Auf Grundlage der plattformunabhängigen Architektur von Angular kann [NativeScript](https://www.nativescript.org/) seine Stärken zeigen. NativeScript ist ein Open-Source-Framework, mit dem man native Apps für iOS, Android und [bald](https://www.nativescript.org/blog/details/nativescript-runtime-preview-for-windows-10) auch Windows 10 bzw. Windows Phone 10 entwickeln kann. „Nativ“ bedeutet, dass tatsächlich echte native UI-Elemente aus der JavaScript-Umgebung heraus angesprochen werden können. Seit Mitte 2015 arbeiten das Angular-Team und das NativeScript zusammen, um beide Frameworks miteinander zu verbinden. Das Ergebnis dieser Zusammenarbeit ist NativeScript 2.0 ([News](http://sdtimes.com/nativescript-2-0-brings-mobile-strategy-options-angularjs-developers/)).
 
 Die Lösung für Angular 2 besteht darin, dass sehr spezielles Markup in HTML definiert wird. Diese Markup kann dann vom DOM-Adapter „Parse5“ geparst werden. Den größten Anteil an der Umsetzung nimmt der „NativeScript Renderer“ ein. Dieser garantiert nicht zuletzt den Austausch zwischen „Proto Views“ und  den nativen UI Komponenten der jeweiligen Platform:
 
@@ -27,6 +29,8 @@ Die Lösung für Angular 2 besteht darin, dass sehr spezielles Markup in HTML de
 
 
 ## Warum NativeScript?
+
+![Login Screen](./images/nativescript-loves-angular.png)
 
 ### Kurzum: es funktioniert wunderbar mit Angular 2
 
@@ -102,13 +106,31 @@ function openFile() {
 }
 ```
 
-Das Beste an der gezeigten Syntax ist die Tatsache, dass sowohl  Namespaces, als auch Attribute und Typen sowie die gesamten Konventionen bei der Benennung dem Pendant aus der Android- bzw. iOS-Dokumentation entspricht. Dasselbe gilt für Fremdbibliotheken. So lässt sich mit geringem Aufwand ein Code-Fragment aus den Dokumentationen oder dem Netz per Copy-and-Paste zum Laufen bringen. Hinter den Kulissen verwendet NativeScript „Reflection“, um eine Liste von APIs aufzubauen, die auf der aktuellen Plattform zur Verfügung stehen und zum globalen Gültigkeitsbereich hinzugefügt werden. Gibt es eine API auf dem Endgerät, dann kan man diese auch aufrufen!
+Das Beste an der gezeigten Syntax ist die Tatsache, dass sowohl  Namespaces, als auch Attribute und Typen sowie die gesamten Konventionen bei der Benennung dem Pendant aus der Android- bzw. iOS-Dokumentation entspricht. Dasselbe gilt für Fremdbibliotheken. So lässt sich mit geringem Aufwand ein Code-Fragment aus den Dokumentationen oder dem Netz per Copy-and-Paste zum Laufen bringen. Hinter den Kulissen verwendet NativeScript „Reflection“, um eine Liste von APIs aufzubauen, die auf der aktuellen Plattform zur Verfügung stehen und zum globalen Gültigkeitsbereich hinzugefügt werden. Gibt es eine API auf dem Endgerät, dann kann man diese auch aufrufen!
 
-## Want to learn more?
-There will be a couple of talks about NativeScript at DWX, which are really worth attending.
- * [Introduction to NativeScript](http://www.developer-week.de/Programm/Veranstaltung/(event)/20557) on Monday 20-June at 17:00 - in this talk you will learn what NativeScript is made of, how it works inside and you will see some JavaScript examples on how to build mobile apps with it.
- * [Native Mobile Apps mit NativeScript und Angular 2.0](http://www.developer-week.de/Programm/Veranstaltung/(event)/20683) on Wednesday 22-June at 9:00 - in this talk you will learn how we built the NativeScript 2.0, how does it work with Angular 2 and how to aim for a shared code base between mobile and web apps.
 
-There is a great [Getting Started guide](http://docs.nativescript.org/angular/tutorial/ng-chapter-0), which you can follow to build a Native iOS and Android mobile app with Angular2 and NativeScript.
+## Lust auf mehr?
 
-![Login Screen](./images/LoginScreen.png "Login Screen")
+![Banner DWX](images/developer-week.jpg)
+
+Auf der DWX-Developer Week 2016 wird es zwei Vorträge zu NativeScript geben.
+
+* [Introduction to NativeScript][1], 20.06.2016 17:00 - 18:00 Uhr, Track: Cross-Plattform  
+  In diesem Talk erfahren Sie, wie NativeScript aufgebaut ist, wie es funktioniert und vor allem wie man performante mobile Apps mit dem Framework entwickeln kann.
+* [Native Mobile Apps mit NativeScript und Angular 2][2], 22.06.2016 09:00 - 10:00 Uhr, Track: Mobile Architekturen
+  In diesem schauen wir uns das Zusammenspiel zwischen NativeScript und Angular 2 genauer an. Als besonderes Schmankerl zeigen wir Ihnen, wie man auf Grundlage von Angular Code für mobile Apps und Webanwendungen wiederverwenden kann.
+
+
+Sie sollten auch den ausführlichen [Getting Started guide](http://docs.nativescript.org/angular/tutorial/ng-chapter-0), durchlesen. Hier erfahren Sie alles Notwendige, um native Apps für iOS und Android auf Basis von Angular2 und NativeScript zu entwickeln.
+
+
+[1]: http://www.developer-week.de/Programm/Veranstaltung/(event)/20557
+[2]: http://www.developer-week.de/Programm/Veranstaltung/(event)/20683
+
+---
+
+[![Sebastian](images/Sebastian_Witalec_small.png)](https://twitter.com/sebawita)
+[Sebastian Witalec](https://twitter.com/sebawita),  Technical Evangelist for Telerik, a Progress company
+
+[![Joannes](images/Johannes_Hoppe_small.png)](https://twitter.com/johanneshoppe)
+[Johannes Hoppe](https://twitter.com/johanneshoppe), Telerik Developer Expert
