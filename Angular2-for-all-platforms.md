@@ -99,9 +99,6 @@ function openFile(url) {
 }
 ```
 
-## Single codebase for all
-> Should I include this part??? or would this be too much???
-
 ## Want to learn more?
 There will be a couple of talks about NativeScript at DWX, which are really worth attending.
  * [Introduction to NativeScript](http://www.developer-week.de/Programm/Veranstaltung/(event)/20557) on Monday 20-June at 17:00 - in this talk you will learn what NativeScript is made of, how it works inside and you will see some JavaScript examples on how to build mobile apps with it.
