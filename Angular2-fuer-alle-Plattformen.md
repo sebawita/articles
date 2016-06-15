@@ -9,7 +9,7 @@ Hier wird Angular 2 interessant. Der komplette Rewrite von AngularJS 1 wurde sta
 Vereinfacht ausgedrückt ist die Angular-2-Architektur in zwei Teile aufgeteilt:
 
 - __Plattform-unabhängiger Teil__: hier wir das Markup (HTML) durch einen DOM-Adapter geparst und in so genannte „Proto Views“ compiliert. Dieser Prozess ist nicht spezifisch für eine Zielplattform und die meisten Funktionen können in den verschiedenen Plattformen genutzt werden
-- __Plattform-spezifischer Teil__: hier geschieht die Magie. Es werden plattformspezifische Renderer verwendet, um die unterschiedlichen Zielplattform abzubilden. Jene Renderer haben die Aufgabe, aus den „Proto Views“ einen „Visual Tree“ zu generieren. Dieser kann dann verwendet werden, um die Oberfläche anzuzeigen. Der Renderer ist ebenso dafür verantwortlich, Änderungen und Events zwischen „Proto Views“ und „Visual Tree“ auszutauschen.
+- __Plattform-spezifischer Teil__: hier geschieht die Magie. Es werden plattformspezifische Renderer verwendet, um die unterschiedlichen Zielplattformen abzubilden. Jene Renderer haben die Aufgabe, aus den „Proto Views“ einen „Visual Tree“ zu generieren. Dieser kann dann verwendet werden, um die Oberfläche anzuzeigen. Der Renderer ist ebenso dafür verantwortlich, Änderungen und Events zwischen „Proto Views“ und „Visual Tree“ auszutauschen.
 
 
 ![Angular2 Platform Agnostic](./images/Angular2-platform-agnostic.png "Angular2 Platform Agnostic")
@@ -21,7 +21,7 @@ Durch diese durchdachte Architektur ist es möglich, neue Ziele zu definieren. E
 
 ![Login Screen](./images/LoginScreen.png "Login Screen")
 
-Auf Grundlage der plattformunabhängigen Architektur von Angular kann [NativeScript](https://www.nativescript.org/) seine Stärken zeigen. NativeScript ist ein Open-Source-Framework, mit dem man native Apps für iOS, Android und [bald](https://www.nativescript.org/blog/details/nativescript-runtime-preview-for-windows-10) auch Windows 10 bzw. Windows Phone 10 entwickeln kann. „Nativ“ bedeutet, dass tatsächlich echte native UI-Elemente aus der JavaScript-Umgebung heraus angesprochen werden können. Seit Mitte 2015 arbeiten das Angular-Team und das NativeScript zusammen, um beide Frameworks miteinander zu verbinden. Das Ergebnis dieser Zusammenarbeit ist NativeScript 2.0 ([News](http://sdtimes.com/nativescript-2-0-brings-mobile-strategy-options-angularjs-developers/)).
+Auf Grundlage der plattformunabhängigen Architektur von Angular kann [NativeScript](https://www.nativescript.org/) seine Stärken zeigen. NativeScript ist ein Open-Source-Framework, mit dem man native Apps für iOS, Android und [bald](https://www.nativescript.org/blog/details/nativescript-runtime-preview-for-windows-10) auch Windows 10 bzw. Windows Phone 10 entwickeln kann. „Nativ“ bedeutet, dass tatsächlich echte native UI-Elemente aus der JavaScript-Umgebung heraus angesprochen werden können. Seit Mitte 2015 arbeiten das Angular-Team und das NativeScript-Team zusammen, um beide Frameworks miteinander zu verbinden. Das Ergebnis dieser Zusammenarbeit ist NativeScript 2.0 ([News](http://sdtimes.com/nativescript-2-0-brings-mobile-strategy-options-angularjs-developers/)).
 
 Die Lösung für Angular 2 besteht darin, dass sehr spezielles Markup in HTML definiert wird. Diese Markup kann dann vom DOM-Adapter „Parse5“ geparst werden. Den größten Anteil an der Umsetzung nimmt der „NativeScript Renderer“ ein. Dieser garantiert nicht zuletzt den Austausch zwischen „Proto Views“ und  den nativen UI Komponenten der jeweiligen Platform:
 
@@ -78,7 +78,7 @@ NativeScript hat eine 	beträchtliche Abstraktionsschicht an Board, welche die U
 })
 ```
 
-Weiterhin bietet das NPM-Paket „**T**elerik **N**ative**S**cript Core Modules“ (kurz: [tns-core-modules](https://github.com/NativeScript/NativeScript/tree/master/tns-core-modules)) eine reiche Auswahl an weiteren Funktionalitäten, die man gemeinhin für die App-Entwicklung benötigt. Möchte man z.B. ein Foto mit der Kamera machen, so muss man lediglich das entsprechende [Kamera-Modul](https://docs.nativescript.org/hardware/camera#using-the-camera-module-to-take-a-picture) mit `require` laden und es aufrufen. Wie die Kamera in den jeweiligen Betriebssystemen aufgerufen werden muss, braucht uns dann nicht mehr zu interessieren.
+Weiterhin bietet das NPM-Paket „**T**elerik **N**ative**S**cript Core Modules“ (kurz: [tns-core-modules](https://github.com/NativeScript/NativeScript/tree/master/tns-core-modules)) eine reiche Auswahl an Funktionalitäten, die man gemeinhin für die App-Entwicklung benötigt. Möchte man z.B. ein Foto mit der Kamera machen, so muss man lediglich das entsprechende [Kamera-Modul](https://docs.nativescript.org/hardware/camera#using-the-camera-module-to-take-a-picture) mit `require` laden und es aufrufen. Wie die Kamera in den jeweiligen Betriebssystemen aufgerufen werden muss, braucht uns dann nicht mehr zu interessieren.
 
 
 ```JavaScript
@@ -97,7 +97,7 @@ Wenn Sie allerding neugierig sind, was unter Android ([Github](https://github.co
 
 ### Direkter Zugriff auf Native APIs
 
-Natürlich kann keine Abstraktionsschicht alle möglichen Funktionen abdecken. Ebenso möchte man womöglich für bestimmte Aufgaben eine native Fremdbibliothek eines Drittanbieters einbinden. Unter NativeScript stellt dies kein Problem dar. Es ist nämlich stets möglich, direkt aus **JavaScript** heraus Android oder iOS APIs anzusprechen. Zum Beispiel wird folgender Quelltext unter Android (und nur unter Android) eine Instanz des Datei-Objekts erzeugen:
+Natürlich kann keine Abstraktionsschicht alle möglichen Funktionen abdecken. Ebenso möchte man womöglich für bestimmte Aufgaben eine native Fremdbibliothek eines Drittanbieters einbinden. Unter NativeScript stellt dies kein Problem dar. Es ist nämlich stets möglich, direkt aus **JavaScript** heraus Android- oder iOS-APIs anzusprechen. Zum Beispiel wird folgender Quelltext unter Android (und nur unter Android) eine Instanz des Datei-Objekts erzeugen:
 
 ```JavaScript
 function openFile() {
@@ -121,7 +121,7 @@ Auf der DWX-Developer Week 2016 wird es zwei Vorträge zu NativeScript geben.
   In diesem schauen wir uns das Zusammenspiel zwischen NativeScript und Angular 2 genauer an. Als besonderes Schmankerl zeigen wir Ihnen, wie man auf Grundlage von Angular Code für mobile Apps und Webanwendungen wiederverwenden kann.
 
 
-Sie sollten auch den ausführlichen [Getting Started guide](http://docs.nativescript.org/angular/tutorial/ng-chapter-0), durchlesen. Hier erfahren Sie alles Notwendige, um native Apps für iOS und Android auf Basis von Angular2 und NativeScript zu entwickeln.
+Sie sollten auch den ausführlichen [Getting Started guide](http://docs.nativescript.org/angular/tutorial/ng-chapter-0) durchlesen. Hier erfahren Sie alles Notwendige, um native Apps für iOS und Android auf Basis von Angular2 und NativeScript zu entwickeln.
 
 
 [1]: http://www.developer-week.de/Programm/Veranstaltung/(event)/20557
