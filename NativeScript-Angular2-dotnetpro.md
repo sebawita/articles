@@ -145,16 +145,37 @@ Das Styling per CSS ist bei NativeScript im Vergleich zum Browser jedoch sehr li
 ![NativeScript Loves Angular](./images/nativescript-loves-angular.png "NativeScript Loves Angular")
 > [Abb. 4] NativeScript loves Angular
 
+In den letzten Jahre haben mehr als eine Million Entwickler erfolgreich mit AngularJS Single-Page-Anwendungen erstellt. Angular ist damit das populärste Framework um client-seitige Webanwendungen zu entwickeln. Allerdings blieb das Framework dabei bislang immer auf das Web beschränkt. Das bedeutet, dass man bis dato völlig andere Tools, Programmiersprachen und Frameworks benötigte, um Anwendungen für den Desktop oder für mobile Geräte an den Start zu bringen. Die Version 2 von AngularJS wurde hingegen als komplette Neuentwicklung konzipiert. Dieser komplette Rewrite wurde stark auf Plattformunabhängigkeit ausgerichtet. Das bedeutet, dass das Framework so entworfen wurde, dass diverse Plattformen angesprochen werden können - sei es Web, Mobil, Desktop und sogar IoT-Geräte [12]. 
 
-NativeScript wurde als reines JavaScript-Framework geschaffen, das User-Interfaces per XML definiert und mit CSS formatiert. Mit Version 1.0 startete im Mai 2015 die erste Ausgabe für den produktiven Einsatz. Etwa zur selben Zeit nahm auch die Entwicklung der zweiten Version von AngularJS ordentlich Fahrt auf. Angular 2 wurde als komplette Neuentwicklung konzipiert. Im Gegensatz zum Vorgänger sind Sie nicht mehr nur auf den Browser festgelegt. Die Architektur von Angular ist darauf ausgelegt, vollkommen unabhängig von der eingesetzten Umgebung zu sein. Dies ermöglicht es, mit Angular 2 sowohl für Web als auch Desktop und Mobile zu entwickeln (siehe [12]). Die Synergien aus beiden Projekten sind offenkundig, und so arbeiten die Teams von Telerik bzw. Progress und Google seit nun fast einem Jahr zusammen, um eine nahtlose und stabile Integration zu schaffen. Dabei ist es eine gute Fügung, dass beide Projekte auf TypeScript setzen.
+NativeScript wurde als reines JavaScript-Framework geschaffen, das User-Interfaces per XML definiert und mit CSS formatiert. Beide Frameworks haben in der Kombination ein großes Potential. Das wurde recht schnell auch von  Google und Progress erkannt. Seit Mitte 2015 arbeiten daher das Angular-Team und das NativeScript-Team zusammen um beide Frameworks miteinander zu verbinden. Dabei ist es eine gute Fügung, dass beide Projekte auf TypeScript setzen. Das Ergebnis der Zusammenarbeit beider Teams ist die "Angular 2 Rendering Architecture" [13], welche stark durch NativeScript 2 geprägt ist. Vereinfacht ausgedrückt ist die Angular-2-Architektur hierbei in zwei Teile aufgeteilt:
 
-Als kleines Beispiel setzen wir einen Login-Screen mit Angular 2 um. Sollten Sie noch nie mit Angular 2 in Berührung gekommen sein, verschafft Ihnen der offizielle „5-Minuten-Schnellstart” einen guten Überblick [13].
+- __Plattform-unabhängiger Teil__: hier wir das Markup (HTML) durch einen DOM-Adapter geparst und in so genannte „Proto Views“ compiliert. Dieser Prozess ist nicht spezifisch für eine Zielplattform und die meisten Funktionen können in den verschiedenen Plattformen genutzt werden
+- __Plattform-spezifischer Teil__: hier geschieht die Magie. Es werden plattformspezifische Renderer verwendet, um die unterschiedlichen Zielplattformen abzubilden. Jene Renderer haben die Aufgabe, aus den „Proto Views“ einen „Visual Tree“ zu generieren. Dieser kann dann verwendet werden, um die Oberfläche anzuzeigen. Der Renderer ist ebenso dafür verantwortlich, Änderungen und Events zwischen „Proto Views“ und „Visual Tree“ auszutauschen.
 
-Zunächst benötigen wir eine Klasse mit dem Namen `UserService`, welche die Logik für die Anmeldung beinhaltet und die Zugangsdaten zum Backend senden soll (**Listing 7**).
+
+![Angular2 Platform Agnostic](./images/Angular2-platform-agnostic.png "Angular2 Platform Agnostic")
+> [Abb. 5] Die Rendering-Architektur von Angular 2
+
+Durch diese durchdachte Architektur ist es möglich, neue Ziele zu definieren. Es müssen nur die notwendigen Erweiterungen implementiert werden. Hier wird es aus architektonischer Sicht interessant.
+
+
+#### Angular 2 als Native App
+
+Auf Grundlage der plattformunabhängigen Architektur kann NativeScript sich nahtlos integrieren. Die Lösung   besteht darin, dass das bereits bekannte NativeScript-Markup in HTML-Dokumenten definiert wird und der "Dom Adaper" sowie der "Renderer" ausgetauscht werden. Das NativeScript-Markup profiert dabei von der prägnanten Template-Syntax von Angular 2. Jenes Markup kann dann vom DOM-Adapter „Parse5“ geparst werden. Den größten Anteil an der Umsetzung nimmt der „NativeScript Renderer“ ein. Dieser garantiert nicht zuletzt den Austausch zwischen „Proto Views“ und  den nativen UI Komponenten der jeweiligen Platform:
+
+![Angular2 with NativeScript](./images/Angular2-with-NativeScript.png "Angular2 with NativeScript")
+> [Abb. 6] Die Rendering-Architektur von Angular 2 mit NativeScript
+
+Wenn man erstmal die neue Template-Syntax von Angular 2 gelernt hat, dann kann man das Wissen auf eine NativeScript-App übertragen. Es wäre natürlich möglich direkt mit purem JavaScript eine NativeScript-App zu entwickeln. Allerdings gewöhnt man sich schnell an den Komfort von Angular 2. Technische Aspekte wie "Dependency Injection" und "Change Detection" sind sehr einfach und verständlich in Angular 2 umgesetzt.   
+
+
+#### Eine Beispiel-Anwendung
+
+Als kleines Beispiel setzen wir einen Login-Screen mit Angular 2 um. Sollten Sie noch nie mit Angular 2 in Berührung gekommen sein, verschafft Ihnen der offizielle „5-Minuten-Schnellstart” einen guten Überblick [14]. Zunächst benötigen wir eine Klasse mit dem Namen `UserService`, welche die Logik für die Anmeldung beinhaltet und die Zugangsdaten zum Backend senden soll (**Listing 7**).
 
 ```typescript
 // TypeScript
-import {Injectable} from "angular2/core";
+import {Injectable} from "@angular/core";
 
 @Injectable()
 export class UserService {
@@ -214,11 +235,11 @@ Zum Schluss müssen wir nur noch einen Screen im Template definieren (**Listing 
 > Listing 9: Das Template der Komponente LoginPage
 
 
-Zusammen mit etwas zusätzlichem Styling ergibt sich ein fertiger Dialog. Et voilà! Schon steht die erste Seite unserer Anwendung. Das hier gezeigte Beispiel ist übrigens ein angepasster Ausschnitt aus der offiziellen Demo-App „Groceries”, mit der Sie eine Einkaufsliste zusammenstellen und teilen können. Die App kann einmal mit purem NativeScript [14] und einmal in Kombination mit Angular 2 [15] nachprogrammiert werden. Hier wird auch die Installation der notwendigen Abhängigkeiten – vor allem das iOS SDK und das Android SDK – detailliert beschrieben.
+Zusammen mit etwas zusätzlichem Styling ergibt sich ein fertiger Dialog. Et voilà! Schon steht die erste Seite unserer Anwendung. Das hier gezeigte Beispiel ist übrigens ein angepasster Ausschnitt aus der offiziellen Demo-App „Groceries”, mit der Sie eine Einkaufsliste zusammenstellen und teilen können. Die App kann einmal mit purem NativeScript [15] und einmal in Kombination mit Angular 2 [16] nachprogrammiert werden. Hier wird auch die Installation der notwendigen Abhängigkeiten – vor allem das iOS SDK und das Android SDK – detailliert beschrieben.
 
 
 ![Login Screen](./images/LoginScreen.png "Login Screen")
-> [Abb. 5] Die finale Login-Seite unter Android und iOS
+> [Abb. 7] Die finale Login-Seite unter Android und iOS
 
 
 ### Fazit
@@ -254,7 +275,8 @@ Der Einstieg in die App-Entwicklung mit NativeScript ist für einen Webentwickle
 [9] NativeScript CLI auf NPM: https://www.npmjs.com/package/nativescript
 [10] Building Your Own NativeScript Modules for npm: http://developer.telerik.com/featured/building-your-own-nativescript-modules-for-npm/
 [11] How NativeScript Works: http://developer.telerik.com/featured/nativescript-works/
-[12] Angular 2 Rendering Architecture: https://docs.google.com/document/d/1M9FmT05Q6qpsjgvH1XvCm840yn2eWEg0PMskSQz7k4E/edit
-[13] Angular 2 - 5 Min Quickstart: https://angular.io/docs/ts/latest/quickstart.html
-[14] NativeScript Getting Started Guide: http://docs.nativescript.org/tutorial/chapter-0
-[15] Building Apps with NativeScript and Angular 2: http://docs.nativescript.org/angular/tutorial/ng-chapter-0.html
+[12] Building Simon with Angular2-IoT: https://medium.com/@urish/building-simon-with-angular2-iot-fceb78bb18e5#.rfk659fc9
+[13] Angular 2 Rendering Architecture: https://docs.google.com/document/d/1M9FmT05Q6qpsjgvH1XvCm840yn2eWEg0PMskSQz7k4E/edit
+[14] Angular 2 - 5 Min Quickstart: https://angular.io/docs/ts/latest/quickstart.html
+[15] NativeScript Getting Started Guide: http://docs.nativescript.org/tutorial/chapter-0
+[16] Building Apps with NativeScript and Angular 2: http://docs.nativescript.org/angular/tutorial/ng-chapter-0.html
