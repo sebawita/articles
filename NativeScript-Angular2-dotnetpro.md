@@ -16,8 +16,7 @@ NativeScript ist ein Open-Source Framework zur Entwicklung von mobilen Apps [1].
 
 Auf den ersten flüchtigen Blick scheint das Framework eine weitere Variante des hybriden Ansatzes zu sein. Das bekannteste hybride Framework dürfte Apache Cordova (ehemals PhoneGap genannt) sein [2], das den Einsatz von HTML und JavaScript zur App-Entwicklung salonfähig gemacht hat. Cordova lässt Webanwendungen in einem Browser laufen und ermöglicht über Schnittstellen ebenso den Zugriff auf native Funktionen. Sofern Sie mit dem SPA-Framework AngularJS vertraut sind, steht Ihnen z.B. durch Einsatz des Ionic-Frameworks eine populäre und weit verbreitete Lösung zur Verfügung. Durch den Einsatz von vorbereiteten Themes und eigenem graphischen Geschick muten die fertigen Apps anschließend wie native Anwendungen an. Ein grundlegendes Problem ergibt sich jedoch prinzipiell immer: Eine hybride App ist und bleibt eine Website, die nur den Anschein erweckt, es handle sich um eine native Anwendung. 
 
-Im Gegensatz dazu reiht sich NativeScript in eine neue Disziplin ein. In dieser Disziplin geht es darum, JavaScript als vollwertige Programmiersprache für Apps zu etablieren. Weitere Frameworks, die native Apps mit JavaScript ermöglichen, sind React Native von Facebook und Appcelerator Titanium. Bei allen drei Lösungen fällt der Umweg über HTML und das DOM schlicht weg. Die Frameworks ermöglichen die direkte Verwendung von nativen UI-Elementen aus der JavaScript-Umgebung heraus. Bei NativeScript für Android ist diese Umgebung Googles V8-
-Engine [3]. Unter iOS sowie unter Windows kommt JavaScriptCore zum Einsatz [4].
+Im Gegensatz dazu reiht sich NativeScript in eine neue Disziplin ein. In dieser Disziplin geht es darum, JavaScript als vollwertige Programmiersprache für Apps zu etablieren. Weitere Frameworks, die native Apps mit JavaScript ermöglichen, sind React Native von Facebook und Appcelerator Titanium. Bei allen drei Lösungen fällt der Umweg über HTML und das DOM schlicht weg. Die Frameworks ermöglichen die direkte Verwendung von nativen UI-Elementen aus der JavaScript-Umgebung heraus. Bei NativeScript für Android ist diese Umgebung Googles V8-Engine [3]. Unter iOS sowie unter Windows kommt JavaScriptCore zum Einsatz [4].
 
 ![JavaScript VM](./images/JavaScript-VM.png)
 > [Abb. 2] Die verwendeten JavaScript Virtual Machines
@@ -33,8 +32,7 @@ Die technische Grundlage mag zwar spannend sein, doch im Projektalltag zählen p
 __Wiederverwendung von bestehende Skills:__ Das Erlernen einer neuen Programmiersprache zum Zwecke der App-Entwicklung ist anstrengend und aufwändig. Der Erwerb von Grundlagen einer Programmiersprache ist dabei noch das kleinere Problem. Der eigentliche Aufwand liegt im Detail. Es ist ein mühsamer und intensiver Prozess, bis ein Neueinsteiger tatsächlich alle Aspekte einer Programmierwelt kennt und sicher beherrschen kann. Während dieser Einarbeitung steht der Programmierer natürlich nicht mehr mit dem gewohnten Potential und der üblichen Kapazität
 zur Verfügung.
 
-Wenn Sie hingegen schon einmal eine Anwendung für das Web entwickelt haben, so sind sie unweigerlich mit JavaScript, ggf. sogar mit TypeScript und auf jeden Fall mit CSS in Berührung gekommen. Damit steht Ihnen bereits ein großer Teil des notwendigen Wissens zur Verfügung. Das dedizierte Erlernen von Objective-C, Swift, Java und/oder C# entfällt. Sollten Sie sich zudem mit den neuesten Trends zur Webentwicklung beschäftigen, dann wird für Sie die Unterstützung von Angular 2.0 von großem Interesse sein. Auf diese spannende Allianz von NativeScript und
-AngularJS werden wir im zweiten Teil dieses Artikels noch intensiver eingehen.
+Wenn Sie hingegen schon einmal eine Anwendung für das Web entwickelt haben, so sind sie unweigerlich mit JavaScript, ggf. sogar mit TypeScript und auf jeden Fall mit CSS in Berührung gekommen. Damit steht Ihnen bereits ein großer Teil des notwendigen Wissens zur Verfügung. Das dedizierte Erlernen von Objective-C, Swift, Java und/oder C# entfällt. Sollten Sie sich zudem mit den neuesten Trends zur Webentwicklung beschäftigen, dann wird für Sie die Unterstützung von Angular 2.0 von großem Interesse sein. Auf diese spannende Allianz von NativeScript und AngularJS werden wir im zweiten Teil dieses Artikels noch intensiver eingehen.
 
 **Wiederverwendung von bestehendem Code:** Durch den Einsatz der Programmiersprache JavaScript bietet es sich an, bestehende Geschäftslogik oder Bibliotheken aus dem Internet weiter zu verwenden. Mit dem Repository NPM steht ein großer Fundus aus kurzen Schnipseln bis ganzen Bibliotheken zur Auswahl. Es gilt lediglich zu beachten, dass in NativeScript kein DOM existiert. Das ist aber prinzipiell kein Problem, denn diese Restriktion gilt auch für alle üblichen Node.js-Pakete. Wenn Sie zum Beispiel ein Datum formatieren wollen, dann können Sie dafür die bekannte Bibliothek „moment” nutzen. Nach einer Installation per `npm install moment` steht Ihnen die Funktionalität wie üblich zu Verfügung:
 
@@ -57,9 +55,7 @@ Es ist weiterhin möglich, bestehende native Fremdbibliotheken für Android und 
 
 #### Hinter den Kulissen
 
-Wie ist es möglich, unter Verwendung einer einzigen Code-Basis mehrere Plattformen anzusprechen? Die Grundlage hierfür bietet das NPM-Paket „**T**elerik **N**ativeScript **C**ore Modules” (kurz: „tns-core-modules”). Die darin enthaltenen Module bilden eine Abstraktionsschicht, die spezifische Implantierungen für die unterstützten
-Plattformen enthalten. Hier finden sich Module für die unterschiedlichen Aspekte der mobilen Entwicklung, von
-UI-Abstraktion zu Gerätesensoren bis hin zum Hardware-Zugriff (siehe Abbildung 3). 
+Wie ist es möglich, unter Verwendung einer einzigen Code-Basis mehrere Plattformen anzusprechen? Die Grundlage hierfür bietet das NPM-Paket „**T**elerik **N**ativeScript **C**ore Modules” (kurz: „tns-core-modules”). Die darin enthaltenen Module bilden eine Abstraktionsschicht, die spezifische Implantierungen für die unterstützten Plattformen enthalten. Hier finden sich Module für die unterschiedlichen Aspekte der mobilen Entwicklung, von UI-Abstraktion zu Gerätesensoren bis hin zum Hardware-Zugriff (siehe Abbildung 3). 
 
 
 ![Abstraction Layer](./images/Abstraction-Layer_v2.png)
@@ -106,8 +102,7 @@ var lastModifiedDate = new Date(javaFile.lastModified());
 ```
 > Listing 4: Zugriff auf das Datum der letzten Modifikation unter Android
 
-Das Beste an der gezeigten Syntax ist die Tatsache, dass sowohl Namespaces als auch Attribute und Typen sowie die gesamten Konventionen bei der Benennung dem Pendant aus der Android-bzw. iOS-Dokumentation entsprechen. Dasselbe gilt für Fremd-bibliotheken. So bringen Sie mit geringem Aufwand ein Code-Fragment aus den Dokumentationen oder dem Netz per Copy-and-Paste zum Laufen. Hinter den Kulissen verwendet NativeScript „Reflection”, um eine Liste von APIs aufzubauen, die auf der aktuellen Plattform zur Verfügung stehen und zum
-globalen Gültigkeitsbereich hinzugefügt werden. Die Details zu der verwendeten Technik können sie in einem detailierten Artikel nachvollziehen [11].
+Das Beste an der gezeigten Syntax ist die Tatsache, dass sowohl Namespaces als auch Attribute und Typen sowie die gesamten Konventionen bei der Benennung dem Pendant aus der Android-bzw. iOS-Dokumentation entsprechen. Dasselbe gilt für Fremd-bibliotheken. So bringen Sie mit geringem Aufwand ein Code-Fragment aus den Dokumentationen oder dem Netz per Copy-and-Paste zum Laufen. Hinter den Kulissen verwendet NativeScript „Reflection”, um eine Liste von APIs aufzubauen, die auf der aktuellen Plattform zur Verfügung stehen und zum globalen Gültigkeitsbereich hinzugefügt werden. Die Details zu der verwendeten Technik können sie in einem detailierten Artikel nachvollziehen [11].
 
 
 #### Styling
@@ -151,8 +146,7 @@ Das Styling per CSS ist bei NativeScript im Vergleich zum Browser jedoch sehr li
 > [Abb. 4] NativeScript loves Angular
 
 
-NativeScript wurde als reines JavaScript-Framework geschaffen, das User-Interfaces per XML definiert und mit CSS formatiert. Mit Version 1.0 startete im Mai 2015 die erste Ausgabe für den produktiven Einsatz. Etwa zur selben Zeit nahm auch die Entwicklung der zweiten Version von AngularJS ordentlich Fahrt auf. Angular 2 wurde als komplette Neuentwicklung konzipiert. Im Gegensatz zum Vorgänger sind Sie nicht mehr nur auf den Browser festgelegt. Die Architektur von Angular ist darauf ausgelegt, vollkommen unabhängig von der eingesetzten Umgebung zu sein. Dies ermöglicht es, mit Angular 2 sowohl für Web als auch Desktop und Mobile zu entwickeln (siehe [12]). Die Synergien aus beiden Projekten sind offenkundig, und so arbeiten die Teams von Telerik bzw. Progress und Google seit nun fast einem Jahr zusammen, um eine nahtlose und stabile Integration
-zu schaffen. Dabei ist es eine gute Fügung, dass beide Projekte auf TypeScript setzen.
+NativeScript wurde als reines JavaScript-Framework geschaffen, das User-Interfaces per XML definiert und mit CSS formatiert. Mit Version 1.0 startete im Mai 2015 die erste Ausgabe für den produktiven Einsatz. Etwa zur selben Zeit nahm auch die Entwicklung der zweiten Version von AngularJS ordentlich Fahrt auf. Angular 2 wurde als komplette Neuentwicklung konzipiert. Im Gegensatz zum Vorgänger sind Sie nicht mehr nur auf den Browser festgelegt. Die Architektur von Angular ist darauf ausgelegt, vollkommen unabhängig von der eingesetzten Umgebung zu sein. Dies ermöglicht es, mit Angular 2 sowohl für Web als auch Desktop und Mobile zu entwickeln (siehe [12]). Die Synergien aus beiden Projekten sind offenkundig, und so arbeiten die Teams von Telerik bzw. Progress und Google seit nun fast einem Jahr zusammen, um eine nahtlose und stabile Integration zu schaffen. Dabei ist es eine gute Fügung, dass beide Projekte auf TypeScript setzen.
 
 Als kleines Beispiel setzen wir einen Login-Screen mit Angular 2 um. Sollten Sie noch nie mit Angular 2 in Berührung gekommen sein, verschafft Ihnen der offizielle „5-Minuten-Schnellstart” einen guten Überblick [13].
 
@@ -172,8 +166,7 @@ export class UserService {
 > Listing 7: Der UserService kapselt die eigentliche Login-Funktionalität
 
 
-Die wichtigsten Grundbausteine in Angular 2 sind Komponenten. Komponenten definieren ganze Seiten, einzelne UI-Elemente und Routen. Eine Komponente hat immer ein Template, das aber im Falle von NativeScript kein normales HTML beinhaltet. Angular 2 sorgt auch gleich noch per „Dependendy-Injection” (DI) für die Verdrahtung von UserService und Komponente, so dass wir uns um die Initialisierung des UserService nicht zu kümmern
-brauchen (**Listing 8**). 
+Die wichtigsten Grundbausteine in Angular 2 sind Komponenten. Komponenten definieren ganze Seiten, einzelne UI-Elemente und Routen. Eine Komponente hat immer ein Template, das aber im Falle von NativeScript kein normales HTML beinhaltet. Angular 2 sorgt auch gleich noch per „Dependendy-Injection” (DI) für die Verdrahtung von UserService und Komponente, so dass wir uns um die Initialisierung des UserService nicht zu kümmern brauchen (**Listing 8**). 
 
 ```typescript
 // TypeScript
