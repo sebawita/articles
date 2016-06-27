@@ -171,7 +171,7 @@ Wenn man erstmal die neue Template-Syntax von Angular 2 gelernt hat, dann kann m
 
 #### Eine Beispiel-Anwendung
 
-Als kleines Beispiel setzen wir einen Login-Screen mit Angular 2 um. Sollten Sie noch nie mit Angular 2 in Berührung gekommen sein, verschafft Ihnen der offizielle „5-Minuten-Schnellstart” einen guten Überblick [14]. Zunächst benötigen wir eine Klasse mit dem Namen `UserService`, welche die Logik für die Anmeldung beinhaltet und die Zugangsdaten zum Backend senden soll (**Listing 7**).
+Als kleines Beispiel setzen wir einen Login-Screen mit Angular 2 und NativeScript 2 um. Sollten Sie noch nie mit Angular 2 in Berührung gekommen sein, verschafft Ihnen der offizielle „5-Minuten-Schnellstart” einen guten Überblick [14]. Zunächst benötigen wir eine Klasse mit dem Namen `UserService`, welche die Logik für die Anmeldung beinhaltet und die Zugangsdaten zum Backend senden soll (**Listing 7**).
 
 ```typescript
 // TypeScript
@@ -234,8 +234,27 @@ Zum Schluss müssen wir nur noch einen Screen im Template definieren (**Listing 
 ```
 > Listing 9: Das Template der Komponente LoginPage
 
+Nun stellt sich die Frage, an welcher Stelle die Unterscheidung zwischen einer "normalen" Web-Anwendung und einer nativen Anwendung geschieht. Die Antwort lautet: beim "Boostrapping". Eine normale Angular 2 Anwendung startet mit der üblichen `bootstrap` Methode durch (Listing 10). Um die native Welt zu betreten, müssen wir hingegen die spezielle Methode `nativeScriptBootstrap` verwenden (Listing 11).
 
-Zusammen mit etwas zusätzlichem Styling ergibt sich ein fertiger Dialog. Et voilà! Schon steht die erste Seite unserer Anwendung. Das hier gezeigte Beispiel ist übrigens ein angepasster Ausschnitt aus der offiziellen Demo-App „Groceries”, mit der Sie eine Einkaufsliste zusammenstellen und teilen können. Die App kann einmal mit purem NativeScript [15] und einmal in Kombination mit Angular 2 [16] nachprogrammiert werden. Hier wird auch die Installation der notwendigen Abhängigkeiten – vor allem das iOS SDK und das Android SDK – detailliert beschrieben.
+```typescript
+// TypeScript
+import { bootstrap } from '@angular/platform-browser-dynamic';
+import { AppComponent } from './app/';
+bootstrap(AppComponent);
+```
+> Listing 10: Das normale Bootstrapping
+
+```typescript
+// TypeScript
+import { nativeScriptBootstrap } from "nativescript-angular/application";
+import { AppComponent } from './app/';
+nativeScriptBootstrap(AppComponent);
+
+```
+> Listing 11: Das Bootstrapping mit NativeScript
+   
+
+Et voilà! Schon steht die erste Seite unserer Anwendung. Zusammen mit etwas zusätzlichem Styling ergibt sich ein fertiger Dialog (siehe **Abbildung 7**). Das hier gezeigte Beispiel ist übrigens ein angepasster Ausschnitt aus der offiziellen Demo-App „Groceries”, mit der Sie eine Einkaufsliste zusammenstellen und teilen können. Die App kann einmal mit purem NativeScript [15] und einmal in Kombination mit Angular 2 [16] nachprogrammiert werden. Hier wird auch die Installation der notwendigen Abhängigkeiten – vor allem das iOS SDK und das Android SDK – detailliert beschrieben.
 
 
 ![Login Screen](./images/LoginScreen.png "Login Screen")
