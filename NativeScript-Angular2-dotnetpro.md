@@ -249,7 +249,6 @@ bootstrap(AppComponent);
 import { nativeScriptBootstrap } from "nativescript-angular/application";
 import { AppComponent } from './app/';
 nativeScriptBootstrap(AppComponent);
-
 ```
 > Listing 11: Das Bootstrapping mit NativeScript
    
@@ -259,6 +258,33 @@ Et voilà! Schon steht die erste Seite unserer Anwendung. Zusammen mit etwas zus
 
 ![Login Screen](./images/LoginScreen.png "Login Screen")
 > [Abb. 7] Die finale Login-Seite unter Android und iOS
+
+
+### Editoren
+
+Als Leser der dotnetpro werden Sie sicher eine IDE von Microsoft im Einsatz haben. Wie schaut es daher mit der Unterstützung für NativeScript aus?
+
+####  1. Visual Studio
+
+![Visual Studio 1](./images/visual_studio.png)
+> [Abb. 8] Installation des Telerik AppBuilder
+
+Ab Visual Studio 2013 kann man per Extension die Unterstützung von NativeScript aktivieren. Installiert werden muss lediglich die **"AppBuilder Extension for Visual Studio"**. Hierbei benötigt man allerdings eine Account bei der kostenpflichtigen Lösung "Telerik Platform". Die Telerik Platform ist das Flagschiff von Progress, wenn es um die Entwicklung von mobilen Apps geht. Einer der Services ist z.B. das Kompilieren in der Cloud, was ziemlich praktisch ist, wenn man keinen Mac zur Verfügung hat.
+
+![Visual Studio 2](./images/visual_studio2.png)
+> [Abb. 9] HelloWorld mit NativeScript
+
+####  2. Visual Studio Code
+
+![VSCode 1](./images/vscode1.png)
+> [Abb. 10] Visual Studio Code mit NativeScript
+
+Der kleine Bruder von Visual Studio ist komplett Open-Source. Genau so verhält es sich mit der NativeScript Extension für Visul Studio Code. Man muss lediglich "F1" drücken und mit `ext install` nach "NativeScript" suchen. Während die Lösung von Visual Studio auf dem "AppBuilder" basiert, ist die Grundlage für Visual Studio Code die NativeScript-CLI [9]. Diese muss als globales NPM-Paket installiert sein. Zusätzlich sollte man genügend Zeit für das Setup einplanen, denn das benötigte Android SDK von Google ist nicht gerade leichtgewichtig. Die komplette Installation haben wir für Sie in einem separaten Blogpost beschrieben [17]. Naturgemäß kann man unter Windows keine iOS Apps kompilieren. Allerdings ist Visual Studio Code auch auf OS X zuhause. Wer einen Mac sein Eigen nennt, der kann sowohl Android- als auch iOS-Anwendungen auf seinem Rechner bauen. Hier wird dann zusätzlich XCode benötigt, die vollständige Installations-Einleitung finden Sie unter Link [18].    
+
+![VSCode 2](./images/vscode2.png)
+> [Abb. 11] NativeScript Angular 2 code snippets
+
+Sie sollten übrigens unbedingt die "NativeScript + Angular 2 Snippets" ausprobieren. Die Ersparen Ihnen eine gehörige Menge an Tipparbeit. 
 
 
 ### Fazit
@@ -299,3 +325,6 @@ Der Einstieg in die App-Entwicklung mit NativeScript ist für einen Webentwickle
 [14] Angular 2 - 5 Min Quickstart: https://angular.io/docs/ts/latest/quickstart.html
 [15] NativeScript Getting Started Guide: http://docs.nativescript.org/tutorial/chapter-0
 [16] Building Apps with NativeScript and Angular 2: http://docs.nativescript.org/angular/tutorial/ng-chapter-0.html
+[17] Johannes Hoppe - Setting Up Android Emulators for NativeScript Development
+: http://blog.johanneshoppe.de/2016/06/setting-up-android-emulators-for-nativescript-development/
+[18] NativeScript - Set Up Your System: http://docs.nativescript.org/angular/start/quick-setup
