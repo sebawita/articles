@@ -153,7 +153,7 @@ NativeScript wurde als reines JavaScript-Framework geschaffen, das User-Interfac
 - __Plattform-spezifischer Teil__: hier geschieht die Magie. Es werden plattformspezifische Renderer verwendet, um die unterschiedlichen Zielplattformen abzubilden. Jene Renderer haben die Aufgabe, aus den „Proto Views“ einen „Visual Tree“ zu generieren. Dieser kann dann verwendet werden, um die Oberfläche anzuzeigen. Der Renderer ist ebenso dafür verantwortlich, Änderungen und Events zwischen „Proto Views“ und „Visual Tree“ auszutauschen.
 
 
-![Angular2 Platform Agnostic](./images/Angular2-platform-agnostic.png "Angular2 Platform Agnostic")
+![Angular2 Platform Agnostic](./images/Angular2-platform-agnostic_DE.png "Angular2 Platform Agnostic")
 > [Abb. 5] Die Rendering-Architektur von Angular 2
 
 Durch diese durchdachte Architektur ist es möglich, neue Ziele zu definieren. Es müssen nur die notwendigen Erweiterungen implementiert werden. Hier wird es aus architektonischer Sicht interessant.
@@ -163,7 +163,7 @@ Durch diese durchdachte Architektur ist es möglich, neue Ziele zu definieren. E
 
 Auf Grundlage der plattformunabhängigen Architektur kann NativeScript sich nahtlos integrieren. Die Lösung   besteht darin, dass das bereits bekannte NativeScript-Markup in HTML-Dokumenten definiert wird und der "Dom Adaper" sowie der "Renderer" ausgetauscht werden. Das NativeScript-Markup profiert dabei von der prägnanten Template-Syntax von Angular 2. Jenes Markup kann dann vom DOM-Adapter „Parse5“ geparst werden. Den größten Anteil an der Umsetzung nimmt der „NativeScript Renderer“ ein. Dieser garantiert nicht zuletzt den Austausch zwischen „Proto Views“ und  den nativen UI Komponenten der jeweiligen Platform:
 
-![Angular2 with NativeScript](./images/Angular2-with-NativeScript.png "Angular2 with NativeScript")
+![Angular2 with NativeScript](./images/Angular2-with-NativeScript_DE.png "Angular2 with NativeScript")
 > [Abb. 6] Die Rendering-Architektur von Angular 2 mit NativeScript
 
 Wenn man erstmal die neue Template-Syntax von Angular 2 gelernt hat, dann kann man das Wissen auf eine NativeScript-App übertragen. Es wäre natürlich möglich direkt mit purem JavaScript eine NativeScript-App zu entwickeln. Allerdings gewöhnt man sich schnell an den Komfort von Angular 2. Technische Aspekte wie "Dependency Injection" und "Change Detection" sind sehr einfach und verständlich in Angular 2 umgesetzt.   
@@ -325,6 +325,5 @@ Der Einstieg in die App-Entwicklung mit NativeScript ist für einen Webentwickle
 [14] Angular 2 - 5 Min Quickstart: https://angular.io/docs/ts/latest/quickstart.html
 [15] NativeScript Getting Started Guide: http://docs.nativescript.org/tutorial/chapter-0
 [16] Building Apps with NativeScript and Angular 2: http://docs.nativescript.org/angular/tutorial/ng-chapter-0.html
-[17] Johannes Hoppe - Setting Up Android Emulators for NativeScript Development
-: http://blog.johanneshoppe.de/2016/06/setting-up-android-emulators-for-nativescript-development/
+[17] Johannes Hoppe - Setting Up Android Emulators for NativeScript Development: http://blog.johanneshoppe.de/2016/06/setting-up-android-emulators-for-nativescript-development/
 [18] NativeScript - Set Up Your System: http://docs.nativescript.org/angular/start/quick-setup
