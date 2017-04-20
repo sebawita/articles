@@ -13,7 +13,7 @@ The Mip uses BLE (Bluetooth Low Energy) as the protocol for communication.
 In this article we will look into the core concepts of Bluetooth, how to use `nativescript-bluetooth` and how to build an app for the robot. 
 We will also try to spice up the app with a bit of rxjs where applicable.
 
-This article will focus solely on the mechanics of using bluetooth, however it won't provide any UI code. To see a fully working example see (nativescript-mip-simple-ng)[https://github.com/sebawita/nativescript-mip-simple-ng];
+This article will focus solely on the mechanics of using bluetooth, however it won't provide any UI code. To see a fully working example see [nativescript-mip-simple-ng](https://github.com/sebawita/nativescript-mip-simple-ng
 
 ## Explaining Bluetooth core concepts
 
@@ -101,7 +101,7 @@ bluetooth.isBluetoothEnabled().then(
 );
 ```
 
-<!--HINT-->
+ > **rxjs** 
 We could spice this up a little with rxjs and create an Observable that will emit an event every time bluetooth is enabled or disabled.
 
 ```javascript
@@ -151,10 +151,9 @@ bluetooth.hasCoarseLocationPermission()
 
 If false, then you should request the permissions by calling: `bluetooth.requestCoarseLocationPermission()`.
 
-<!--HINT-->
+ > **HINT** 
 I tend to skip the permission check and always call the request function when I am loading the first page of my app. The plugin is smart enough to ignore my request if the permission has been already granted.
-
-For example in an Angular project I do it from `ngOnInit` like this:
+ > For example in an Angular project I do it from `ngOnInit` like this:
 
 ```javascript
 ngOnInit() {
@@ -242,7 +241,7 @@ We can provide the value in two different ways:
  * as a String of comma separated hex values, i.e. `value: '0x71,0x14,0x47'`
  * as a `Uint8Array` with numeric values, i.e. `value: new Uint8Array([0x71,0x14,0x47])` or `value: new Uint8Array([0x71,20,71])`
 
-<!--Hint-->
+ > **Hint** 
 String seems to be a good solution for hardcoded values, however Uint8Array is much better when we need to deal with a constant stream of values coming from the UI.
 
 To issue a command we need to call the `writeWithoutResponse` function which takes
@@ -274,7 +273,7 @@ To issue a command we need to call the `writeWithoutResponse` function which tak
 
 ### Fun with accelerometer + continuous move
 
-To make it more fun we can add the (nativescript-accelerometer)[https://www.npmjs.com/package/nativescript-accelerometer] plugin and control the robot with hand gestures.
+To make it more fun we can add the [nativescript-accelerometer](https://www.npmjs.com/package/nativescript-accelerometer) plugin and control the robot with hand gestures.
 
 First let's add the plugin to our project.
 
