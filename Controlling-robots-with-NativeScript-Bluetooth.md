@@ -196,7 +196,6 @@ scan() {
 }
 ```
 
-
 ### Connect
 
 If everything goes well you should see a list of devices including our MiP robot.
@@ -222,6 +221,10 @@ connect(UUID: string) {
 }
 ```
 
+### Scan page full example
+
+For a full example on how to check permissions, search and connect see [mip-scan.component](https://github.com/sebawita/nativescript-mip-simple-ng/blob/master/app/mip-scan)
+
 ### Sending Commands
 
 Once we are connected to our robot we can start sending some instructions.
@@ -231,6 +234,13 @@ According to the protocol we can tell the robot to move forward and back using t
 ![Move Forward and Back](./Move-FWD-BACK.png?raw=true "Move Forward and Back")
 
 To move forward at speed 20 for 500ms and we need provide the following values:
+
+| Property | value | hex
+| --- | --- | --- 
+| Instruction code | `0x71` 
+| Speed | 20 | `0x14` 
+| Time | 500/7 = 71 | `0x47` 
+
 
  * Instruction code: `0x71`
  * Speed: 20 in hex `0x14`
