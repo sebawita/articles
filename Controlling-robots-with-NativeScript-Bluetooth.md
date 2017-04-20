@@ -109,20 +109,20 @@ import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/distinctUntilChanged';
 
 listenToBluetoothEnabled(): Observable<boolean> {
-	return new Observable(observer => {
-		bluetooth.isBluetoothEnabled()
-			.then(enabled => observer.next(enabled))
+  return new Observable(observer => {
+    bluetooth.isBluetoothEnabled()
+      .then(enabled => observer.next(enabled))
 
-		let intervalHandle = setInterval(
-			() => {
-				bluetooth.isBluetoothEnabled()
-					.then(enabled => observer.next(enabled))
-			}
-			, 1000);
+    let intervalHandle = setInterval(
+      () => {
+        bluetooth.isBluetoothEnabled()
+          .then(enabled => observer.next(enabled))
+      }
+      , 1000);
 
-		// stop checking every second on unsubscribe
-		return () => clearInterval(intervalHandle);
-	})
+    // stop checking every second on unsubscribe
+    return () => clearInterval(intervalHandle);
+  })
   .distinctUntilChanged();
 }
 ```
@@ -223,7 +223,7 @@ connect(UUID: string) {
 }
 ```
 
-### Send Command
+### Sending Commands
 
 Once we are connected to our robot we can start sending some instructions.
 
@@ -252,23 +252,23 @@ To issue a command we need to call the `writeWithoutResponse` function which tak
  * peripheralUUID - in our case this is the UUID of the robot we connected to
 
 ```javascript
-	moveForward() {
-		bluetooth.writeWithoutResponse({
-			serviceUUID: 'ffe5',
-			characteristicUUID: 'ffe9',
-			peripheralUUID: this.deviceUUID,
-			value: '0x71,0x14,0x47'
-		})
-	}
+  moveForward() {
+    bluetooth.writeWithoutResponse({
+      serviceUUID: 'ffe5',
+      characteristicUUID: 'ffe9',
+      peripheralUUID: this.deviceUUID,
+      value: '0x71,0x14,0x47'
+    })
+  }
 
-	moveBack() {
-		bluetooth.writeWithoutResponse({
-			serviceUUID: 'ffe5',
-			characteristicUUID: 'ffe9',
-			peripheralUUID: this.deviceUUID,
-			value: new Uint8Array([0x72,0x20,0x40])
-		})
-	}
+  moveBack() {
+    bluetooth.writeWithoutResponse({
+      serviceUUID: 'ffe5',
+      characteristicUUID: 'ffe9',
+      peripheralUUID: this.deviceUUID,
+      value: new Uint8Array([0x72,0x20,0x40])
+    })
+  }
 ```
 
 
