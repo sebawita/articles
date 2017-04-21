@@ -237,14 +237,9 @@ To move forward at speed 20 for 500ms and we need provide the following values:
 
 | Property | value | hex
 | --- | --- | --- 
-| Instruction code | `0x71` 
-| Speed | 20 | `0x14` 
-| Time | 500/7 = 71 | `0x47` 
-
-
- * Instruction code: `0x71`
- * Speed: 20 in hex `0x14`
- * Time: 500/7 = 71 in hex `0x47`
+| Instruction code | 0x71 | 0x71
+| Speed | 20 | 0x14
+| Time | 500/7 = 71 | 0x47
 
 We can provide the value in two different ways:
 
@@ -254,7 +249,7 @@ We can provide the value in two different ways:
  > **Hint** 
 String seems to be a good solution for hardcoded values, however Uint8Array is much better when we need to deal with a constant stream of values coming from the UI.
 
-To issue a command we need to call the `writeWithoutResponse` function which takes
+To issue a command we need to call the `write` or the `writeWithoutResponse` functions which take:
  
  * serviceUUID - in our case this is `ffe5`
  * characteristicUUID - in our case this is `ffe9`
@@ -280,10 +275,70 @@ To issue a command we need to call the `writeWithoutResponse` function which tak
   }
 ```
 
+> **Hint**
+`writeWithoutResponse` is much faster than `write`, as it doesn't wait for the response from the device. Most of the time you should use `writeWithoutResponse`. You should use `write` only when you want to wait until the command has been received and processed by the connected device. In case of the MiP robot there is no need for that. 
 
-### Fun with accelerometer + continuous move
+> When I was working with a `Parrot Mambo drone` before I could send any flight instructions, I had to initialize it first by sending 4 config commands. Each command had to be sent after the previous has been completed, which meant that I needed to use `write` and wait for a promise until I could call the next one.
 
-To make it more fun we can add the [nativescript-accelerometer](https://www.npmjs.com/package/nativescript-accelerometer) plugin and control the robot with hand gestures.
+### Continuous drive
+
+I am sure that from this point you can figure out how to make the robot turn left and right.
+The four `drive with time` commands are easy to implement, however they don't give you the best possible driving experience. Luckily the robot has another function called `Continuous Drive`, which allows you to send driving instructions every 50ms for a smooth driving experience.
+
+![Continuous Drive](./Continuous-Drive.png?raw=true "Continuous Drive")
+
+Since we are going to call `Continuous Drive` several times it is best to wrap it in an elegant function. Which will take `speed` and `turn` attributes (in the range from -1 to 1), convert them into hex and then call the `writeWithoutResponse` function.
+
+ <!--> Note that to move forward we need to send values between 0 and 0x20, to go back we need to send values between 0x21 and 0x40. To turn left, we need to send values between 0x61 and 0x80 and to turn right we need to send values between 0x41 and 0x60-->
+
+```javascript
+/**
+ * Converts speed and turn values into hex values exected by MiP and calls issues the Continuous Drive command 
+ * @param speed Move Forward[0 to 1], Move Back[-1 to 0]
+ * @param turn Turn Left[-1 to 0], Turn Right[0 to 1]
+ */
+continuousDrive(speed: number, turn: number) {
+  const mipSpeed = (speed > 0) ? this.convertTo0x20(speed, 0) : this.convertTo0x20(speed, 0x20);
+  const mipTurn = (turn > 0) ? this.convertTo0x20(turn, 0x40) : this.convertTo0x20(turn, 0x60);
+
+  bluetooth.writeWithoutResponse({
+    serviceUUID: this.serviceUUID,
+    characteristicUUID: this.characteristicUUID,
+    peripheralUUID: this.deviceUUID,
+    value: new Uint8Array([0x78, mipSpeed, mipTurn])
+  });
+}
+
+convertTo0x20(val: number, offset: number) {
+  if(val < 0) {
+    val = -val;
+  }
+
+  return Math.floor(val * 0x20) + offset;
+}
+```
+
+Now we can call this in a loop to make the robot drive forward left in a circle.
+
+```javascript
+setInterval(
+  () => this.continuousDrive(0.5, -0.7)
+  ,50);
+```
+
+Or if you have a `speed` and a `turn` parameters, which you can update from the UI, you could call it like:
+
+```javascript
+setInterval(
+  () => this.continuousDrive(this.speed, this.turn)
+  ,50);
+```
+
+### Accelerometer
+
+But really to get the most out of the `Continuous Drive` we need something that will give the user a way to continuously provide feedback to the robot.
+
+This is where [nativescript-accelerometer plugin](https://www.npmjs.com/package/nativescript-accelerometer) comes in, as it will allow us to control the robot by tilting the phone.
 
 First let's add the plugin to our project.
 
@@ -291,10 +346,105 @@ First let's add the plugin to our project.
 tns plugin add nativescript-accelerometer
 ```
 
+Using the accelerometer is rather simple. The plugin provides two functions:
+
+ * startAccelerometerUpdates - it takes a callback to return the phone position with x, y and z coordinates
+ * stopAccelerometerUpdates - it stops accelerometer updates
+
+However the accelerometer provides updates at a different frequency than every 50ms that we require for the `Continuous Drive`. To work around that we will use accelerometer updates to update `turn` (with `data.x`) and `speed` (with `data.y`) attributes and separately start a time loop with `setInterval`, which will call `Continuous Drive` every 50ms.
+
+Then we will need a separate function that will allow us to stop the accelerometer updates and the time loop:
+
+```javascript
+private loopHandle: number = null;
+
+startAccelerometerInterval() {
+  // Ignore if accelerometer is already active
+  if (this.loopHandle) {
+    return;
+  }
+
+  let turn: number = 0;
+  let speed: number = 0;
+
+  // Start accelerometer updates
+  startAccelerometerUpdates( 
+    (data: AccelerometerData) => {
+      turn = data.x;  //Tilt left [-1 to 0] Tilt right [0 to 1]
+      speed = data.y; //Tilt back [-1 to 0] Tilt forward [0 to 1]
+    }
+  );
+
+  //start the time loop
+  this.loopHandle = setInterval(() => {
+    this.continuousDrive(speed, turn);
+  }, 50);
+}
+
+stopAccelerometerInterval() {
+  if(this.loopHandle) {
+    stopAccelerometerUpdates();
+
+    clearInterval(this.loopHandle);
+
+    this.loopHandle = null;
+  }
+}
+```
+
+Now if you call the `startAccelerometerInterval` function, you should be able make the robot drive forward or back by leaning it forward or back. And to make it turn just tilt it left or right. 
+How cool is that?
+
+
 ### Accelerometer with rxjs Observable
 
-### Listen
+To spicy it up a little let's wrap the accelerometer functionality in an `rxjs Observable`.
+We need our observable to start accelerometer updates and emit all values, and in when unsubscribed it should stop the updates.
 
-### Converting numbers (the bit about positive 0-127 then 255-128)
+Before we subscribe to it we need to use `sampleTime(50)`, which will only take the current value every 50ms and ignore all other value emitted in between. 
+Then we can `subscribe` and on every update call `continuousDrive`.
+Just remember to capture the `subscription object` returned from the `subscribe` call.
 
-<!--### Compare to web-bluetooth?-->
+Stopping the updates is as simple as calling `unsubscribe` on the `subscription object`, as the unsubscribe will take of stopping the accelerometer updates.
+
+```javascript
+startAccelerometerRxjs() {
+  // Create an Observable that emits accelerometer data
+  const accelerometer$ = new Observable<AccelerometerData>(observer => {
+    startAccelerometerUpdates(
+      (data: AccelerometerData) => {
+        // Emit the value for each update
+        observer.next(data);
+      }
+    )
+
+    //Stop accelerometer on unsubscribe
+    return () => stopAccelerometerUpdates();
+  });
+
+  this.accelerometerSubscription = accelerometer$
+  // receive current value every 50ms
+  .sampleTime(50)
+  // Subscribe to the updates
+  .subscribe(data => {
+    this.continuousDrive(data.y, data.x)
+  });
+}
+
+stopAccelerometerRxjs() {
+  this.accelerometerSubscription.unsubscribe();
+}
+```
+
+### Controller page full example
+
+For a full example on how to make the robot drive around using drive with time functions and both accelerometer approaches see [mip-controller.component](https://github.com/sebawita/nativescript-mip-simple-ng/tree/master/app/mip-controller)
+
+## Summary
+
+It is really easy to use NativeScript to talk to robots. The only think that is limits you is robot's API and your imagination.
+If you found this article interesting and you would like to impress your friends, you should get yourself a robot that supports BLE communication (in my case this was `Wowwee MiP`) and get your hands dirty.
+
+For other examples you could check out my plugin which wraps most of MiP's functionality. See [nativescript-mip-ble](https://www.npmjs.com/package/nativescript-mip-ble).
+
+Just remember the formula: `Scan` -> `Connect` -> `Command`
