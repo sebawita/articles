@@ -46,6 +46,8 @@ Regardless of what technology you use to communicate with a BLE device you alway
 
 ## Working with a Wowee Mip robot
 
+![Wowwee MiP robot](./Mip.png?raw=true "Wowwee MiP robot")
+
 For the purposes of this article we will be using [Wowwee Mip](http://wowwee.com/mip/). 
 
 In order to send instructions to a MiP robot we need to use `serviceUUID = 'fe05'` and `characteristicUUID = 'ffe9'`. 
