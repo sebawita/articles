@@ -234,6 +234,8 @@ code-push release footy-ios app "*"
 
 Now go back to your device. Make the app check for updates and when the updates are ready, kill the app and restart it.
 
+![code-push-demo](./code-push-demo.gif?raw=true "CodePush Demo")
+
 ## Conclusion
 
 Using CodePush is super easy. Following this guide you should be able to have it working in less than 20 minutes.
