@@ -12,19 +12,15 @@ The main limitation is around pushing native code updates that would require the
 
 ## Explaining the workflow
 
-Here does it work:
+1. Create a CodePush app - which is a placeholder where you can push all your updates.
 
-<TURN THIS INTO A DIAGRAM>
-1. Create a CodePush app - which is a placeholder where you can push all your updates
+2. Build an app with NativeScript and push the new changes to your CodePush app.
 
-2. Build an app with NativeScript and push the v2 changes to your CodePush app
+3. Your app checks for updates. If an update is available, then the app downloads the changes and update its code.
 
-3. Your app checks for updates
-3b. if updates available - download and update the code
+4. The user restarts the app.
 
-4. The user restarts the app. 
-The app starts as v2
-The app checks for updates -> App is up to date
+5. The app contains all the updates --> The app checks for updates.
 
 ## CodePush Setup
 
