@@ -138,7 +138,7 @@ tns run android/ios
 
 ## Simple
 
-![Simple Example](./images/Garfield-simple.gif?raw=true "Simple Example")
+![Simple Example](./images/Garfield-simple.jpg?raw=true "Simple Example")
 
 ng g c simple
 
