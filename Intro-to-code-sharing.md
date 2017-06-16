@@ -56,7 +56,7 @@ Obviously not everything can be shared. The main idea is that you cannot share a
 From the perspective of an Angular project, your differences will be mostly around:
  * Component UI definitions - that are the `xyz.component.html` and `xyz.component.scss`
  * Modules that have different implementation for web or mobile, like [angularfire2](https://www.npmjs.com/package/angularfire2) vs [nativescript-plugin-firebase](https://www.npmjs.com/package/nativescript-plugin-firebase)
- * DOM dependant operations - these will work in a browser, but not in {N}
+ * DOM dependent operations - these will work in a browser, but not in {N}
  * Mobile specific UX - like page transition effects
  * UI components - for example you would need to use two different libraries to add data charts to your mobile/web apps.
 
@@ -122,9 +122,9 @@ or
 npm run android
 ```
 
- 6. To use NativeScript livesync
+ 6. To use NativeScript live sync
 
-Run the follwing two commands from the `nativescript` folder, each in a separate terminal.
+Run the following two commands from the `nativescript` folder, each in a separate terminal.
 
 ```
 npm run livesync
@@ -137,6 +137,8 @@ tns run android/ios
 ```
 
 ## Simple
+
+![Simple Example](./images/Garfield-simple.gif?raw=true "Simple Example")
 
 ng g c simple
 
