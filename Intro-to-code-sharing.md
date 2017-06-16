@@ -64,11 +64,63 @@ From the perspective of an Angular project, your differences will be mostly arou
 
 ![The Challenge](./images/Garfield-challenge.jpg?raw=true "The Challenge")
 
-The challenge is that 
+There seems to be a lot of overlap between Angular for web and Angular with NativeScript.
+So what is stopping us from diving into it? 
+
+The thing is that at the moment the Angular CLI can be used to generate web projects only and for NativeScript you need to use the NativeScript CLI. This is a problem because the CLI's don't provide us with a mechanism that would let us use a single project capable of switching between web and mobile. 
+
+<SarcasticTone>Sure we could have two separate projects and copy and paste the shareable files between the two.</SarcasticTone> However that would only work for small projects.
+
 
 ## Getting started
 
 ![Getting started](./images/Garfield-getting-started.jpg?raw=true "Getting started")
+
+So what we need is an `Angular Seed` that would have a build process that would help us manage both web and NativeScript projects. 
+There is a number of such seeds, but my current favourite is [angular-native-seed](https://github.com/TeamMaestro/angular-native-seed) from `TeamMaestro`. 
+
+To get started all you need to do is to:
+
+ 1. clone the repo
+
+```
+git clone https://github.com/TeamMaestro/angular-native-seed
+```
+
+ 2. initialise the web project
+
+```
+npm i
+```
+
+ 3. initialise the NativeScript project
+
+```
+cd nativescript
+npm i
+```
+
+ 4. Run the web project
+
+From the `root` folder run:
+
+```
+ng serve
+```
+
+ 5. Run the NativeScript project
+
+From the `nativescript` folder run: 
+
+```
+npm run ios
+```
+
+or
+
+```
+npm run android
+```
 
 ## Simple
 
