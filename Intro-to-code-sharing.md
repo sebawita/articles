@@ -81,19 +81,19 @@ There is a number of such seeds, but my current favourite is [angular-native-see
 
 To get started all you need to do is to:
 
- 1. clone the repo
+ 1. Clone the repo
 
 ```
 git clone https://github.com/TeamMaestro/angular-native-seed
 ```
 
- 2. initialise the web project
+ 2. Initialise the web project
 
 ```
 npm i
 ```
 
- 3. initialise the NativeScript project
+ 3. Initialise the NativeScript project
 
 ```
 cd nativescript
@@ -122,6 +122,20 @@ or
 npm run android
 ```
 
+ 6. To use NativeScript livesync
+
+Run the follwing two commands from the `nativescript` folder, each in a separate terminal.
+
+```
+npm run livesync
+```
+
+and
+
+```
+tns run android/ios
+```
+
 ## Simple
 
 ng g c simple
@@ -144,6 +158,9 @@ To test NativeScript run:
   npm run ios or npm run android from the NativeScript folder
 
 ## With Lazy loading
+
+![Lazy Loading](./images/Garfield-lazy-loading.gif?raw=true "Lazy Loading")
+
 ng g c lazy-cat
 
 go to src/app/lazy-cat
