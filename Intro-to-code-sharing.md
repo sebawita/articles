@@ -71,13 +71,127 @@ The thing is that at the moment the Angular CLI can be used to generate web proj
 
 <SarcasticTone>Sure we could have two separate projects and copy and paste the shareable files between the two.</SarcasticTone> However that would only work for small projects.
 
+So what we need is an `Angular Seed` with a `build process` that would help us manage both web and NativeScript projects. 
+It should allow us to:
+ * define shared and platform specific files,
+ * easily navigate the project folder structure,
+ * manage npm packages separately for web and mobile,
+ * automate the build processes for both web and mobile,
+ * use the productivity tools - like Angular CLI for web or live sync for NativeScript
+
+## The hero emerges
+
+![Hero](./images/Garfield-hero.gif?raw=true "Hero")
+
+There is a number of such seeds, like [angular-seed-advanced](https://github.com/NathanWalker/angular-seed-advanced), [peek-web-ns](https://github.com/Synerty/peek-web-ns), [angular2-webpack-advance-starter](https://github.com/JonnyBGod/angular2-webpack-advance-starter), [angular-starter](https://github.com/jlooper/angular-starter), [nativescript-ng2-starter-kit](https://github.com/dlucidone/nativescript-ng2-starter-kit). So it is really easy to get lost in choice. 
+
+However my favourite seed project is [angular-native-seed](https://github.com/TeamMaestro/angular-native-seed) from `TeamMaestro`.
+
+### Shared and platform specific files
+
+Like most similar seeds it uses a naming convention to define which files should be shared or not. Let's have a look at an `ExampleComponent` with one shared `ts` file and two `html` files. The shared `ts` file should be simply named: `example.component.ts`, while the two `html` files should be named `example.component.html` (for the web version) and `example.component.tns.html` (for the mobile version).
+
+example
+ |- example.component.ts
+ |- example.component.html
+ |- example.component.tns.html
+
+Like you probably noticed, the trick is to add `.tns` before any file extension to make it NativeScript specific, while the other file becomes web specific. 
+So if you want to have two `scss` files for our module, then you should create `example.component.scss` and `example.component.tns.scss`. However if you want to share the styling file then you should have just `example.component.scss` only.
+
+### Understanding the project structure and managing the npm modules
+
+From the code sharing perspective the project is made of the following files and folders (to help focus on what is important I omitted a few files and folders).
+
+seed-root:
+ |- src
+    |- app.module.ts
+    |- app.module.tns.ts
+ |- nativescript
+    |- app
+    |- src
+    |- node_modules
+    |- package.json
+ |- node_modules
+ |- package.json
+
+We have two pairs of `node_modules` and `package.json`. The first pair at the root is designated for the `web` project, while the one in the `nativescript` folder is used for the `NativeScript` project. 
+To install an npm package for the web project, just run all `npm commands` from the `root` folder and for the NativeScript project run the commands from the `nativescript` folder. If you need the same npm module in both, then you need to run the npm command twice.
+
+The `src` folder at the `root` of our project is where all of our code goes into - both for web and mobile (.tns) - as this is our working folder. Here you will find services, components, pipes, etc. which form your application.
+
+Also amongst others we have two versions of the `app.module`, which are used to provide all the shared and platform specific modules. A good example for platform specific module is the `HttpModule`. Where `app.module.ts` imports:
+
+```
+import { HttpModule } from '@angular/http';
+
+@NgModule({
+  ...
+  imports: [
+    HttpModule
+    ...
+  ]
+```
+
+while `app.module.tns.ts` imports:
+
+```
+import { NativeScriptHttpModule } from 'nativescript-angular/http';
+
+@NgModule({
+  ...
+  imports: [
+    NativeScriptHttpModule
+    ...
+  ]
+```
+
+Next there is the `nativescript` folder with the `app` and `src` folders. 
+The `nativescript/src` folder is symlinked to the `root/src`, which displays all the files that are specific to the NativeScript project, while ignoring the web only files. For example the `ExampleComponent` would look like this (notice that there is no `example.component.html):
+
+example
+ |- example.component.ts
+ |- example.component.tns.html
+
+If you are new to `symlink`, it is worth understanding that symlink creates a different view of one folder to another. 
+This means that if you make any changes to any of the files in this folder, this will reflect in their `roor/src` counterparts being updated as well. As a matter of fact these are not actually counterparts, these ARE the same files (not copies).
+
+Finally we have the `nativescript/app` folder. This is where the gulp build process (more on it below) outputs the NativeScript ready files, which comes from `nativescript/src`. This is a good place to come to see what ends up in your nativescript folder and in what form. Also this is `THE` folder that is actually used for the NativeScript build processes (read: all tns commands run on the code here).
+
+### Using the productivity tools
+
+The way this seed is structured makes it really easy to use the best of Angular and NativeScript `productivity tools`. 
+There is virtaully no limit in terms of which tools you can use. The only thing is where to run the tools from. 
+So for all web tools (like Angular CLI) run them from the `root` folder and for all NativeScript tools -> run them from the `nativescript` folder.
+
+Would you like to use Angular CLI to create a service? Just run `ng g s service-name` from the `root` and you will get all the building blocks in place. Just note that only the `app.module.ts` providers will be updated, so you will have to manually update `app.module.tns.ts` to also make this service available in the NativeScript app.
+
+To debug a NativeScript application, just go into the NativeScript folder and run `npm run livesync`, then in a separate terminal (command line) run `tns debug ios` or `tns debug android`. This will not only run the debugging tools for NativeScript, but it will also refresh your project every time you make any changes inside the `<root>/src` or `nativescript/src` folders.
+
+What about the Angular Language Service? Well... just install it and you are ready to go.
+
+### Automated build processes
+
+What makes all of the above possible is the automated build process, which is performed with a few easy to read [gulp tasks](https://github.com/TeamMaestro/angular-native-seed/blob/master/nativescript/gulpfile.js) managed by [npm scripts](https://github.com/TeamMaestro/angular-native-seed/blob/master/nativescript/package.json#L54-L79).
+
+The npm scripts + gulp tasks are only required for building the NativeScript project, as the `root/src` already contains everything that is needed for the web project.
+
+In a few words the essence of the gulp tasks is to:
+ 1. look for any `.tns` files in `nativescript/src`
+ 2. rename them by removing the `.tns` part (which as a result overwrites the web specific files)
+ 3. move them into the `nativescript/app` folder
+
+Then the gulp tasks are bundled with a couple of npm scripts, where:
+ 1. the first step is to run gulp steps
+ 2. the second step is to run the NativeScript CLI
+
+For example, to run an ios build you need to call `npm run ios`, which underneath [runs](https://github.com/TeamMaestro/angular-native-seed/blob/master/nativescript/package.json#L59):
+ 1. gulp: `gulp build.cli.Default`
+ 2. tns: `tns run ios`
 
 ## Getting started
 
 ![Getting started](./images/Garfield-getting-started.jpg?raw=true "Getting started")
-
-So what we need is an `Angular Seed` that would have a build process that would help us manage both web and NativeScript projects. 
-There is a number of such seeds, but my current favourite is [angular-native-seed](https://github.com/TeamMaestro/angular-native-seed) from `TeamMaestro`. 
 
 To get started all you need to do is to:
 
@@ -93,7 +207,7 @@ git clone https://github.com/TeamMaestro/angular-native-seed
 npm i
 ```
 
- 3. Initialise the NativeScript project
+ 3. Initialise the NativeScript project (make sure you have all the NativeScript bits ready. [installation instructions](http://docs.nativescript.org/start/quick-setup))
 
 ```
 cd nativescript
