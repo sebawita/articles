@@ -370,6 +370,12 @@ npm run ios
 npm run android
 ```
 
+### Example summary
+
+Notice how little effort it takes to get going. At this point, we are not doing anything fancy, however we are already able to share `sayHelo` from the `SimpleComponent`. 
+Also we get the bonus points for using Angular CLI. :)
+
+The best thing is, that it takes longer to read about this example than actually do it by hand.
 
 ## With Lazy loading
 
