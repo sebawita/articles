@@ -254,24 +254,122 @@ tns run android/ios
 
 ![Simple Example](./images/Garfield-simple.jpg?raw=true "Simple Example")
 
+Now that we have the basics covered. Let's try to add a new `simple` component.
+We are going to use the `Angular CLI` to generate the component, then we will update it to make it available in NativeScript, then finally we will add it to the menu and navigation.
+
+ 1. Use the `ng CLI` to generate the `simple` component
+
+```
 ng g c simple
+```
 
-go to src/app/simple
-  open simple.component.ts
-    add  moduleId: module.id, to @Component
-  add simple.component.tns.html
-    add html
-  update simple.component.html
-open app.component.ts
-  add menuItem for simple
-open app.module.tns.ts
-  add SimpleComponent Import and add it to declarations
+ 2. Add the component to NativeScript `@NgModule` providers:
 
-To test web run:
-  ng serve from the root folder
+The Angular CLI will automatically add the component to the `app.module.ts` declarations. However this is not the case for the NativeScript counterpart.
 
-To test NativeScript run:
-  npm run ios or npm run android from the NativeScript folder
+Open `app.module.tns.ts`, import the component and add it to the declarations.
+
+```
+import { SimpleComponent } from './simple/simple.component';
+...
+@NgModule({
+    declarations: [ AppComponent, SimpleComponent ],
+```
+
+ 3. Update the component class
+ 
+Open `simple.component.ts` add `moduleId: module.id,` to @Component. This is required by NativeScript to find the `templateUrl` and `styleUrls` paths.
+
+Then add a function to the class with an alert.
+
+Your `simple.component.ts` should look as follows:
+
+```
+import { Component, OnInit } from '@angular/core';
+
+@Component({
+  moduleId: module.id,
+  selector: 'seed-simple',
+  templateUrl: './simple.component.html',
+  styleUrls: ['./simple.component.scss']
+})
+export class SimpleComponent implements OnInit {
+
+  ngOnInit() {
+  }
+
+  sayHello() {
+    alert('One hello to rule them all');
+  }
+}
+```
+
+ 4. Update the UI
+
+First let's update the web html open `simple.component.html` to display some message and add a button to call `sayHello`:
+ 
+```
+<h1 class="title">Simply Red</h1>
+<p class="description">Something got me started :)</p>
+
+<button (click)="sayHello()">Say Hello</button>
+```
+
+After that let's create the NativeScript counterpart. 
+Create a new file called `simple.component.tns.html` and add the following code:
+
+```
+<GridLayout rows="auto,auto">
+    <Label class="h1 title"
+        text="Simply Red"></Label>
+    <Label class="p description" textWrap="true" row="1"
+        text="Something got me started"></Label>
+    
+    <Button (tap)="sayHello()" class="btn btn-primary">Say Hello</Button>
+</GridLayout>
+```
+
+Note that the web button handles the `click` event, while the NativeScript project handles the `tap` event.
+
+ 5. Update navigation to allow navigating to the `SimpleComponent`
+
+Open `home/home.routes.ts`. This is where the default navigation is configured.
+And a path to the `SimpleComponent` (don't forget to import it first though):
+
+```
+{
+    path: 'simple',
+    component: SimpleComponent
+},
+```
+
+Now let's update the navigation menu. All the menu items are located in `app.component.ts`. Let's add a new `MenuItem`:
+
+```
+{
+    title: 'Simple',
+    link: ['/simple']
+},
+```
+
+ 6. Let's test it
+
+To run the web application run:
+
+```
+ng serve
+```
+
+and navigate to the `Simple` page.
+
+To run the NativeScript application, navigate to the `nativescript` folder and run:
+
+```
+npm run ios
+// or 
+npm run android
+```
+
 
 ## With Lazy loading
 
