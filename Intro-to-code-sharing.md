@@ -415,6 +415,7 @@ lazy-cat
       |- lazy-cat.component.ts
  |- lazy-cat.module.ts
  |- lazy-cat.routes.ts
+```
 
  1. Use the `ng CLI` to generate the `lazy-cat` component
 
