@@ -872,7 +872,7 @@ If we were to refactor the `SimpleComponent` then it would look something like t
 ```
 import { Component, OnInit } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
-import 'rxjs/add/operator/toPromise';
+import 'rxjs/add/operator/first';
 
 @Component({
   moduleId: module.id,
@@ -889,9 +889,8 @@ export class SimpleComponent implements OnInit {
 
   sayHello() {
     // Hello message with translation
-    this.translate.get('simple.hello')
-    .toPromise()
-    .then(message => alert(message));
+    this.translate.get('simple.hello').first()
+    .subscribe(message => alert(message));
   }
 }
 ```
