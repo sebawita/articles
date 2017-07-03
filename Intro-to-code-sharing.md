@@ -482,7 +482,11 @@ If this module were to be made of multiple views then you would have multiple ro
 
 ### Code Snippet
 
-If you are using Visual Studio Code then you could create a code snippet to help you with this taks. Here is the snippet I use:
+If you are using Visual Studio Code then you could use a code snippet to help you with this taks. 
+
+You could use the plugin [angular-native-seed Snippets](https://marketplace.visualstudio.com/items?itemName=sebawita.angular-native-seed-snippets) that provides you with snippets to quickly generare code for `routes` and `module`.
+
+Or you could [manually add the snippets](https://code.visualstudio.com/docs/editor/userdefinedsnippets) to your project:
 
 ```
 "share-router": {
@@ -520,7 +524,7 @@ The rest is fairly standard `@NgModule` definition.
 Your `lazy-cat.module.ts` should look like this:
 
 ```
-import { NgModule, Optional, SkipSelf } from '@angular/core';
+import { NgModule } from '@angular/core';
 // vendor dependencies
 import { TranslateModule } from '@ngx-translate/core';
 // app
@@ -538,14 +542,7 @@ import { SharedModule, RouterModule } from '../shared';
     ],
     declarations: [LazyCatComponent]
 })
-export class LazyCatModule {
-
-    constructor( @Optional() @SkipSelf() parentModule: LazyCatModule) {
-        if (parentModule) {
-            throw new Error('LazyCatModule already loaded; Import in root module only.');
-        }
-    }
-}
+export class LazyCatModule { }
 ```
 
 ### Code Snippet
@@ -554,36 +551,30 @@ Once again you can use a code snippet for this. Here is my snippet:
 
 ```
 "share-module": {
-	"prefix": "share-module",
-	"body": [
-		"import { NgModule, Optional, SkipSelf } from '@angular/core';",
-		"// vendor dependencies",
-		"import { TranslateModule } from '@ngx-translate/core';",
-		"// app",
-		"import { ${Name}Component } from './components/${filename}/${filename}.component';",
-		"import { ${Name}Routes } from './${filename}.routes';",
-		"// common",
-		"import { SharedModule, RouterModule } from '../shared';",
-		"",
-		"@NgModule({",
-		"    imports: [",
-		"        SharedModule,",
-		"",
-		"        RouterModule.forChild(${Name}Routes),",
-		"        TranslateModule.forChild()",
-		"    ],",
-		"    declarations: [${Name}Component]",
-		"})",
-		"export class ${Name}Module {",
-		"",
-		"    constructor( @Optional() @SkipSelf() parentModule: ${Name}Module) {",
-		"        if (parentModule) {",
-		"            throw new Error('${Name}Module already loaded; Import in root module only.');",
-		"        }",
-		"    }",
-		"}",
-		""
-	]
+    "prefix": "share-module",
+    "body": [
+        "import { NgModule } from '@angular/core';",
+        "// vendor dependencies",
+        "import { TranslateModule } from '@ngx-translate/core';",
+        "// app",
+        "import { ${Name}Component } from './components/${filename}/${filename}.component';",
+        "import { ${Name}Routes } from './${filename}.routes';",
+        "// common",
+        "import { SharedModule } from '../shared';",
+        "import { RouterModule } from '../common';",
+        "",
+        "@NgModule({",
+        "    imports: [",
+        "        SharedModule,",
+        "",
+        "        RouterModule.forChild(${Name}Routes),",
+        "        TranslateModule.forChild()",
+        "    ],",
+        "    declarations: [${Name}Component]",
+        "})",
+        "export class ${Name}Module { }",
+        ""
+    ]
 },
 ```
 
@@ -671,7 +662,7 @@ Then for the NativeScript module we need to create `infinite.module.tns.ts`, whi
 
 ### Example summary
 
-You can find the full example in [Github](https://github.com/TeamMaestro/angular-native-seed/tree/master/src/app/infinite).
+You can find the full example [here](https://github.com/sebawita/angular-native-seed/tree/examples/src/app/infinite).
 
 Apart from the `InfiniteScrollModule` and multiple `Component declarations`, everything else is done in the same way as in the `LazyCat` example. 
 The key lesson from this example is that every time you need to separate any chunk of code into web and NativeScript, just split the source code into two files. 
@@ -863,6 +854,49 @@ When you run the project, you should get something like this.
 
 ![Translation Mobile](./images/translation-mobile.gif?raw=true "Translation Mobile")
 
+
+### Translate from TypeScript
+
+To use the translation in TypeScript, you need to inject the `TranslationService` to your contructor.
+
+```
+import { TranslateService } from '@ngx-translate/core';
+...
+constructor(private translate: TranslateService) { }
+```
+
+Then you can just call `this.translate.get(_key_)`, which returns an Observable that will provide you with a result.
+
+If we were to refactor the `SimpleComponent` then it would look something like this:
+
+```
+import { Component, OnInit } from '@angular/core';
+import { TranslateService } from '@ngx-translate/core';
+import 'rxjs/add/operator/toPromise';
+
+@Component({
+  moduleId: module.id,
+  selector: 'seed-simple',
+  templateUrl: './simple.component.html',
+  styleUrls: ['./simple.component.scss']
+})
+export class SimpleComponent implements OnInit {
+
+  constructor(private translate: TranslateService) { }
+
+  ngOnInit() {
+  }
+
+  sayHello() {
+    // Hello message with translation
+    this.translate.get('simple.hello')
+    .toPromise()
+    .then(message => alert(message));
+  }
+}
+```
+
+Here is the full example: [simple.component.ts](https://github.com/sebawita/angular-native-seed/tree/examples/src/app/simple/simple.component.ts)
 
 ### Example summary
 
