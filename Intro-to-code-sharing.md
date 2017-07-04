@@ -674,11 +674,15 @@ Same applies to styling. If you need two styling files - which let's face it, yo
 
 As a bonus we are going to cover how to use the `i18n` module for language specific text.
 
-This is really simple to use. You can find the English resource file at `src/assets/i18n/en.json`. 
+The way it works is rather straight forward. 
+For every supported language you need a json resource file (like en.json, fr.json), which should contain key-translation value pairs for all the required phrases. 
+Then to translate a phrase we use the `translate pipe`, which looks up the key and returns the translated value. 
+
+Let's try it out. 
 
  1. Update/create the language files
 
-Let's add the fields for the `simple` and `lazy` examples to `src/assets/i18n/en.json`:
+Let's find the existing English resource file at `src/assets/i18n/en.json` and add the fields for the `simple` and `lazy` examples:
 
 ```
 {
@@ -706,13 +710,13 @@ Let's add the fields for the `simple` and `lazy` examples to `src/assets/i18n/en
     },
     "lazy": {
         "title": "Lazy joke",
-        "jonsLine": "Garfield, you could give classes in doing nothing",
-        "garfieldsLine": "No, I couldn't"
+        "jonsLine": "Jon: Garfield, you could give classes in doing nothing",
+        "garfieldsLine": "Garfield: No, I couldn't"
     }
 }
 ```
 
-To add Spanish just add a new file called `es.json` with the same fields, but with the tranlated values to Spanish, like this (please note that I used the Google Translate service, so mistakes should be expected):
+To add Spanish just add a new file called `es.json` with the same fields, but with the translated values to Spanish, like this (please note that I used the Google Translate service, so mistakes should be expected):
 
 ```
 {
@@ -740,8 +744,8 @@ To add Spanish just add a new file called `es.json` with the same fields, but wi
     },
     "lazy": {
         "title": "Broma perezosa",
-        "jonsLine": "Garfield, podrías dar clases sin hacer nada",
-        "garfieldsLine": "No, no pude"
+        "jonsLine": "Jon: Garfield, podrías dar clases sin hacer nada",
+        "garfieldsLine": "Garfield: No, no pude"
     }
 }
 
