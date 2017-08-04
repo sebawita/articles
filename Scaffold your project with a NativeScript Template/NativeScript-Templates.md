@@ -30,8 +30,10 @@ This is why we formed the `Starter Kits` Team. Who were tasked to come up with t
 All you need to do is just run:
 
 ```
-tns create app-name --template https://github.com/NativeScript/template-name-here
+tns create app-name --template template-name-here
 ```
+
+> Please note that this article is based on templates for `NativeScript 3.1`, which are likely to evolve over time and some things might change. You cannot stop progress :)
 
 ## The templates
 
@@ -88,20 +90,19 @@ Out of the box we have 5 tabs: `home`, `browse`, `search`, `featured` and `setti
 
 ### How to create
 
-To use the JavaScript template, run:
+To use the {N} Core JavaScript template, run:
 ```
-tns create app-name --template https://github.com/NativeScript/template-tab-navigation
+tns create app-name --template template-tab-navigation
 ```
 
-
-To use the TypeScript template, run:
+To use the {N} Core TypeScript template, run:
 ```
-tns create app-name --template https://github.com/NativeScript/template-tab-navigation-ts
+tns create app-name --template template-tab-navigation-ts
 ```
 
 To use the Angular template, run:
 ```
-tns create app-name --template https://github.com/NativeScript/template-tab-navigation-ng
+tns create app-name --template template-tab-navigation-ng
 ```
 
 ### Make it your own
@@ -137,6 +138,23 @@ For example let's have a look at the Browse component. We know that it is locate
 The drawer template uses a side drawer for navigation. You can bring in the side drawer by either pressing the hamburger icon (in the top left corner) or by dragging the screen from left edge to right.
 
 Just like with the tabs template, we have 5 pages we can navigate to: `home`, `browse`, `search`, `featured` and `settings`.
+
+### How to create
+
+To use the {N} Core JavaScript template, run:
+```
+tns create app-name --template template-drawer-navigation
+```
+
+To use the {N} Core TypeScript template, run:
+```
+tns create app-name --template template-drawer-navigation-ts
+```
+
+To use the Angular template, run:
+```
+tns create app-name --template template-drawer-navigation-ng
+```
 
 ### Make it your own - {N} Core
 
@@ -240,6 +258,24 @@ To use it, you just need to add the additional styling to `.sidedrawer-list-item
 <img src="./master-detail-ios.gif?raw=true" height=400/>
 <img src="./master-detail-android.gif?raw=true" height=400/>
  
+ 
+
+### How to create
+
+To use the {N} Core JavaScript template, run:
+```
+tns create app-name --template template-master-detail
+```
+
+To use the {N} Core TypeScript template, run:
+```
+tns create app-name --template template-master-detail-ts
+```
+
+To use the Angular template, run:
+```
+tns create app-name --template template-master-detail-ng
+```
 
 [template-master-detail](https://github.com/NativeScript/template-master-detail)
 
