@@ -10,7 +10,7 @@
 
 
 > "There are more ways than one to dress a pug, so are there more ways than one of designing the app navigation” </br>
- - Sebastian Witalec - NativeScript blogs, 2017.
+> - Sebastian Witalec - NativeScript blogs, 2017.
 
 <img src="./dressed-pug.jpg?raw=true" width=600 />
 
@@ -253,12 +253,14 @@ To use it, you just need to add the additional styling to `.sidedrawer-list-item
 
 [template-drawer-navigation-ng](https://github.com/NativeScript/template-drawer-navigation-ng)
 
-## Master Detail (Firebase)
+## Master Detail
 
 <img src="./master-detail-ios.gif?raw=true" height=400/>
 <img src="./master-detail-android.gif?raw=true" height=400/>
- 
- 
+
+The final template is focused on a Master Detail navigation. Where the Master page loads a list of cars from Firebase or Kinvey. When you tap on any of the items the app navigates to the car-detail page.
+
+This template works offline. Which is often a `must have` requirement for a serious app.
 
 ### How to create
 
@@ -277,24 +279,45 @@ To use the Angular template, run:
 tns create app-name --template template-master-detail-ng
 ```
 
+### Getting your head around it
+
+There are 3 major components that are worth having a look at:
+
+ * `car-list` in the `cars` folder - it is used to display all cars in a list vuew
+ * `car-detail` in the `cars/car-detail` folder - it is used to display a detailed view for a selected car
+ * `car-detail-edit` in the `cars/car-detail-edit` folder - it is used to edit a selected car
+
+Additionally there are 2 helper components that are used to edit car details:
+
+ * `list-selector` - a smart drop down like UI component, which displays the currently selected value and when you tap on it, it opens a modal window letting you choose another option,
+ * `image-add-remove` - this component allows you to select a different image from your image galery 
+
+Finally we also have a `car-service` (in the `cars/shared` folder), which is the service responsible for loading the data from the backend and sending updates.
+
+### Github links:
+
 [template-master-detail](https://github.com/NativeScript/template-master-detail)
 
 [template-master-detail-ts](https://github.com/NativeScript/template-master-detail-ts)
 
 [template-master-detail-ng](https://github.com/NativeScript/template-master-detail-ng)
 
-
-
-## Master detail (Kinvey)
-
 [template-master-detail-kinvey-ng](https://github.com/NativeScript/template-master-detail-kinvey-ng)
 
 
-
-## Extending templates
-
 ## Work in progress
 
-Please provide feedback and suggestions to...
+Please note that this is still a work in progress and we would like to hear any feedback you have to share with us. The best thing to do is to create a github issue under the relevant project.
+We already had a few, which helped us make the templates better.
 
 ## Summary
+
+These templates are a really easy way to get you on the way to build world class apps.
+Whether you are a seasoned {N} dev or new to it, the templates offer a lot of smart solutions and best practices.
+Plus you get a nicely styled app with consistent look and feel between Android and iOS out of the box.
+
+So ...
+
+![what-are-you-waiting-for](./what-are-you-waiting-for.gif?raw=true)
+
+Give them a go and build world class apps.
