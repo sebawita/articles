@@ -18,7 +18,7 @@ Here comes the first surprise.
 
 There is no setup required to start writing your code. All you need is a modern web browser and a smile on your face (the last one is optional, but unavoidable).
 
-> Just made sure that your browser provides support for Monaco Editor
+> Just make sure that your browser provides support for Monaco Editor
 
 ### Your Smart Device (Android)
 
