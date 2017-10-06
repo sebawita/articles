@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+<title>NativeScript-Templates</title>
+
+
+<style type="text/css">
+body {
+  font-family: Helvetica, arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background-color: white;
+  padding: 30px; }
+
+body > *:first-child {
+  margin-top: 0 !important; }
+body > *:last-child {
+  margin-bottom: 0 !important; }
+
+a {
+  color: #4183C4; }
+a.absent {
+  color: #cc0000; }
+a.anchor {
+  display: block;
+  padding-left: 30px;
+  margin-left: -30px;
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0; }
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 20px 0 10px;
+  padding: 0;
+  font-weight: bold;
+  -webkit-font-smoothing: antialiased;
+  cursor: text;
+  position: relative; }
+
+h1:hover a.anchor, h2:hover a.anchor, h3:hover a.anchor, h4:hover a.anchor, h5:hover a.anchor, h6:hover a.anchor {
+  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA09pVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoMTMuMCAyMDEyMDMwNS5tLjQxNSAyMDEyLzAzLzA1OjIxOjAwOjAwKSAgKE1hY2ludG9zaCkiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6OUM2NjlDQjI4ODBGMTFFMTg1ODlEODNERDJBRjUwQTQiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6OUM2NjlDQjM4ODBGMTFFMTg1ODlEODNERDJBRjUwQTQiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo5QzY2OUNCMDg4MEYxMUUxODU4OUQ4M0REMkFGNTBBNCIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo5QzY2OUNCMTg4MEYxMUUxODU4OUQ4M0REMkFGNTBBNCIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PsQhXeAAAABfSURBVHjaYvz//z8DJYCRUgMYQAbAMBQIAvEqkBQWXI6sHqwHiwG70TTBxGaiWwjCTGgOUgJiF1J8wMRAIUA34B4Q76HUBelAfJYSA0CuMIEaRP8wGIkGMA54bgQIMACAmkXJi0hKJQAAAABJRU5ErkJggg==) no-repeat 10px center;
+  text-decoration: none; }
+
+h1 tt, h1 code {
+  font-size: inherit; }
+
+h2 tt, h2 code {
+  font-size: inherit; }
+
+h3 tt, h3 code {
+  font-size: inherit; }
+
+h4 tt, h4 code {
+  font-size: inherit; }
+
+h5 tt, h5 code {
+  font-size: inherit; }
+
+h6 tt, h6 code {
+  font-size: inherit; }
+
+h1 {
+  font-size: 28px;
+  color: black; }
+
+h2 {
+  font-size: 24px;
+  border-bottom: 1px solid #cccccc;
+  color: black; }
+
+h3 {
+  font-size: 18px; }
+
+h4 {
+  font-size: 16px; }
+
+h5 {
+  font-size: 14px; }
+
+h6 {
+  color: #777777;
+  font-size: 14px; }
+
+p, blockquote, ul, ol, dl, li, table, pre {
+  margin: 15px 0; }
+
+hr {
+  background: transparent url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAYAAAAECAYAAACtBE5DAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNSBNYWNpbnRvc2giIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6OENDRjNBN0E2NTZBMTFFMEI3QjRBODM4NzJDMjlGNDgiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6OENDRjNBN0I2NTZBMTFFMEI3QjRBODM4NzJDMjlGNDgiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo4Q0NGM0E3ODY1NkExMUUwQjdCNEE4Mzg3MkMyOUY0OCIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo4Q0NGM0E3OTY1NkExMUUwQjdCNEE4Mzg3MkMyOUY0OCIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PqqezsUAAAAfSURBVHjaYmRABcYwBiM2QSA4y4hNEKYDQxAEAAIMAHNGAzhkPOlYAAAAAElFTkSuQmCC) repeat-x 0 0;
+  border: 0 none;
+  color: #cccccc;
+  height: 4px;
+  padding: 0;
+}
+
+body > h2:first-child {
+  margin-top: 0;
+  padding-top: 0; }
+body > h1:first-child {
+  margin-top: 0;
+  padding-top: 0; }
+  body > h1:first-child + h2 {
+    margin-top: 0;
+    padding-top: 0; }
+body > h3:first-child, body > h4:first-child, body > h5:first-child, body > h6:first-child {
+  margin-top: 0;
+  padding-top: 0; }
+
+a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
+  margin-top: 0;
+  padding-top: 0; }
+
+h1 p, h2 p, h3 p, h4 p, h5 p, h6 p {
+  margin-top: 0; }
+
+li p.first {
+  display: inline-block; }
+li {
+  margin: 0; }
+ul, ol {
+  padding-left: 30px; }
+
+ul :first-child, ol :first-child {
+  margin-top: 0; }
+
+dl {
+  padding: 0; }
+  dl dt {
+    font-size: 14px;
+    font-weight: bold;
+    font-style: italic;
+    padding: 0;
+    margin: 15px 0 5px; }
+    dl dt:first-child {
+      padding: 0; }
+    dl dt > :first-child {
+      margin-top: 0; }
+    dl dt > :last-child {
+      margin-bottom: 0; }
+  dl dd {
+    margin: 0 0 15px;
+    padding: 0 15px; }
+    dl dd > :first-child {
+      margin-top: 0; }
+    dl dd > :last-child {
+      margin-bottom: 0; }
+
+blockquote {
+  border-left: 4px solid #dddddd;
+  padding: 0 15px;
+  color: #777777; }
+  blockquote > :first-child {
+    margin-top: 0; }
+  blockquote > :last-child {
+    margin-bottom: 0; }
+
+table {
+  padding: 0;border-collapse: collapse; }
+  table tr {
+    border-top: 1px solid #cccccc;
+    background-color: white;
+    margin: 0;
+    padding: 0; }
+    table tr:nth-child(2n) {
+      background-color: #f8f8f8; }
+    table tr th {
+      font-weight: bold;
+      border: 1px solid #cccccc;
+      margin: 0;
+      padding: 6px 13px; }
+    table tr td {
+      border: 1px solid #cccccc;
+      margin: 0;
+      padding: 6px 13px; }
+    table tr th :first-child, table tr td :first-child {
+      margin-top: 0; }
+    table tr th :last-child, table tr td :last-child {
+      margin-bottom: 0; }
+
+img {
+  max-width: 100%; }
+
+span.frame {
+  display: block;
+  overflow: hidden; }
+  span.frame > span {
+    border: 1px solid #dddddd;
+    display: block;
+    float: left;
+    overflow: hidden;
+    margin: 13px 0 0;
+    padding: 7px;
+    width: auto; }
+  span.frame span img {
+    display: block;
+    float: left; }
+  span.frame span span {
+    clear: both;
+    color: #333333;
+    display: block;
+    padding: 5px 0 0; }
+span.align-center {
+  display: block;
+  overflow: hidden;
+  clear: both; }
+  span.align-center > span {
+    display: block;
+    overflow: hidden;
+    margin: 13px auto 0;
+    text-align: center; }
+  span.align-center span img {
+    margin: 0 auto;
+    text-align: center; }
+span.align-right {
+  display: block;
+  overflow: hidden;
+  clear: both; }
+  span.align-right > span {
+    display: block;
+    overflow: hidden;
+    margin: 13px 0 0;
+    text-align: right; }
+  span.align-right span img {
+    margin: 0;
+    text-align: right; }
+span.float-left {
+  display: block;
+  margin-right: 13px;
+  overflow: hidden;
+  float: left; }
+  span.float-left span {
+    margin: 13px 0 0; }
+span.float-right {
+  display: block;
+  margin-left: 13px;
+  overflow: hidden;
+  float: right; }
+  span.float-right > span {
+    display: block;
+    overflow: hidden;
+    margin: 13px auto 0;
+    text-align: right; }
+
+code, tt {
+  margin: 0 2px;
+  padding: 0 5px;
+  white-space: nowrap;
+  border: 1px solid #eaeaea;
+  background-color: #f8f8f8;
+  border-radius: 3px; }
+
+pre code {
+  margin: 0;
+  padding: 0;
+  white-space: pre;
+  border: none;
+  background: transparent; }
+
+.highlight pre {
+  background-color: #f8f8f8;
+  border: 1px solid #cccccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px; }
+
+pre {
+  background-color: #f8f8f8;
+  border: 1px solid #cccccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px; }
+  pre code, pre tt {
+    background-color: transparent;
+    border: none; }
+
+sup {
+    font-size: 0.83em;
+    vertical-align: super;
+    line-height: 0;
+}
+
+kbd {
+  display: inline-block;
+  padding: 3px 5px;
+  font-size: 11px;
+  line-height: 10px;
+  color: #555;
+  vertical-align: middle;
+  background-color: #fcfcfc;
+  border: solid 1px #ccc;
+  border-bottom-color: #bbb;
+  border-radius: 3px;
+  box-shadow: inset 0 -1px 0 #bbb
+}
+
+* {
+	-webkit-print-color-adjust: exact;
+}
+@media screen and (min-width: 914px) {
+    body {
+        width: 854px;
+        margin:0 auto;
+    }
+}
+@media print {
+	table, pre {
+		page-break-inside: avoid;
+	}
+	pre {
+		word-wrap: break-word;
+	}
+}
+</style>
+
+
+</head>
+
+<body>
+
+<h1 id="toc_0">Scaffold your project with a NativeScript Template</h1>
+
+<h2 id="toc_1">Intro</h2>
+
+<blockquote>
+<p>“There are more ways than one to skin a cat, so  are there more ways than one of digging for money.” </br>
+- Seba Smith - The Money Diggers, 1840.</p>
+</blockquote>
+
+<p><img src="./skin-a-cat.jpg?raw=true" width=600 /></p>
+
+<blockquote>
+<p>&quot;There are more ways than one to dress a pug, so are there more ways than one of designing the app navigation” </br>
+- Sebastian Witalec - NativeScript blogs, 2017.</p>
+</blockquote>
+
+<p><img src="./dressed-pug.jpg?raw=true" width=600 /></p>
+
+<p>Choosing the right navigation model for your app is really important. Depending on the number of screens and their relationship you might either choose a tab navigation or a drawer navigation or even a combination of the two. However choosing what you want to do is just one side of the coin. </p>
+
+<p>The other side of the coin is the actual implementation. The problem is that there are many different ways to:</p>
+
+<ul>
+<li>arrange your folder structure,</li>
+<li>organise the css styling mechanism,</li>
+<li>set up navigation process,</li>
+<li>and handle many other challenges.</li>
+</ul>
+
+<p>After looking at some of the projects we&#39;ve created with NativeScript over the years we realised that each developer had their own idea on how to <code>dress their pug</code>.</p>
+
+<p>This is why we formed the <code>Starter Kits</code> Team. Who were tasked to come up with templates for NativeScript projects. They&#39;ve spent some time researching various options and analysing common scenarios, weighing pros and cons of different techniques. As a result they&#39;ve created a set of NativeScript project templates. Each project follows a consistent structure, each adheres to the industry best practices (like the <a href="https://angular.io/guide/styleguide#style-guide">Angular Style Guide</a>) and each is a great place to start a brand new NativeScript project.</p>
+
+<p>All you need to do is just run:</p>
+
+<div><pre><code class="language-none">tns create app-name --template template-name-here</code></pre></div>
+
+<blockquote>
+<p>Please note that this article is based on templates for <code>NativeScript 3.1</code>, which are likely to evolve over time and some things might change. You cannot stop progress :)</p>
+</blockquote>
+
+<h2 id="toc_2">The templates</h2>
+
+<p>The templates are divided into 3 categories:</p>
+
+<ul>
+<li>tab navigation</li>
+<li>drawer navigation</li>
+<li>master detail</li>
+</ul>
+
+<p>Each of them comes in 3 variations:</p>
+
+<ul>
+<li>{N} Core with JavaScript</li>
+<li>{N} Core with TypeScript - with <code>-ts</code> suffix</li>
+<li>{N} Angular - with <code>-ng</code> suffix</li>
+</ul>
+
+<p>Even though each template is quite different, they still have some things in common.</p>
+
+<h3 id="toc_3">Styling</h3>
+
+<p>At the root of the project we have:</p>
+
+<ul>
+<li><code>_app-variables.scss</code> - holds the global SASS variables that are imported for each component&#39;s styles.</li>
+<li><code>app.scss</code> - the global common style sheet. These style rules are applied to both Android and iOS.</li>
+<li><code>platform.android.scss</code> - the global Android style sheet. These style rules are applied to Android only.</li>
+<li><code>platform.ios.scss</code> - the global iOS style sheet. These style rules are applied to iOS only.</li>
+</ul>
+
+<p>The <code>_app-variables.scss</code> style sheet is exactly the same for each template. This is the place where you can define the branding colours of your application. And if you need to build multiple apps using different templates, but the same branding colours, then you can just sync <code>_app-variables.scss</code> across all your projects.</p>
+
+<p>Most UI elements use the <code>$accent-dark</code> and <code>$accent-light</code> variables, so this should probably be your stop number one to update the colour scheme of your apps.</p>
+
+<h3 id="toc_4">Font Awesome</h3>
+
+<p>To add beautiful font based icons, each template comes with FontAwesome already configured.</p>
+
+<p>All you need to do is to add an <code>fa</code> class to your component style and then provide the unicode value of the icon you want. For example, the following label will appear like this:</p>
+
+<div><pre><code class="language-none">&lt;Label class=&quot;fa h1&quot; text=&quot;I like &amp;#xf2cd; more than &amp;#xf2cc;&quot;&gt;&lt;/Label&gt;</code></pre></div>
+
+<p><img src="./FontAwesome-bath-shower.png?raw=true" alt="FontAwesome"></p>
+
+<p>As you probably can guess <code>&amp;#xf2cd;</code> is the bath tub and <code>&amp;#xf2cc;</code> is the shower.</p>
+
+<p><a href="http://fontawesome.io/cheatsheet/">Here is a cheatsheet of all Font Awesome icons</a></p>
+
+<h2 id="toc_5">Tab Navigation</h2>
+
+<p><img src="./tab-naviagation-ios.gif?raw=true" height=400/>
+<img src="./tab-naviagation-android.gif?raw=true" height=400/></p>
+
+<p>This is one of the simplest templates where each page is displayed in its own tab view.
+Out of the box we have 5 tabs: <code>home</code>, <code>browse</code>, <code>search</code>, <code>featured</code> and <code>settings</code>. Each tab is rather empty, but the templates are open for you to change them into something amazing.</p>
+
+<h3 id="toc_6">How to create</h3>
+
+<p>To use the {N} Core JavaScript template, run:
+<code>
+tns create app-name --template template-tab-navigation
+</code></p>
+
+<p>To use the {N} Core TypeScript template, run:
+<code>
+tns create app-name --template template-tab-navigation-ts
+</code></p>
+
+<p>To use the Angular template, run:
+<code>
+tns create app-name --template template-tab-navigation-ng
+</code></p>
+
+<h3 id="toc_7">Make it your own</h3>
+
+<p>All of this template&#39;s magic is contained in the <code>tabs</code> folder, which contains the tabs page component and a folder for each of the tab views.</p>
+
+<p>The list of available tabs is located in the tabs view file, depending on the project type it is either <code>tabs-page.xml</code> or <code>tabs.component.html</code> (Angular). Basically the tabs page contains a <code>TabView</code> component, which has a tab item for every page that we want to display.</p>
+
+<p>To add content to any of the existing tab views, just go to their folder and make all your changes there.</p>
+
+<p>To add a new tab, you need to create a new component in the tabs folder (just like the other ones) and then add a tab item to the <code>TabView</code>.</p>
+
+<h3 id="toc_8">Github links:</h3>
+
+<ul>
+<li><a href="https://github.com/NativeScript/template-tab-navigation">template-tab-navigation</a></li>
+<li><a href="https://github.com/NativeScript/template-tab-navigation-ts">template-tab-navigation-ts</a></li>
+<li><a href="https://github.com/NativeScript/template-tab-navigation-ng">template-tab-navigation-ng</a></li>
+</ul>
+
+<h3 id="toc_9">Using custom UI Components with {N} Core</h3>
+
+<p>If you are using NativeScript Core then there might be one thing that you are not aware of yet, which is important in understanding what is going on in <code>tabs-page.xml</code>. That is how we to bring in external UI components.
+For example let&#39;s have a look at the Browse component. We know that it is located in the <code>/tab/browse</code> folder and the file containing the component is called <code>BrowseView</code>. So to add to it <code>tabs-view</code> we need to:</p>
+
+<ul>
+<li>Add reference to <code>&lt;Page&gt;</code> in the format <code>xmlns:namespace=&quot;folderurl&quot;</code> -&gt; <code>xmlns:browse=&quot;/tabs/browse&quot;</code></li>
+<li>Add the component in the format <code>&lt;namespace:filename /&gt;</code> -&gt; <code>&lt;browse:BrowseView /&gt;</code></li>
+</ul>
+
+<h2 id="toc_10">Drawer Navigation</h2>
+
+<p><img src="./drawer-naviagation-ios.gif?raw=true" height=400/>
+<img src="./drawer-naviagation-android.gif?raw=true" height=400/></p>
+
+<p>The drawer template uses a side drawer for navigation. You can bring in the side drawer by either pressing the hamburger icon (in the top left corner) or by dragging the screen from left edge to right.</p>
+
+<p>Just like with the tabs template, we have 5 pages we can navigate to: <code>home</code>, <code>browse</code>, <code>search</code>, <code>featured</code> and <code>settings</code>.</p>
+
+<h3 id="toc_11">How to create</h3>
+
+<p>To use the {N} Core JavaScript template, run:
+<code>
+tns create app-name --template template-drawer-navigation
+</code></p>
+
+<p>To use the {N} Core TypeScript template, run:
+<code>
+tns create app-name --template template-drawer-navigation-ts
+</code></p>
+
+<p>To use the Angular template, run:
+<code>
+tns create app-name --template template-drawer-navigation-ng
+</code></p>
+
+<h3 id="toc_12">Make it your own - {N} Core</h3>
+
+<p>To add a new page to the navigation just go to <code>shared/my-drawer/MyDrawer-view-model</code>. The view model contains an array of <code>navigation items</code>, each is made of the following fields:</p>
+
+<ul>
+<li>title - the text that goes into the drawer</li>
+<li>icon - the icon that goes next to the title - this is using FontAwesome icons</li>
+<li>name - navigation item specific css class - more on the topic below</li>
+<li>route - the location of the page this item should navigate to</li>
+<li>isSelected - an expression to check if the current item is the same as the current page</li>
+</ul>
+
+<p>Here is an example:</p>
+
+<div><pre><code class="language-none">{
+  title: &quot;Featured&quot;,
+  name: &quot;featured&quot;,
+  route: &quot;featured/featured-page&quot;,
+  icon: &quot;\uf005&quot;,
+  isSelected: selectedPage === &quot;Featured&quot;
+},</code></pre></div>
+
+<h3 id="toc_13">Make it your own - {N} Angular</h3>
+
+<p>To add a new page to the navigation just go to <code>shared/my-drawer/my-drawer.component</code>. The component contains an array of <code>navigation items</code>, each is made of the following fields:</p>
+
+<ul>
+<li>title - the text that goes into the drawer</li>
+<li>icon - the icon that goes next to the title - this is using FontAwesome icons</li>
+<li>name - navigation item specific css class - just add a css class to <code>app.scss</code> that matches the style you want to use</li>
+<li>route - the navigation path as defined in <code>app-routing.module.ts</code></li>
+</ul>
+
+<p>Here is an example:</p>
+
+<div><pre><code class="language-none">{
+  title: &quot;Featured&quot;,
+  name: &quot;featured&quot;,
+  route: &quot;/featured&quot;,
+  icon: &quot;\uf005&quot;
+},</code></pre></div>
+
+<h3 id="toc_14">NavigationItem specific styling</h3>
+
+<p>By default all items in the side bar are made to look the same, but the template provides a neat mechanism to style each item.</p>
+
+<p>All starts with the <code>name</code> property you provided in <code>ItemTemplate</code>:</p>
+
+<div><pre><code class="language-none">{
+  title: &quot;ABC&quot;,
+  name: &quot;abc&quot;,
+  ...
+}</code></pre></div>
+
+<p>We can take <code>abc</code> and add additional classes to our css, that will only apply to abc:</p>
+
+<ul>
+<li>default - <code>sidedrawer-list-item-abc</code>,</li>
+<li>when selected - <code>sidedrawer-list-item-abc selected</code></li>
+</ul>
+
+<p>To use it, you just need to add the additional styling to <code>.sidedrawer-list-item</code> class in the drawer&#39;s css file - either <code>_MyDrawer.scss</code> (Core) or <code>_my-drawer.component.scss</code> (Angular).</p>
+
+<div><pre><code class="language-none">.sidedrawer-list-item {
+  // current css
+...
+  
+  .sidedrawer-list-item-abc {
+    background-color: black;
+    Label {
+      color: yellow;
+    }
+        
+    &amp;.selected {
+    background-color: gray;
+      Label {
+        color: red;
+      }
+    }
+  }
+}</code></pre></div>
+
+<h4 id="toc_15">This is what you should see as the result:</h4>
+
+<p><img src="./drawer-custom-styling.gif?raw=true" alt="drawer-custom-styling.gif"></p>
+
+<h3 id="toc_16">Github links:</h3>
+
+<p><a href="https://github.com/NativeScript/template-drawer-navigation">template-drawer-navigation</a></p>
+
+<p><a href="https://github.com/NativeScript/template-drawer-navigation-ts">template-drawer-navigation-ts</a></p>
+
+<p><a href="https://github.com/NativeScript/template-drawer-navigation-ng">template-drawer-navigation-ng</a></p>
+
+<h2 id="toc_17">Master Detail</h2>
+
+<p><img src="./master-detail-ios.gif?raw=true" height=400/>
+<img src="./master-detail-android.gif?raw=true" height=400/></p>
+
+<p>The final template is focused on a Master Detail navigation. Where the Master page loads a list of cars from Firebase or Kinvey. When you tap on any of the items the app navigates to the car-detail page.</p>
+
+<p>This template works offline. Which is often a <code>must have</code> requirement for a serious app.</p>
+
+<h3 id="toc_18">How to create</h3>
+
+<p>To use the {N} Core JavaScript template, run:
+<code>
+tns create app-name --template template-master-detail
+</code></p>
+
+<p>To use the {N} Core TypeScript template, run:
+<code>
+tns create app-name --template template-master-detail-ts
+</code></p>
+
+<p>To use the Angular template, run:
+<code>
+tns create app-name --template template-master-detail-ng
+</code></p>
+
+<h3 id="toc_19">Getting your head around it</h3>
+
+<p>There are 3 major components that are worth having a look at:</p>
+
+<ul>
+<li><code>car-list</code> in the <code>cars</code> folder - it is used to display all cars in a list vuew</li>
+<li><code>car-detail</code> in the <code>cars/car-detail</code> folder - it is used to display a detailed view for a selected car</li>
+<li><code>car-detail-edit</code> in the <code>cars/car-detail-edit</code> folder - it is used to edit a selected car</li>
+</ul>
+
+<p>Additionally there are 2 helper components that are used to edit car details:</p>
+
+<ul>
+<li><code>list-selector</code> - a smart drop down like UI component, which displays the currently selected value and when you tap on it, it opens a modal window letting you choose another option,</li>
+<li><code>image-add-remove</code> - this component allows you to select a different image from your image galery </li>
+</ul>
+
+<p>Finally we also have a <code>car-service</code> (in the <code>cars/shared</code> folder), which is the service responsible for loading the data from the backend and sending updates.</p>
+
+<h3 id="toc_20">Github links:</h3>
+
+<p><a href="https://github.com/NativeScript/template-master-detail">template-master-detail</a></p>
+
+<p><a href="https://github.com/NativeScript/template-master-detail-ts">template-master-detail-ts</a></p>
+
+<p><a href="https://github.com/NativeScript/template-master-detail-ng">template-master-detail-ng</a></p>
+
+<p><a href="https://github.com/NativeScript/template-master-detail-kinvey-ng">template-master-detail-kinvey-ng</a></p>
+
+<h2 id="toc_21">Work in progress</h2>
+
+<p>Please note that this is still a work in progress and we would like to hear any feedback you have to share with us. The best thing to do is to create a github issue under the relevant project.
+We already had a few, which helped us make the templates better.</p>
+
+<h2 id="toc_22">Summary</h2>
+
+<p>These templates are a really easy way to get you on the way to build world class apps.
+Whether you are a seasoned {N} dev or new to it, the templates offer a lot of smart solutions and best practices.
+Plus you get a nicely styled app with consistent look and feel between Android and iOS out of the box.</p>
+
+<p>So ...</p>
+
+<p><img src="./what-are-you-waiting-for.gif?raw=true" alt="what-are-you-waiting-for"></p>
+
+<p>Give them a go and build world class apps.</p>
+
+
+
+
+</body>
+
+</html>

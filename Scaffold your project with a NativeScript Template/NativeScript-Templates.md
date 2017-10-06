@@ -18,6 +18,7 @@
 Choosing the right navigation model for your app is really important. Depending on the number of screens and their relationship you might either choose a tab navigation or a drawer navigation or even a combination of the two. However choosing what you want to do is just one side of the coin. 
 
 The other side of the coin is the actual implementation. The problem is that there are many different ways to:
+
  * arrange your folder structure,
  * organise the css styling mechanism,
  * set up navigation process,
