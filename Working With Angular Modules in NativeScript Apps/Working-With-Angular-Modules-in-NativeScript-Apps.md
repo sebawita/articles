@@ -91,8 +91,18 @@ export class MyComponent {
 
 ## Cheatsheet
 
-Import `NativeScriptModule` and `NativeScriptAnimationsModule` only in the `AppModule`.
+| NgModule                     | Import from                              | How to use it           |
+|------------------------------|------------------------------------------|-------------------------|
+| NativeScriptModule           | nativescript-angular/nativescript.module | Always add to AppModule |
+| NativeScriptCommonModule     | nativescript-angular/common              | Never add to AppModule <br> Add to the remaining Modules |
+| NativeScriptAnimationsModule | nativescript-angular/animations          | Only add to AppModule <br> Use only if you need Angular Animations |
+| NativeScriptHttpClientModule | nativescript-angular/http-client         | Use only when any of the Module's services or components inject HttpClient |
+| NativeScriptFormsModule      | nativescript-angular/forms               | Use in each module that use two-way bindings with [(ngModule)] |
+| NativeScriptRouterModule     |  nativescript-angular/router             | Use when the Module's services or components use navigation |
 
-Import `NativeScriptCommonModule` in every module.
+## Further reading
 
-Import `NativeScriptHttpClientModule` (http), `NativeScriptFormsModule` (two-way binding) and `NativeScriptRouterModule` (navigation) when you are using their features in that specific module.
+It is also important to understand about Sharing Modules, which allow you to prepackage commonly used directives and pipes.
+
+You can read more about it [in the Angular Documentation](https://angular.io/guide/sharing-ngmodules)
+
