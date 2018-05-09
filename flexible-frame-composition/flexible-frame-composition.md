@@ -61,7 +61,7 @@ It is that frame that provides the path to initial page to load. See the `defaul
 Now that we know the basics, let's see how to use this with a side drawer.
 
 In `app-root.xml`, we just need to add a `RadSideDrawer` with the usual parts:
- * `drawerTransition` - to specify where the drawer should come from
+ * `drawerTransition` - to specify the behaviour of the Drawer when it appears
  * `drawerContent` - to specify the drawer content (read. here goes your navigation)
  * `mainContent` - here is where we provide the `Navigation Frame` together with a default page
 
@@ -89,7 +89,7 @@ In `app-root.xml`, we just need to add a `RadSideDrawer` with the usual parts:
 
 This is the first step, to structure your `app-root`. Next we need a way to navigate the `Frame` from `home-page` to another page.
 
-This is quite simple actually. You just need to call `topmost()` to get the `Frame` and then call `navigate()` and provide the path to your component as `modulePath`.
+This is quite simple actually. You just need to call `topmost()` to get the main `Frame` and then call `navigate()` and provide the path to your component as `modulePath`.
 
 After that, we need to get the `drawerComponent` and hide it with `closeDrawer()`. 
 
@@ -110,39 +110,231 @@ export function goBrowse() {
 }
 ```
 
-
-
 #### Examples
 
-You can see this in action in [Playground](https://play.nativescript.org/?id=UnEWR2).
-
+You can see this in action in [Playground - Basic Example](https://play.nativescript.org/?id=UnEWR2) or [Playground - template example](https://play.nativescript.org/?id=f290eJ).
 
 #### Template 
 
 For your convenience, there is already a project template with a SideDrawer already configured.
 You can find it [in the marketplace](https://market.nativescript.org/plugins/tns-template-drawer-navigation-ts). 
-<!--You can preview it in [Playground - tns-template-drawer-navigation-ts](https://play.nativescript.org/?id=f290eJ).-->
 
-
-To create a new project with a SideDrawer, call `tns create my-app-name --template tns-template-drawer-navigation-ts`.
+To create a new project with a SideDrawer, call `tns create my-drawer-ts --template tns-template-drawer-navigation-ts`.
 
 
 ### TabView
 
-To use 
+If TabView is your preferred way for app navigation, then the process is slightly different.
 
-Root page
+In `app-root.xml` we need a `TabView` component with the `androidTabsPosition` property set to `bottom`: ```<TabView androidTabsPosition="bottom">```
+> `androidTabsPosition` not only changes the location of the TabView (from top to bottom for Android), but it also changes its behaviour. So that when the TabView is loaded, only the content of the currently visible tab is loaded into the memory.
 
-```<Page></Page>``` => 
+Then for each tab, we need a `TabViewItem` with a `Frame` component inside - note that each frame will have its own default page.
 
+#### app-root.xml
+
+```
+ <TabView androidTabsPosition="bottom">
+	<TabViewItem title="Home">
+		<Frame defaultPage="home/home-page"></Frame>
+	</TabViewItem>
+
+	<TabViewItem title="Browse">
+		<Frame defaultPage="browse/browse-page"></Frame>
+	</TabViewItem>
+
+	<TabViewItem title="Search">
+		<Frame defaultPage="search/search-page"></Frame>
+	</TabViewItem>
+</TabView>
+```
+
+This will take care of navigating between different tabs, and each Frame will load its Page when required.
+
+#### Navigating in a Frame
+
+You can also navigate in each Frame independently of all other frames.
+
+
+All we need is to do, is to get the current page object and then grab its frame.
+Then once we have the frame, we can just call `navigate`, like this:
+
+```
+<Button text="Navigate" tap="onItemTap"></Button>
+```
+
+```
+export function onItemTap(args: ItemEventData) {
+    const frame = args.view.page.frame;
+    
+    frame.navigate({
+    	moduleName: "home/another-page",
+    })
+}
+```
+
+Now, if you run an app with code like this, you will be able to navigate to `another-page`, and when you move to `Browse` or `Search` tab and come back to the `Home` tab, the `Home tab` will still be showing `another-page`.
+
+> On iOS, tapping on the currently open tab, will automatically navigate to its `defaultPage`. So if you are in the `Home tab` and you tap on the `Home tab` again, the tab will go back to `home/home-page`.
+
+#### Navigating back
+
+iOS will automatically add a `back button` to the `ActionBar`. However for Android, you need to take care of it yourself.
+
+This can be easily solved by adding a `NavigationButton` to your `ActionBar`:
+
+```
+<ActionBar class="action-bar">
+	<NavigationButton tap="onBackButtonTap" android.systemIcon="ic_menu_back" />
+	<Label class="action-bar-title" text="{{ name }}"></Label>
+</ActionBar>
+```
+
+And then on `onBackButtonTap` you need to get the `Frame` and call `goBack()`. Like this:
+
+```
+export function onBackButtonTap(args: EventData) {
+    const view = args.object as View;
+    const frame = view.page.frame;
+
+    frame.goBack();
+}
+```
+
+#### Example
+
+You can see this in action in [Playground](https://play.nativescript.org/?id=GDpmAk).
+
+#### Template 
+
+Or you can use a [ready made template from the marketplace](https://market.nativescript.org/plugins/tns-template-tab-navigation-ts)
+
+
+To create a new project with a TabView, call `tns create my-tab-ts --template tns-template-tab-navigation-ts`.
+
+### Frame Retrieval APIs
+
+Prior to 4.0 all NativeScript applications had one topmost Frame implicitly created by the `application.start()` method. The `frameModule.topmost()` method returned this Frame. In 4.0 we now allow your app to have `multiple Frame instances`. This calls for a different API for Frame retrieval. Here is how you can get the Frame you want in 4.0:
+
+ * `frameModule.topmost()` - The old method still exists and not only for backwards compatibility. It now returns the last navigated Frame or in case you are in a TabView, the currently selected tab item's Frame. This means that in straightforward cases you should be able to still rely on this method. However, for more complex cases or simply more control, you should use the methods below.
+> `frameModule.topmost()` is great for `TabView Navigation`
+
+ * `eventArgs.object.page.frame` - This can be used in event handlers. All event args objects should have a reference to their Page which in turn has a reference to its Frame instance. This allows you to retrieve the exact Frame that the event object is displayed in. 
+> `eventArgs.object.page.frame` works well with `SideDrawer Navigation`
+
+ * `frameModule.getFrameById(id)` - This is a new method. It allows you to get a reference to a Frame by an id that you specified on the element. Note that this searches for already navigated Frames and won't find Frames that are not yet displayed like in a modal view for example.
+> `frameModule.getFrameById(id)` useful when more than one frame is on the Page, like for split screen scenarios.
 
 ## Angular
 
-## Modals
-## SideDrawer
+In order to use `Flexible Frame Composition` with Angular, you just need `nativescript-angular`: `5.3.0` or newer. Once that is done we are ready to go.
 
-## TabView
-### New behaviour
+### SideDrawer
+
+As compared to using `SideDrawer` in previous versions of NativeScript, the only change we need to make is to move all `SideDrawer` instances into your main component (by default that is `AppComponent`), which should contain:
+
+ * a layout container marked with `tkDrawerContent` directive - which holds the drawer content
+ * `page-router-outlet` marked with `tkMainContent` directive - which holds the app main content
+
+ > Note, that `page-router-outlet` is the equivalent to NativeScript Core's `Frame Component`.
+ 
+Like this:
+
+#### app.component.html
+
+```
+<RadSideDrawer [drawerTransition]="sideDrawerTransition">
+	<GridLayout tkDrawerContent rows="auto, *" class="sidedrawer sidedrawer-left">
+		<StackLayout row="0" class="sidedrawer-header">
+			<Label class="sidedrawer-header-image fa" text="&#xf2bd;"></Label>
+			<Label class="sidedrawer-header-brand" text="User Name"></Label>
+			<Label class="footnote" text="username@mail.com"></Label>
+		</StackLayout>
+
+		<ScrollView row="1">
+			<StackLayout class="sidedrawer-content">
+                <Button text="home" [nsRouterLink]="['/home']" (tap)="hideDrawer()" class="btn btn-primary"></Button>
+                <Button text="browse" [nsRouterLink]="['/browse']" (tap)="hideDrawer()" class="btn btn-primary"></Button>
+                <Button text="search" (tap)="goSearch()" class="btn btn-primary"></Button>
+			</StackLayout>
+		</ScrollView>
+	</GridLayout>
+
+	<page-router-outlet tkMainContent class="page page-content"></page-router-outlet>
+</RadSideDrawer>
+```
+
+#### Navigation
+
+Navigating now is a fairly straight forward Angular experience.
+
+You can either do it:
+
+ * from TypeScript:
+
+ By injecting `RouterExtensions` to `AppComponent` and then calling `this.routerExtensions.navigate()`. Finally to tidy up, we need to get the drawer and close it. Like this:
+
+```
+constructor(private routerExtensions: RouterExtensions) {}
+
+goSearch() {
+	// navigate
+    this.routerExtensions.navigate(['/search'], {
+        transition: { name: "flip" }
+    });
+    
+    // hide drawer
+    const sideDrawer = <RadSideDrawer>app.getRootView();
+    sideDrawer.closeDrawer();
+}
+```
+
+ * or HTML:
+
+By using `nsRouterLink` to provide the navigation path and (optional) `pageTransition` to provide type of transition. Finally to tidy up, we need to close the drawer.
+
+```
+<Button text="browse" [nsRouterLink]="['/browse']" (tap)="hideDrawer()" pageTransition="flip" class="btn btn-primary"></Button>
+```
+
+```
+hideDrawer() {
+    const sideDrawer = <RadSideDrawer>app.getRootView();
+    sideDrawer.closeDrawer();
+}
+```
+
+#### Example
+
+You can see this in action in [Playground - Basic Example](https://play.nativescript.org/?id=l4du7Z) or [Playground - template example](https://play.nativescript.org/?id=1tISDO)
+
+See `app.component` for all the magic 😉
+
+#### Template
+
+Or you can use a [ready made template from the marketplace](https://market.nativescript.org/plugins/tns-template-drawer-navigation-ng)
+
+To create a new project with a SideDrawer, call `tns create my-drawer-ng --template tns-template-drawer-navigation-ng`.
+
+
+### TabView
+
+
+
+
+#### Example
+
+You can see this in action in [Playground - Basic Example](https://play.nativescript.org/?id=)
+<!--You can see this in action in [Based on the template](https://play.nativescript.org/?id=).-->
+
+#### Template
+
+Or you can use a [ready made template from the marketplace](https://market.nativescript.org/plugins/tns-template-tab-navigation-ng)
+
+To create a new project with a TabView, call `tns create my-tab-ng --template tns-template-tab-navigation-ng`.
+
+## Modals
+
 
 ## Multiple frames in one page
 ### Core: Frame id
