@@ -112,7 +112,10 @@ export function goBrowse() {
 
 #### Examples
 
-You can see this in action in [Playground - Basic Example](https://play.nativescript.org/?id=UnEWR2) or [Playground - template example](https://play.nativescript.org/?id=f290eJ).
+You can see this in action in Playground:
+
+ * [Basic Example](https://play.nativescript.org/?id=UnEWR2) or
+ * [Template Example](https://play.nativescript.org/?id=f290eJ)
 
 #### Template 
 
@@ -311,7 +314,10 @@ hideDrawer() {
 
 #### Example
 
-You can see this in action in [Playground - Basic Example](https://play.nativescript.org/?id=l4du7Z) or [Playground - template example](https://play.nativescript.org/?id=1tISDO)
+You can see this in action in Playground:
+
+ * [Basic Example](https://play.nativescript.org/?id=l4du7Z) or 
+ * [Template Example](https://play.nativescript.org/?id=1tISDO)
 
 See `app.component` for all the magic 😉
 
