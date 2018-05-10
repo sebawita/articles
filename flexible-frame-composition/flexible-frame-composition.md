@@ -365,7 +365,6 @@ Then we would need to add a TabView to `app.component.html` with two named `page
 
 Now we need to configure our routes. This is very similar to a regular `routes configuration`.
 
-
 Here are our paths without `multiple` page-router-outlets:
 
 ```
@@ -456,7 +455,7 @@ export class PlayerComponent {
 }
 ```
 
- * relative navigation - navigate to from `players` to `player/:id`:
+ * navigate - using relative path - from `players` to `player/:id`:
 
 When we navigate, we can provide `{ relativeTo: this.route }`, this gives the router the context to know which `page-router-outlet` it should be navigating. As a result we can simply navigate by calling this:
 
@@ -469,7 +468,7 @@ navigateToPlayer(id: number) {
 
 > Note: `../<sibling>` is a way to reference a sibling path. This is how you can navigate from `home/a` to `home/b`, by providing the `../b` path.
 
- * navigate and clear history - navigate from `player/x` to `players`:
+ * navigate - clear history - from `player/x` to `players`:
 
 Each time you navigate, the `navigation stack` gets updated. As a result iOS gives you a back button in ActionBar, and Android allows you to go back with the System Back Button.
 
@@ -486,9 +485,9 @@ navigateToPlayers() {
 
 > Note #2: when you try to navigate from `pageA/param` to `../pageB` will take you to `pageA/pageB` and fail. Since we have a parameter in our current path, we need to also escape it by navigating to `../../pageB`.
 
- * navigate using outlets:
+ * navigate - using absolute path:
 
-We can also navigate without using the `ActivateRoute`. This is done with the `outlets` property, and the name of the outlet we need, together with the path we want it to navigate to, like this:
+We can also navigate using absolute path. This is done with the `outlets` property, and the name of the outlet we need, together with the path we want it to navigate to, like this:
 
 ```
 this.router.navigate([{
@@ -498,7 +497,7 @@ this.router.navigate([{
 }]);
 ```
 
- * navigate using outlets - from `players` to `player/x`:
+ * navigate - using absolute path - from `players` to `player/x`:
 
 ```
 navigatePlayerOutlet(id: number) {
@@ -516,7 +515,7 @@ navigatePlayerOutlet(id: number) {
 > 
 > Bad: `playerTab: ['player/id'] `
 
- * navigate in another tab/outlet - from `players` to `team/x`:
+ * navigate - using absolute path - in another tab - from `players` to `team/x`:
 
 You can also navigate in another outlet, like this:
 
@@ -532,7 +531,7 @@ navigateTeamOutlet(id: number) {
 
 > Note: this is not going to switch the tab to the `Team Tab`, however after you navigate there, the `Team Tab` will be showing `team/id`.
 
- * navigate multiple outlets: from `players` to `player/x` and `team/x`
+ * navigate - using absolute path - multiple outlets: from `players` to `player/x` and `team/x`
 
 ```
 navigateOutlets(playerId: number, teamId: number) {
@@ -567,7 +566,9 @@ navigateToPlayer(id: number) {
 }
 ```
 
- * navigate - using outlet - to the same path, but with a different param - from `player/x` to `player/x+1`
+ * navigate - using absolute path - to the same path, but with a different param - from `player/x` to `player/x+1`
+
+When navigating using absolute path, there is no way for us to tell the router to stay at the same path. Therefore we have to provide the full path each time.
 
 ```
 navigateNext() {
@@ -582,7 +583,15 @@ navigateNext() {
 
 #### Navigation - from Component Template
 
+We can also navigate directly from html. This is done with the support of the `nsRouterLink` property.
+
+> Note: nsRouterLink can be used on any component: Button, Label or even StackLayout.
+
  * navigate - using fixed relative path - from `teams` to `team/1`:
+
+When we use relative path, the router will automatically assume that you want to navigate in the same `page-router-outlet`.
+
+Here is how we navigate from `teams` to `team/1`. First we need `../` to move one step back, and then add `team/1`, like this: 
 
 ```
 <Button
@@ -604,6 +613,10 @@ navigateNext() {
 
  * navigate - using relative path - with a param - from `teams` to `team/x`:
 
+When you want to add a param, that should be extracted from a variable, we need to use `[ ]` around the `nsRouterLink`, and then provide the navigation as an array of items.
+
+To navigate from `teams` to `team/id`, first we need `['../team'` path to the team, and then the param value `team.id]`, like this: 
+
 ```
 <ListView [items]="items" class="list-group">
   <ng-template let-team="item">
@@ -617,6 +630,11 @@ navigateNext() {
 
  * navigate - using absolute path - from `teams` to `team/5`:
 
+To navigate using relative paths, we need to provide an array with:
+
+   1. path to where the component with our tabview is: `'/'`
+   2. an object with `outlets` configuration, with the outlet name that we need to navigate
+
 ```
 <Button
   text="Navigate using Outlet"
@@ -626,6 +644,8 @@ navigateNext() {
 
  * navigate - using absolute path - in another outlet - from `teams` to `player/5`:
 
+This also works, when we want to navigate in `page-router-outlet` that is in another tab, like this:
+
 ```
 <Button
   text="Navigate in Players Tab"
@@ -633,7 +653,11 @@ navigateNext() {
 </Button>
 ```
 
+> Note: that this will change the content of the `playerTab`, but it won't change the current tab to the `Players Tab`.
+
  * navigate - using absolute path - with multiple outlets - from `teams` to `team/6` and `player/6`:
+
+To make it better, you can even navigate multiple outlets in one go. Like this:
 
 ```
 <Button
@@ -644,6 +668,8 @@ navigateNext() {
 
  * navigate - using relative path - to the same path, but with a different param - from `team/x` to `team/x+1`
 
+When you need to re-navigate to the same page, but with a different param, you just need to go back one step with `../` and then provide the new param. Like this:
+
 ```
 <Button
   text="prev"
@@ -652,6 +678,8 @@ navigateNext() {
 ```
 
  * navigate - using absolute path - to the same path, but with a different param - from `team/x` to `team/x+1`
+
+When you need to re-navigate to the same page, using absolute path, you need to provide the full path each time. Like this:
 
 ```
 <Button
@@ -662,6 +690,8 @@ navigateNext() {
 
  * navigate - back home - clear history - from `team/x` to `teams`
 
+Finally, when you need to navigate back to the home component, you also might want to clear the navigation stack, so that iOS will remove the back button. This is done by adding `clearHistory="true", like this:
+
 ```
 <Button
   text="Back to Teams"
@@ -670,29 +700,37 @@ navigateNext() {
 </Button>
 ```
 
-
 #### Example
 
+At the time of writing the article, Playground is using `nativescript-angular: 5.3`, which doesn't support `Named Page Router Outlets. So there is no Playground demo.
 
+You can see my example project in [GitHub - frame-tabview-example](https://github.com/sebawita/frame-tabview-example).
 
 <!--You can see this in action in [Playground - Basic Example](https://play.nativescript.org/?id=rnHxbr)-->
-<!--You can see this in action in [Based on the template](https://play.nativescript.org/?id=).-->
+
 
 #### Template
 
-Or you can use a [ready made template from the marketplace](https://market.nativescript.org/plugins/tns-template-tab-navigation-ng)
+The NativeScript team is working to update the current `tab-navigation-ng` template, which you should be able to get [from the marketplace](https://market.nativescript.org/plugins/tns-template-tab-navigation-ng).
+
+ > To check if the template is updated, just check [app.component.html in GitHub](https://github.com/NativeScript/template-tab-navigation-ng/blob/master/app.component.html). It should be ready soon.
 
 To create a new project with a TabView, call `tns create my-tab-ng --template tns-template-tab-navigation-ng`.
 
-<!--## Modals
+## Other usage
 
+There are other scenarios that you could use:
 
-## Multiple frames in one page
-### Core: Frame id
-### Angular: Named Page-Router-Outlet
-nativescript-angular 6.0
+ * navigation inside `Modals` - see example [here](https://github.com/NativeScript/NativeScript/tree/master/e2e/modal-navigation)
+ * splitting screen between multiple frames - which can be achieved with the help of: 
+ 	* `frameModule.getFrameById(id)` for TS and,
+ 	* `Named Page Router Outlet` for NG
 
-## Navigation
+## Final
 
+I hope that you found it useful and that I managed to cover most of the scenarios that you might need.
 
-## Where to find more examples-->
+Please let me know if there are any scenarios that I didn't cover, or share any projects in GitHub or Playground where you used the Flexible Frame Composition.
+
+Or just share your feedback in the comments.
+
