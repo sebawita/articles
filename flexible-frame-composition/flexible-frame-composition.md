@@ -7,7 +7,7 @@ One of the most significant changes introduced in `NativeScript 4.0` is the way 
 
 > TLTR: Old NativeScript can't share content between pages - more memory required, more CPU usage and slower performance
 
-In previous versions of NativeScript we would always create a Page and place the content of the app in there. Then when the app would navigate to another view, NativeScript would create another Page and swap it in for the old one.
+In preovious versions of NativeScript we would always have a single Frame in the root of the app (Note: The Frame is the element responsible for navigation. It hosts the pages when navgiating to them). Because this Frame is the root of the app, it is **always** full screen and so are all the Pages loaded inside it.
 
 At first, this doesn't sound like a big deal. I am on page A, so the main Frame contains A, then I navigate to page B, and now the main Frame contains B. 
 The problem starts when you need to add a SideDrawer (or a TabView) for Navigation. Since each time the app navigates, all of its content gets replaced, that means that we have to add a side drawer to each page. As a result the app creates a new instance of the side drawer every time it navigates, meaning more RAM used, more CPU cycles spent and slower performance.
@@ -16,9 +16,9 @@ The problem starts when you need to add a SideDrawer (or a TabView) for Navigati
 
 > TLTR: NativeScript 4.0 can share content between pages - no RAM or CPU cycles waste and better performance
 
-!!!!!!!!!!!In `NativeScript 4.0` the FrameView hosts navigation and pages
+OK, that was oversimplified and not entirely correct. In the NativeScript 4.0 you have control on which element should be the root of the app and where (and if) to put a Frame which will host your Pages. So now you can set the SideDrawer as the application root and put the Frame **inside** its main content. This effectively means that the Frame will swap different Pages inside the **same** SideDrawer instance (effectively reusing it).
 
-!!! Need a good explanation from Alex
+The fun does not end here. Lets focus on the TabView example. Previously, if you wanted to navigate deep inside one of the tabs - you have to create a similar page (with the whole TabView definition inside it) and navigate to it (this is because each navigation was swapping the whole screen content). Now, you can have a much simpler approach - have the TabView as a root and place a Frame **inside** the tab content. When you navigate pages inside this Frame everything outside of it will remain the same.
 
 As a result we can easily split the content of the page into separate Frames:
  * static - which would remain the same for each page - this is where the side drawer (or the tab view) goes
@@ -50,7 +50,7 @@ It is that frame that provides the path to initial page to load. See the `defaul
 
 ```
 <!-- other content -->
-	<Frame defaultPage="home/home-page"></Frame>
+  <Frame defaultPage="home/home-page"></Frame>
 <!-- other content -->
 ```  
 
@@ -101,12 +101,12 @@ import { RadSideDrawer } from "nativescript-ui-sidedrawer";
 import { topmost } from "ui/frame";
 
 export function goBrowse() {
-    topmost().navigate({
-        moduleName: "browse/browse-page"
-    });
+  topmost().navigate({
+    moduleName: "browse/browse-page"
+  });
 
-    const drawerComponent = <RadSideDrawer>app.getRootView();
-    drawerComponent.closeDrawer();
+  const drawerComponent = <RadSideDrawer>app.getRootView();
+  drawerComponent.closeDrawer();
 }
 ```
 
@@ -137,18 +137,18 @@ Then for each tab, we need a `TabViewItem` with a `Frame` component inside - not
 #### app-root.xml
 
 ```
- <TabView androidTabsPosition="bottom">
-	<TabViewItem title="Home">
-		<Frame defaultPage="home/home-page"></Frame>
-	</TabViewItem>
+<TabView androidTabsPosition="bottom">
+  <TabViewItem title="Home">
+    <Frame defaultPage="home/home-page"></Frame>
+  </TabViewItem>
 
-	<TabViewItem title="Browse">
-		<Frame defaultPage="browse/browse-page"></Frame>
-	</TabViewItem>
+  <TabViewItem title="Browse">
+    <Frame defaultPage="browse/browse-page"></Frame>
+  </TabViewItem>
 
-	<TabViewItem title="Search">
-		<Frame defaultPage="search/search-page"></Frame>
-	</TabViewItem>
+  <TabViewItem title="Search">
+    <Frame defaultPage="search/search-page"></Frame>
+  </TabViewItem>
 </TabView>
 ```
 
@@ -168,11 +168,11 @@ Then once we have the frame, we can just call `navigate`, like this:
 
 ```
 export function onItemTap(args: ItemEventData) {
-    const frame = args.view.page.frame;
+  const frame = args.view.page.frame;
     
-    frame.navigate({
-    	moduleName: "home/another-page",
-    })
+  frame.navigate({
+    moduleName: "home/another-page",
+  })
 }
 ```
 
@@ -188,8 +188,8 @@ This can be easily solved by adding a `NavigationButton` to your `ActionBar`:
 
 ```
 <ActionBar class="action-bar">
-	<NavigationButton tap="onBackButtonTap" android.systemIcon="ic_menu_back" />
-	<Label class="action-bar-title" text="{{ name }}"></Label>
+  <NavigationButton tap="onBackButtonTap" android.systemIcon="ic_menu_back" />
+  <Label class="action-bar-title" text="{{ name }}"></Label>
 </ActionBar>
 ```
 
@@ -197,10 +197,10 @@ And then on `onBackButtonTap` you need to get the `Frame` and call `goBack()`. L
 
 ```
 export function onBackButtonTap(args: EventData) {
-    const view = args.object as View;
-    const frame = view.page.frame;
+  const view = args.object as View;
+  const frame = view.page.frame;
 
-    frame.goBack();
+  frame.goBack();
 }
 ```
 
@@ -252,23 +252,23 @@ Like this:
 
 ```
 <RadSideDrawer [drawerTransition]="sideDrawerTransition">
-	<GridLayout tkDrawerContent rows="auto, *" class="sidedrawer sidedrawer-left">
-		<StackLayout row="0" class="sidedrawer-header">
-			<Label class="sidedrawer-header-image fa" text="&#xf2bd;"></Label>
-			<Label class="sidedrawer-header-brand" text="User Name"></Label>
-			<Label class="footnote" text="username@mail.com"></Label>
-		</StackLayout>
+  <GridLayout tkDrawerContent rows="auto, *" class="sidedrawer sidedrawer-left">
+    <StackLayout row="0" class="sidedrawer-header">
+      <Label class="sidedrawer-header-image fa" text="&#xf2bd;"></Label>
+      <Label class="sidedrawer-header-brand" text="User Name"></Label>
+      <Label class="footnote" text="username@mail.com"></Label>
+    </StackLayout>
 
-		<ScrollView row="1">
-			<StackLayout class="sidedrawer-content">
-                <Button text="home" [nsRouterLink]="['/home']" (tap)="hideDrawer()" class="btn btn-primary"></Button>
-                <Button text="browse" [nsRouterLink]="['/browse']" (tap)="hideDrawer()" class="btn btn-primary"></Button>
-                <Button text="search" (tap)="goSearch()" class="btn btn-primary"></Button>
-			</StackLayout>
-		</ScrollView>
-	</GridLayout>
+    <ScrollView row="1">
+      <StackLayout class="sidedrawer-content">
+        <Button text="home" [nsRouterLink]="['/home']" (tap)="hideDrawer()" class="btn btn-primary"></Button>
+        <Button text="browse" [nsRouterLink]="['/browse']" (tap)="hideDrawer()" class="btn btn-primary"></Button>
+        <Button text="search" (tap)="goSearch()" class="btn btn-primary"></Button>
+      </StackLayout>
+    </ScrollView>
+  </GridLayout>
 
-	<page-router-outlet tkMainContent class="page page-content"></page-router-outlet>
+  <page-router-outlet tkMainContent class="page page-content"></page-router-outlet>
 </RadSideDrawer>
 ```
 
@@ -286,14 +286,14 @@ You can either do it:
 constructor(private routerExtensions: RouterExtensions) {}
 
 goSearch() {
-	// navigate
-    this.routerExtensions.navigate(['/search'], {
-        transition: { name: "flip" }
-    });
+  // navigate
+  this.routerExtensions.navigate(['/search'], {
+    transition: { name: "flip" }
+  });
     
-    // hide drawer
-    const sideDrawer = <RadSideDrawer>app.getRootView();
-    sideDrawer.closeDrawer();
+  // hide drawer
+  const sideDrawer = <RadSideDrawer>app.getRootView();
+  sideDrawer.closeDrawer();
 }
 ```
 
@@ -302,13 +302,18 @@ goSearch() {
 By using `nsRouterLink` to provide the navigation path and (optional) `pageTransition` to provide type of transition. Finally to tidy up, we need to close the drawer.
 
 ```
-<Button text="browse" [nsRouterLink]="['/browse']" (tap)="hideDrawer()" pageTransition="flip" class="btn btn-primary"></Button>
+<Button
+  text="browse"
+  [nsRouterLink]="['/browse']"
+  (tap)="hideDrawer()"
+  pageTransition="flip">
+</Button>
 ```
 
 ```
 hideDrawer() {
-    const sideDrawer = <RadSideDrawer>app.getRootView();
-    sideDrawer.closeDrawer();
+  const sideDrawer = <RadSideDrawer>app.getRootView();
+  sideDrawer.closeDrawer();
 }
 ```
 
@@ -739,4 +744,3 @@ I hope that you found it useful and that I managed to cover most of the scenario
 Please let me know if there are any scenarios that I didn't cover, or share any projects in GitHub or Playground where you used the Flexible Frame Composition.
 
 Or just share your feedback in the comments.
-
