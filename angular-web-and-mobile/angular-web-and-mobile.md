@@ -10,12 +10,14 @@ However, when you needed to build both a web and a native mobile app, you had to
 
 The Angular and NativeScript teams teamed up to create [nativescript-schematics](https://github.com/nativescript/nativescript-schematics), a schematic that enables you to build both web and mobile apps from a single project.
 
+> Please note that `@nativescript/schematics` works with `@angular/cli 6.1.0` or newer.
+
 We are looking here at scenario where you can use Angular CLI with the {N} schematic to:
 
- * create new projects with a code sharing structure,
- * convert existing web projects to a code sharing structure,
- * convert components and modules to a code sharing format,
- * generate components and modules in a code sharing format
+ 1. create new projects with a code sharing structure,
+ 2. convert existing web projects to a code sharing structure,
+ 3. convert components and modules to a code sharing format,
+ 4. generate components and modules in a code sharing format
 
 ## Code Sharing Project
 
@@ -57,7 +59,7 @@ Or we could extend an existing web projects with capability to build Mobile apps
 ng add @nativescript/schematics
 ```
 
-This will add NativeScript specific npm modules, and add a default `AppModule` and `AppComponent` definition (or whatever you called your entry module and entry component).
+This will add NativeScript specific npm modules, add a default `AppModule` and `AppComponent` definition (or whatever you called your entry module and entry component) and add another tsconfig.json.
 
 ## Code Splitting
 
@@ -103,7 +105,7 @@ To complete the story, we need a build process that is capable of using the shar
 To build a web app, it is "Business as usual", just use Angular CLI to do the job.
 When you call `ng serve` or `ng build`, Angular CLI will ignore all NativeScript specific files - as none of the web files would directly reference any `.tns` files.
 
- > ng serve -> builds a web app from a code sharing project
+ > `ng serve` -> builds a web app from a code sharing project
 
 For AOT builds, you may need to give TypeScript a helping hand, by adding NativeScript extensions to `tsconfig.json` exclude list.
 
@@ -132,10 +134,76 @@ Once that is complete, the NativeScript build process takes the new image of the
 <!--.
 > We are working on an architect extension to enable mobile builds directly from Angular CLI commands, so keep an eye on this one.-->
 
-## HttpClientModule + NativeScriptHttpClientModule
+## Splitting NgModules: HttpClient
+A very good example where splitting NgModules comes in handy, is when we want to make http calls. In a web app we need to import `HttpClientModule`, which will provide us with the implementation for the `HttpClient`.
 
-## Conclusion
+However, the way http calls are executed in a browser is different to how they work in iOS and Android. In NativeScript we can use `NativeScriptHttpClientModule`, which provides us with the equivalent implementation for the `HttpClient`.
 
-## Point to nativescript.org docs 
+Now, we can use the code splitting technique to create two versions of the `@NgModule` - each using a different version of `HttpClientModule` - and then with the help of Dependency Injection provide the right implementation of the `HttpClient` into our service.
 
-## later in the future angular.io tour of heroes tutorial
+![module-splitting](./images/ngmodule-http.png?raw=true)
+
+ * `my.module.ts` - web module file that imports `HttpClientModule`
+
+```ts
+import { HttpClientModule } from '@angular/common/http'; 
+
+@NgModule({
+  imports: [
+    HttpClientModule,
+    ...
+  ]
+  ...
+})
+export class MyModule { }
+```
+
+ * `my.module.tns.ts` - mobile module file that imports `NativeScriptHttpClientModule`
+
+```ts
+import { NativeScriptHttpClientModule } from 'nativescript-angular/http-client';
+
+@NgModule({
+  imports: [
+    NativeScriptHttpClientModule,
+    ...
+  ]
+  ...
+})
+export class MyModule { }
+```
+
+ * `my.service.ts` - shared service file that injects the `HttpClient`
+
+```ts
+import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+
+@Injectable()
+export class MyService {
+
+  constructor(private http: HttpClient) { }
+  ...
+}
+```
+
+ > Code splitting for modules makes for a simple and quite elegant solution. It enables us to bring in functionality that has different implementation (for web and mobile) under one hood and as a result maximise the shared code.
+
+## Summary
+
+As you could see, building for both web and mobile from a single project is fairly straight forward. You can either start with a fresh project (using ng new) or add mobile to an existing project (using ng add). There is also a simple naming convention to enable code splitting, which allows you to cover many scenarios.
+
+Go ahead and give it a try. It is really that simple. You are only one simple `ng add` or `ng new` away from the wonders of code sharing in Angular.
+
+I would love to hear from you, let me know what works for you, what doesn't and how things could be improved. Any constructive feedback is always welcome. 
+
+### Learn more
+
+This article covers the core functionality around sharing code between web and mobile with Angular and NativeScript. There is still more that you might be interested in, like:
+
+ * how to develop in a code sharing project,
+ * the migration process - with `migrate-component` and `migrate-module` commands,
+ * extended Angular CLI generators,
+ * or handling libraries with mismatched APIs - different API interface for web and mobile
+
+To learn more see our documentation at [docs.nativescript.org/code-sharing/](https://docs.nativescript.org/code-sharing/)
