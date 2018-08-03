@@ -2,7 +2,7 @@
 
 One of the biggest benefits of using NativeScript is the ability to share the code between **Android** and **iOS** apps. This allows you to reuse a lot of the code and save a ton of time.
 
-Since, NativeScript uses **Web Technologies** (**JavaScript**, **HTML**, **CSS**, etc.) to build mobile apps, opens up the question of what of the code could be shared with a **Web App**, and ultimately expand the benefits of **code-sharing** to include **Web Projects**.
+Since, NativeScript uses **Web Technologies** (**JavaScript**, **CSS**, etc.) to build mobile apps, opens up the question of what of the code could be shared with a **Web App**, and ultimately expand the benefits of **code-sharing** to include **Web Projects**.
 
 <!--## Overview Video-->
 
@@ -19,19 +19,21 @@ This requires two parts:
 
 ## Getting Started
 
+All you need are the **Angular CLI** and the **NativeScript Schematics**.
+
 There are a couple of ways to start building web and mobile apps from a code-sharing project:
 
 ### A new project
 
 You can start from a new project and start building your apps from ground app.
-All you need are the **Angular CLI** and the **NativeScript Schematics**.
 
 This is covered in more depth in the [creating a new project](https://docs.nativescript.org/angular/code-sharing/creating-a-new-project) docs.
 
 ### Migrate an existing web project
 
 Alternatively you could **migrate** an existing web project to a code-sharing structure. Then convert your **navigation**, **modules** and **components** to also work with NativeScript.
-All you need is 
+
+This is covered in more depth in the [migrating an existing web project](https://docs.nativescript.org/angular/code-sharing/migrating-a-web-project) docs.
 
 ## Documentation
 
