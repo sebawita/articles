@@ -2,7 +2,7 @@
 
 One of the biggest benefits of using NativeScript is the ability to share the code between **Android** and **iOS** apps. This allows you to reuse a lot of the code and save a ton of time.
 
-Since, NativeScript uses **Web Technologies** (**JavaScript**, **CSS**, etc.) to build mobile apps, opens up the question of what of the code could be shared with a **Web App**, and ultimately expand the benefits of **code-sharing** to include **Web Projects**.
+Since, NativeScript uses **Web Technologies** (like **JavaScript**, **CSS**, **Angular**, etc.) to build mobile apps, opens up the question of what of the code could be shared with a **Web App**, and ultimately expand the benefits of **code-sharing** to include **Web Projects**.
 
 <!--## Overview Video-->
 
