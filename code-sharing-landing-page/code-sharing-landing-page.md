@@ -28,10 +28,13 @@ There are a couple of ways to start building web and mobile apps from a code-sha
 You can start from a new project and start building your apps from ground app.
 
 Simply call:
-
+<!--
 ```
 ng new --collection=@nativescript/schematics app-name --shared
 ```
+-->
+
+![ng new --collection=@nativescript/schematics app-name --shared](./img/bash-ng-new.png?raw=true)
 
 This is covered in more depth in the [creating a new project](https://docs.nativescript.org/angular/code-sharing/creating-a-new-project) docs.
 
@@ -41,9 +44,11 @@ Alternatively you could **migrate** an existing web project to a code-sharing st
 
 Simply call:
 
-```
+<!--```
 ng add @nativescript/schematics
-```
+```-->
+
+![ng add @nativescript/schematics](./img/bash-ng-add.png?raw=true)
 
 Then convert your **navigation**, **modules** and **components** to also work with NativeScript.
 
@@ -57,14 +62,18 @@ Once you have a code-sharing project, building the apps is quite simple.
 
 To build a web app, you just need to use the Angular CLI:
 
-```
+<!--```
 ng serve
 ```
+-->
+
+![ng serve](./img/bash-ng-serve.png?raw=true)
 
 **NativeScript**
 
 To build a mobile app, you need to use `NativeScript CLI` and `NativeScript Webpack`, like this:
 
+<!--
 ```bash
 tns run android --bundle
 ```
@@ -72,6 +81,9 @@ tns run android --bundle
 ```bash
 tns run ios --bundle
 ```
+-->
+
+![tns run android --bundle](./img/bash-tns-run.png?raw=true)
 
 You can learn more about the build process in the [docs](https://docs.nativescript.org/angular/code-sharing/build-process/).
 
@@ -105,6 +117,7 @@ The **Basket Service** should be made of 100% shared code
 
 **basket.service.ts**
 
+<!--
 ```TypeScript
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
@@ -129,6 +142,9 @@ export class BasketService {
   }
 }
 ```
+-->
+
+![basket.service.ts](./img/code-basket.service.ts.png?raw=true)
 
 **payment.service.ts**
 
@@ -138,16 +154,20 @@ The **PaymentService** - should allow you to:
 
 Again, the **PaymentService** should be made of 100% shared code
 
+<!--
 ```TypeScript
 import { Injectable } from '@angular/core';
 
 @Injectable()
-export class BasketService {
+export class PaymentService {
   public processOneClickPayment() {
     // Payment code
   }
 }
 ```
+-->
+
+![payment.service.ts](./img/code-payment.service.ts.png?raw=true)
 
 Next we would need to create a component, that would consume the **Basket** and the **Payment** services, and allow users to:
 
@@ -159,6 +179,7 @@ One more time, the behaviour and the code of the **BasketComponent** should be 1
 
 **basket.component.ts**
 
+<!--
 ```TypeScript
 @Component({...})
 export class BasketComponent implements onInit {
@@ -194,6 +215,9 @@ export class BasketComponent implements onInit {
   }
 }
 ```
+-->
+
+![basket.component.ts](./img/code-basket.component.ts.png?raw=true)
 
 The final bit is the implementation of the view templates.
 Both, templates should:
@@ -214,6 +238,7 @@ To create two separate templates, you just need to use a naming convention. Simp
 
 **basket.component.html**
 
+<!--
 ```HTML
 <div>
   <h1>Basket</h1>
@@ -227,9 +252,13 @@ To create two separate templates, you just need to use a naming convention. Simp
   <button (click)="pay()">BUY NOW💰</button>
 </div>
 ```
+-->
+
+![basket.component.html](./img/code-basket.component.html.png?raw=true)
 
 **basket.component.tns.html**
 
+<!--
 ```HTML
 <ActionBar title="Basket"></ActionBar>
 <StackLayout>
@@ -248,6 +277,9 @@ To create two separate templates, you just need to use a naming convention. Simp
   <Button text="BUY NOW💰" (tap)="pay()"></Button>
 </StackLayout>
 ```
+-->
+
+![basket.component.tns.html](./img/code-basket.component.tns.html.png?raw=true)
 
 Even though, the contents of **basket.component.html** and **basket.component.tns.html** is not quite the same, you can see that in general they follow the same structure. Both use the **async pipe** to load the data from **items$** and both use the component methods (**increaseQuantity(item)**, **pay()**).
 
@@ -257,8 +289,7 @@ Check out the docs to learn more about [code splitting](https://docs.nativescrip
 
 The documentation will help you learn the ins and outs of building a code-sharing project with Angular and NativeScript.
 
-[View the Docs --BUTTON](https://docs.nativescript.org/angular/code-sharing/intro)
-
+[View the Docs --BIG BUTTON](https://docs.nativescript.org/angular/code-sharing/intro)
 
 ## Why to build code-sharing projects
 
