@@ -93,7 +93,7 @@ Most of the code - if not all the code - that drives the business logic of your 
 
 The same applies to the internal logic of your components, and the code that defines component's behaviour - which should be shared. However, the **HTML** code that defines the **View** of the component should be different between a web and a mobile app.
 
-![](./img/shared-sketch.jpg?raw=true)
+![](./img/shared.png?raw=true)
 
 ### Example Shopping Basket
 
