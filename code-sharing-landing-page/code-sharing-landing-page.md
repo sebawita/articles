@@ -25,11 +25,11 @@ There are a couple of ways to start building web and mobile apps from a code-sha
 
 ### A new project
 
-You can start from a new project and start building your apps from ground app.
+You can start from a new project and start building your apps from ground app. Call:
 
-Simply call:
 <!--
 ```
+# Create a code-sharing project
 ng new --collection=@nativescript/schematics app-name --shared
 ```
 -->
@@ -40,11 +40,10 @@ This is covered in more depth in the [creating a new project](https://docs.nativ
 
 ### Migrate an existing web project
 
-Alternatively you could **migrate** an existing web project to a code-sharing structure.
-
-Simply call:
+Alternatively you could **migrate** an existing web project to a code-sharing structure. Call:
 
 <!--```
+# Migrate to a code-sharing project
 ng add @nativescript/schematics
 ```-->
 
@@ -58,32 +57,18 @@ This is covered in more depth in the [migrating an existing web project](https:/
 
 Once you have a code-sharing project, building the apps is quite simple.
 
-**Web**
+Just use the **Angular CLI** to build your **Web apps**, and the **NativeScript CLI** to build your **Mobile apps**.
 
-To build a web app, you just need to use the Angular CLI:
-
-<!--```
-ng serve
-```
--->
-
-![ng serve](./img/bash-ng-serve.png?raw=true)
-
-**NativeScript**
-
-To build a mobile app, you need to use `NativeScript CLI` and `NativeScript Webpack`, like this:
+![ng serve](./img/bash-build.png?raw=true)
 
 <!--
-```bash
+# Build a Web app
+ng serve
+
+# Build a Mobile app
 tns run android --bundle
-```
-
-```bash
 tns run ios --bundle
-```
 -->
-
-![tns run android --bundle](./img/bash-tns-run.png?raw=true)
 
 You can learn more about the build process in the [docs](https://docs.nativescript.org/angular/code-sharing/build-process/).
 
@@ -95,6 +80,7 @@ The same applies to the internal logic of your components, and the code that def
 
 ![](./img/shared.png?raw=true)
 
+<!--
 ### Example Shopping Basket
 
 For example in order to add a **shopping basket** to our online store, we would need:
@@ -142,7 +128,7 @@ export class BasketService {
   }
 }
 ```
--->
+->
 
 ![basket.service.ts](./img/code-basket.service.ts.png?raw=true)
 
@@ -165,7 +151,7 @@ export class PaymentService {
   }
 }
 ```
--->
+->
 
 ![payment.service.ts](./img/code-payment.service.ts.png?raw=true)
 
@@ -215,7 +201,7 @@ export class BasketComponent implements onInit {
   }
 }
 ```
--->
+->
 
 ![basket.component.ts](./img/code-basket.component.ts.png?raw=true)
 
@@ -252,7 +238,7 @@ To create two separate templates, you just need to use a naming convention. Simp
   <button (click)="pay()">BUY NOW💰</button>
 </div>
 ```
--->
+->
 
 ![basket.component.html](./img/code-basket.component.html.png?raw=true)
 
@@ -277,13 +263,15 @@ To create two separate templates, you just need to use a naming convention. Simp
   <Button text="BUY NOW💰" (tap)="pay()"></Button>
 </StackLayout>
 ```
--->
+->
 
 ![basket.component.tns.html](./img/code-basket.component.tns.html.png?raw=true)
 
 Even though, the contents of **basket.component.html** and **basket.component.tns.html** is not quite the same, you can see that in general they follow the same structure. Both use the **async pipe** to load the data from **items$** and both use the component methods (**increaseQuantity(item)**, **pay()**).
 
 Check out the docs to learn more about [code splitting](https://docs.nativescript.org/angular/code-sharing/code-plitting)
+
+-->
 
 ## Documentation
 
