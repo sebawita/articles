@@ -14,16 +14,16 @@ The Angular and NativeScript teams teamed up to create [nativescript-schematics]
 
 We are looking here at scenario where you can use Angular CLI with the {N} schematic to:
 
- 1. create new projects with a code sharing structure,
- 2. convert existing web projects to a code sharing structure,
- 3. convert components and modules to a code sharing format,
- 4. generate components and modules in a code sharing format
+ 1. create new projects with a code-sharing structure,
+ 2. convert existing web projects to a code-sharing structure,
+ 3. convert components and modules to a code-sharing format,
+ 4. generate components and modules in a code-sharing format
 
-## Code Sharing Project
+## Code-Sharing Project
 
 ![project-structure](./images/project-structure.png?raw=true)
 
-The idea of the code sharing project is one where we keep the code for the web and mobile apps in one place. The objective is to share as much code as possible, and split the platform specific code into separate files (more on this below).
+The idea of the code-sharing project is one where we keep the code for the web and mobile apps in one place. The objective is to share as much code as possible, and split the platform specific code into separate files (more on this below).
 
 This usually means that we can share the code for:
 
@@ -38,7 +38,7 @@ While, splitting the code for:
 
 ### Create project
 
-To get started we could either create a new project with a code sharing structure. Just run `ng new` with `@nativescript/schematics` as the collection.
+To get started we could either create a new project with a code-sharing structure. Just run `ng new` with `@nativescript/schematics` as the collection.
 
 Just like this:
 
@@ -63,11 +63,11 @@ This will add NativeScript specific npm modules, add a default `AppModule` and `
 
 ## Code Splitting
 
-Before we can start code sharing, we need to know how to split the code. This is important, so that we could easily create platform specific code without creating conflicts.
+Before we can start code-sharing, we need to know how to split the code. This is important, so that we could easily create platform specific code without creating conflicts.
 
 To do that we can use a simple `naming convention`. By adding a `.tns` before the file extension, you can indicate that this file is NativeScript specific, while the same file without `.tns` is web specific. If we have just one file without the `.tns` extension, then this is a shared file.
 
-## Component - Code Sharing Format
+## Component - Code-Sharing Format
 
 ![code-splitting](./images/code-splitting.png?raw=true)
 
@@ -105,7 +105,7 @@ To complete the story, we need a build process that is capable of using the shar
 To build a web app, it is "Business as usual", just use Angular CLI to do the job.
 When you call `ng serve` or `ng build`, Angular CLI will ignore all NativeScript specific files - as none of the web files would directly reference any `.tns` files.
 
- > `ng serve` -> builds a web app from a code sharing project
+ > `ng serve` -> builds a web app from a code-sharing project
 
 For AOT builds, you may need to give TypeScript a helping hand, by adding NativeScript extensions to `tsconfig.json` exclude list.
 
@@ -124,15 +124,12 @@ In order to build an iOS or an Android app with NativeScript, we need to use [Na
 
 Call:
 
- * `tns run ios --bundle` - to build an iOS app from a code sharing project
- * `tns run android --bundle` - to build an Android app from a code sharing project
+ * `tns run ios --bundle` - to build an iOS app from a code-sharing project
+ * `tns run android --bundle` - to build an Android app from a code-sharing project
 
 First, Webpack looks for any `.tns` files, and rename them by removing the `.tns` part (i.e. `home.component.tns.html` => `home.component.html`), as a result hiding the web specific files. 
 
 Once that is complete, the NativeScript build process takes the new image of the project and runs a build process with XCode for iOS or Gradle for Android, and as a result producing a Native Mobile app.
-
-<!--.
-> We are working on an architect extension to enable mobile builds directly from Angular CLI commands, so keep an eye on this one.-->
 
 ## Splitting NgModules: HttpClient
 A very good example where splitting NgModules comes in handy, is when we want to make http calls. In a web app we need to import `HttpClientModule`, which will provide us with the implementation for the `HttpClient`.
@@ -193,7 +190,7 @@ export class MyService {
 
 As you could see, building for both web and mobile from a single project is fairly straight forward. You can either start with a fresh project (using ng new) or add mobile to an existing project (using ng add). There is also a simple naming convention to enable code splitting, which allows you to cover many scenarios.
 
-Go ahead and give it a try. It is really that simple. You are only one simple `ng add` or `ng new` away from the wonders of code sharing in Angular.
+Go ahead and give it a try. It is really that simple. You are only one simple `ng add` or `ng new` away from the wonders of code-sharing in Angular.
 
 I would love to hear from you, let me know what works for you, what doesn't and how things could be improved. Any constructive feedback is always welcome. 
 
@@ -201,9 +198,9 @@ I would love to hear from you, let me know what works for you, what doesn't and 
 
 This article covers the core functionality around sharing code between web and mobile with Angular and NativeScript. There is still more that you might be interested in, like:
 
- * how to develop in a code sharing project,
+ * how to develop in a code-sharing project,
  * the migration process - with `migrate-component` and `migrate-module` commands,
  * extended Angular CLI generators,
  * or handling libraries with mismatched APIs - different API interface for web and mobile
 
-To learn more see our documentation at [docs.nativescript.org/code-sharing/](https://docs.nativescript.org/code-sharing/)
+To learn more see our documentation at [docs.nativescript.org/angular/code-sharing/](https://docs.nativescript.org/code-sharing/)
