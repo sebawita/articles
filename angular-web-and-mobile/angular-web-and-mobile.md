@@ -3,7 +3,9 @@
 
 ![code-sharing](./images/code-sharing.png?raw=true)
 
-Since the beginning of Angular, you could use [NativeScript](https://www.nativescript.org/) with Angular to build mobile apps.
+Today we’re happy to announce an exciting new way to build web and mobile apps with Angular.
+
+First, some background: since the beginning of Angular, you could use [NativeScript](https://www.nativescript.org/) with Angular to build mobile apps.
 
 > NativeScript is an open source framework for building truly native mobile apps with JavaScript. It lets you use your existing Angular skills, and as a result you get a native UI & performance on iOS and Android.
 
