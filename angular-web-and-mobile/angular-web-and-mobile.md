@@ -205,4 +205,4 @@ This article covers the core functionality around sharing code between web and m
  * extended Angular CLI generators,
  * or handling libraries with mismatched APIs - different API interface for web and mobile
 
-To learn more see our documentation at [docs.nativescript.org/angular/code-sharing/](https://docs.nativescript.org/code-sharing/)
+To learn more see our documentation at [docs.nativescript.org/angular/code-sharing/](https://docs.nativescript.org/angular/code-sharing/)
