@@ -10,7 +10,7 @@ First, some background: since the beginning of Angular, you could use [NativeScr
 
 However, when you needed to build **both** a web and a native mobile app, you had to create, develop and maintain two separate projects. Although this got the job done, it quickly became apparent that we could do better than that.
 
-## The Dream of Code-Sharing
+## The Dream of Code Sharing
 
 This challenge led to a dream of a **Code-Sharing Project**. One that would allow you to keep the code for the web and mobile apps in one place. One that would allow us to share the business logic between web, iOS and Android, but still be flexible enough to include platform-specific code where necessary.
 
