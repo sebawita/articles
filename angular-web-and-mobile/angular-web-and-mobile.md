@@ -1,7 +1,7 @@
 # Apps That Work Natively on the Web and Mobile
 # Single Codebase with Angular and NativeScript
 
-![nativescript-loves-angular](./images/nativescript-loves-angular.png?raw=true)
+![code-sharing](./images/code-sharing.png?raw=true)
 
 Since the beginning of Angular, you could use [NativeScript](https://www.nativescript.org/) with Angular to build mobile apps.
 
@@ -30,26 +30,24 @@ Then:
  * convert existing components and modules to a code-sharing format, and
  * generate new components and modules in a code-sharing format.
 
-### What can we share
+### To share or not to share
 
-One of the keys to the puzzle was 
-
-The right project structure was the key to the success and it was imperative that it would follow the Angular's Style Guide. Here’s a quick diagram to show you what that looks like at a high level.
-
-![project-structure](./images/project-structure.png?raw=true)
-
-The objective is to share as much code as possible, and separate the platform-specific code into separate files.
+The objective is to share as much code as possible, and break the platform-specific code into separate files.
 
 This usually means that we can share the code for:
 
- * **Routes** for navigation,
- * **Services** for common business logic,
- *  and **Component Class definition** for common behaviour of a component
+ * the **Routes** for the navigation,
+ * the **Services** for the common business logic,
+ *  and the **Component Class definition** for the common behaviour of each component.
 
 While, separating the code for:
 
- * **UI Layer** (**stylesheets** and **html**) - as you need to use different user interface components in web and NativeScript-built native apps,
- * and **NgModules** - so that we can import platform specific modules, without creating conflicts (i.e. Angular Material Design - which is web only) between web and mobile.
+ * the **UI Layer** (**stylesheets** and **html**) - as you need to use different user interface components in web and NativeScript-built native apps,
+ * and the **NgModules** - so that we can import platform specific modules, without creating conflicts (i.e. Angular Material Design - which is web only) between web and mobile.
+
+Here’s a diagram to show you what that looks like at a high level.
+
+![project-structure](./images/project-structure.png?raw=true)
 
 ### Getting started
 <!--#### Create project-->
