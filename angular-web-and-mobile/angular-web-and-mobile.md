@@ -5,22 +5,22 @@
 
 Since the beginning of Angular, you could use [NativeScript](https://www.nativescript.org/) with Angular to build mobile apps.
 
-> NativeScript is an open source framework for building truly native mobile apps with JavaScript. It let's you use your existing Angular skills, and as a result you get a native UI & performance on iOS and Android.
+> NativeScript is an open source framework for building truly native mobile apps with JavaScript. It lets you use your existing Angular skills, and as a result you get a native UI & performance on iOS and Android.
 
-However, when you needed to build **both** a web and a native mobile app, you had to create, develop and maintain two separate projects. Although this was getting the job done, it quickly became apparent that we could do better than that.
+However, when you needed to build **both** a web and a native mobile app, you had to create, develop and maintain two separate projects. Although this got the job done, it quickly became apparent that we could do better than that.
 
 ## The Dream of Code-Sharing
 
 This challenge led to a dream of a **Code-Sharing Project**. One that would allow you to keep the code for the web and mobile apps in one place. One that would allow us to share the business logic between web, iOS and Android, but still be flexible enough to include platform-specific code where necessary.
 
-With the dawn of **Schematics** and **ng add** we were presented by a whole new set of possibilities.
+With the dawn of **Schematics** and **ng add** we now had a whole new set of possibilities.
 
 To realise the Code-Sharing Dream the Angular and NativeScript teams teamed up to create [nativescript-schematics](https://github.com/nativescript/nativescript-schematics), a schematic that enables you to build both web and mobile apps from a single project.
 
 > Please note that **@nativescript/schematics** works with **@angular/cli 6.1.0** or newer.
 
 <!-- Should this stay here, move somewhere or delete completely-->
-We are looking here at a scenario where you can use the Angular CLI with the {N} Schematics to, either:
+We are looking at a scenario where you can use the Angular CLI with the {N} Schematics to, either:
 
  * create a new project with a code-sharing structure, or
  * convert an existing web project to a code-sharing structure.
@@ -43,7 +43,7 @@ This usually means that we can share the code for:
 While, separating the code for:
 
  * the **UI Layer** (**stylesheets** and **html**) - as you need to use different user interface components in web and NativeScript-built native apps,
- * and the **NgModules** - so that we can import platform specific modules, without creating conflicts (i.e. Angular Material Design - which is web only) between web and mobile.
+ * and the **NgModules** - so that we can import platform-specific modules, without creating conflicts (i.e. Angular Material Design - which is web only) between web and mobile.
 
 Here’s a diagram to show you what that looks like at a high level.
 
@@ -52,7 +52,7 @@ Here’s a diagram to show you what that looks like at a high level.
 ### Getting started
 <!--#### Create project-->
 
-To get started we could either create a new project with a code-sharing structure. Just run `ng new` with **@nativescript/schematics** as the collection.
+To get started you could either create a new project with a code-sharing structure. Just run `ng new` with **@nativescript/schematics** as the collection.
 
 Just like this:
 
@@ -67,33 +67,33 @@ ng new --collection=@nativescript/schematics --name=app-name --shared
 
 <!--#### Migrating an existing web project-->
 
-Or we could extend an existing web projects with the capability to build Mobile apps with NativeScript, by simply calling:
+Or we could extend an existing web projects with the capability to build mobile apps with NativeScript, by calling:
 
 ```bash
 ng add @nativescript/schematics
 ```
 
-This adds the NativeScript specific npm modules, add a default **AppModule** and **AppComponent** definition (or whatever you called your entry module and entry component) and adds another tsconfig.json (for NativeScript).
+This adds the NativeScript-specific npm modules, add a default **AppModule** and **AppComponent** definition (or whatever you called your entry module and entry component) and adds another **tsconfig.json** (for NativeScript).
 
 ### Code Separation
 
-Before we can start code-sharing, we need to know how to separate the web code from the mobile code. This is important, so that we could easily create a platform specific code without creating conflicts.
+Before you can start code sharing, we need to know how to separate the web code from the mobile code. This is important, so that we could easily create platform-specific code without creating conflicts.
 
-To do that we can use a simple **naming convention**. By adding a **.tns** before the file extension, you can indicate that this file is NativeScript specific, while the same file without the **.tns** extension is marked as web specific. If we have just one file without the **.tns** extension, then this makes it a shared file.
+To do that we can use a simple **naming convention**. By adding a **.tns** before the file extension, you can indicate that this file is NativeScript-specific, while the same file without the **.tns** extension is marked as web-specific. If we have just one file without the **.tns** extension, then this makes it a shared file.
 
 ### Component - Code-Sharing Format
-
-![code-separating](./images/code-separation.png?raw=true)
 
 The most common scenario is a component code. Usually we would have:
 
  * **name.component.ts** -  a shared file for the Component Class definition,
- * **name.component.html** - a web specific template
- * **name.component.tns.html** - a mobile specific template
- * **name.component.css** - a web specific stylesheet
- * **name.component.tns.css** - a mobile specific stylesheet
+ * **name.component.html** - a web-specific template
+ * **name.component.tns.html** - a mobile-specific template
+ * **name.component.css** - a web-specific stylesheet
+ * **name.component.tns.css** - a mobile-specific stylesheet
 
-What is interesting here, is that in our **@Component** Decorator references the template and stylesheet files without including the **.tns** extension, as this is something that is handled by the build process.
+![code-separating](./images/code-separation.png?raw=true)
+
+It is also worth noting that in your **@Component** Decorator the **templateUrl** and **styleUrls** point to files without including the **.tns** extension, as this is handled by the build process.
 
 ```ts
 @Component({
@@ -103,25 +103,20 @@ What is interesting here, is that in our **@Component** Decorator references the
 })
 ```
 
-<!--## Example - App With Login
-
-Let's consider a scenario for an app with a Login and Home Components, User Service and Routes configuration for Navigation purposes.-->
-
-
 ### Build Process
 
-![build-process](./images/build-process.png?raw=true)
-
 To complete the story, we need a build process that is capable of using the shared files and the platform-specific ones, and provide a web or mobile app as a result.
+
+![build-process](./images/build-process.png?raw=true)
 
 #### Building for Web
 
 To build a web app, it is "Business as usual", just use the Angular CLI to do the job.
-When you call `ng serve` or `ng build`, the Angular CLI will ignore all NativeScript specific files - as none of the web files would directly reference any **.tns** files.
+When you call `ng serve` or `ng build`, the Angular CLI will ignore all NativeScript-specific files - as none of the web files would directly reference any **.tns** files.
 
  > `ng serve` -> builds a web app from a code-sharing project
 
-For AOT builds, you may need to give TypeScript a helping hand, by adding NativeScript extensions to **tsconfig.json** exclude list.
+For AOT builds, you may need to give TypeScript a helping hand, by adding NativeScript extensions to your **tsconfig.json** exclude list.
 
 ```ts
 "exclude": [
@@ -198,7 +193,7 @@ export class MyService {
 }
 ```
 
- > Code separation for modules makes up for a simple and a quite elegant solution. It enables you to bring in functionality that has different implementation (for the web and mobile apps) under one hood and as a result maximise the shared code.
+Code separation for modules makes up for a simple and a quite elegant solution. It enables you to bring in functionality that has different implementation (for the web and mobile apps) under one hood and as a result maximise the shared code.
 
 ## Summary
 
