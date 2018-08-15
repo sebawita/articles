@@ -197,19 +197,19 @@ Code separation for modules makes up for a simple and a quite elegant solution. 
 
 ## Summary
 
-As you can see, building for both the web and mobile from a single project is fairly straight forward. You can either start with a fresh project (using `ng new`) or add mobile to an existing project (using `ng add`). There is also a simple naming convention to enable code separation, which allows you to cover many scenarios.
+As you can see, building for both the web and mobile from a single project is fairly straightforward. You can either start with a fresh project (using `ng new`), or add mobile to an existing project (using `ng add`). There is also a simple naming convention to enable code separation, which allows you to cover many scenarios.
 
-Go ahead and give it a try. It really is that simple. You are only one simple `ng add` or `ng new` away from the wonders of code-sharing in Angular.
+[Go ahead and give it a try](https://docs.nativescript.org/code-sharing/), as it really is that simple. You are one simple `ng add` or `ng new` away from the wonders of code sharing in Angular.
 
-We would love to hear from you, let us know what works for you, what doesn't and how things could be improved. Any constructive feedback is always welcome.
+We would love to hear from you, let us know what works for you, what doesn't, and how things could be improved. Any constructive feedback is always welcome.
 
 ### Learn more
 
-This article covers the core functionality around sharing the code between the web and mobile apps with Angular and NativeScript. There is still more that you might be interested in, like:
+This article covers the core functionality around sharing code between the web and mobile apps with Angular and NativeScript. There is still more that you might be interested in, like:
 
  * how to develop in a code-sharing project,
  * the migration process - with **migrate-component** and **migrate-module** commands,
- * extended the Angular CLI generators,
+ * the NativeScript-specific generators,
  * or handling libraries with mismatched APIs - that is when we have two similar libraries with a different API interface for web and mobile
 
-To learn more see our documentation at [docs.nativescript.org/angular/code-sharing/](https://docs.nativescript.org/code-sharing/)
+To learn more, see our documentation at [docs.nativescript.org/angular/code-sharing/](https://docs.nativescript.org/code-sharing/)
