@@ -1,5 +1,4 @@
 # Apps That Work Natively on the Web and Mobile
-# Single Codebase with Angular and NativeScript
 
 ![code-sharing](./images/code-sharing.png?raw=true)
 
