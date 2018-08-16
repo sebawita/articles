@@ -202,7 +202,7 @@ As you can see, building for both the web and mobile from a single project is fa
 
 [Go ahead and give it a try](https://docs.nativescript.org/code-sharing/), as it really is that simple. You are one simple `ng add` or `ng new` away from the wonders of code sharing in Angular.
 
-We would love to hear from you, let us know what works for you, what doesn't, and how things could be improved. Any constructive feedback is always welcome.
+We would love to hear from you, let us know what works for you, what doesn't, and how things could be improved. Any constructive feedback is always welcome. Please, [send feedback here](https://github.com/NativeScript/nativescript-schematics/issues/new?labels=feedback).
 
 ### Learn more
 
@@ -213,4 +213,4 @@ This article covers the core functionality around sharing code between the web a
  * the NativeScript-specific generators,
  * or handling libraries with mismatched APIs - that is when we have two similar libraries with a different API interface for web and mobile
 
-To learn more, see our documentation at [docs.nativescript.org/angular/code-sharing/](https://docs.nativescript.org/code-sharing/)
+To learn more, see our documentation at [docs.nativescript.org/angular/code-sharing/intro](https://docs.nativescript.org/angular/code-sharing/intro)
