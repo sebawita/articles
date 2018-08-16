@@ -51,7 +51,6 @@ Here’s a diagram to show you what that looks like at a high level.
 ![project-structure](./images/project-structure.png?raw=true)
 
 ### Getting started
-<!--#### Create project-->
 
 To get started you could either create a new project with a code-sharing structure. Just run `ng new` with **@nativescript/schematics** as the collection.
 
@@ -65,8 +64,6 @@ ng new --collection=@nativescript/schematics --name=app-name --shared
 > ```bash
 > npm i -g @nativescript/schematics
 > ```
-
-<!--#### Migrating an existing web project-->
 
 Or we could extend an existing web projects with the capability to build mobile apps with NativeScript, by calling:
 
