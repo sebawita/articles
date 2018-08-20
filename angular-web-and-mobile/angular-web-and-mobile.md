@@ -204,7 +204,7 @@ If are you curious to see an example of a code-sharing project, with:
 * shared components and the separation on component UI,
 * and cute pets to adopt?
 
-Check out my [sample project](https://github.com/sebawita/pet-bros-lite), I use to validate some of the code-sharing concepts.
+Well then check out my sample project [pet-bros-lite](https://github.com/sebawita/pet-bros-lite), which shows all these code-sharing concepts in action!
 
 ## Summary
 
