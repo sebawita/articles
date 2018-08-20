@@ -192,6 +192,20 @@ export class MyService {
 
 Code separation for modules makes up for a simple and a quite elegant solution. It enables you to bring in functionality that has different implementation (for the web and mobile apps) under one hood and as a result maximise the shared code.
 
+## Example Project
+
+If are you curious to see an example of a code-sharing project, with:
+
+* shared navigation,
+* lazy loading,
+* an auth guard,
+* code separation on an NgModule with Angular Material components and NativeScript UI plugins,
+* a single shared user service,
+* shared components and the separation on component UI,
+* and cute pets to adopt?
+
+Check out my [sample project](https://github.com/sebawita/pet-bros-lite), I use to validate some of the code-sharing concepts.
+
 ## Summary
 
 As you can see, building for both the web and mobile from a single project is fairly straightforward. You can either start with a fresh project (using `ng new`), or add mobile to an existing project (using `ng add`). There is also a simple naming convention to enable code separation, which allows you to cover many scenarios.
