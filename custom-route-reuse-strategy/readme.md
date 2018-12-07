@@ -105,7 +105,7 @@ What if you have more than one details component like that? Are we going to star
 
 ## "Custom" Custom Route Reuse Strategy - The proper solution
 
-Then I talked Alex Vakrilov from the NativeScript Core team...
+Then I talked to Alex Vakrilov from the NativeScript Core team...
 and he said:
 
 ![Nope](./images/slap.gif?raw=true)
