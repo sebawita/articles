@@ -81,6 +81,8 @@ export class ItemDetailComponentB extends ItemDetailComponent {
 }
 ```
 
+### The full hack
+
 See the full example in [Playground](https://play.nativescript.org/?template=play-ng&id=LBuyAm&v=1).
 
 ### Conclusion to the hack
@@ -97,7 +99,6 @@ Even though this works, it is not a great solution, it is a great hack, but not 
 
 
 What if you have more than one details component like that? Are we going to start questioning whether Angular and NativeScript are the right frameworks for the job that we need them for?
-
 
 ![Nope](./images/nope.gif?raw=true)
 ![Nope](./images/nope.gif?raw=true)
@@ -235,6 +236,8 @@ This is done by adding our new CRRS class as `RouteReuseStrategy` to the `AppMod
 ### The full solution
 
 You can see the full solution in [Playground](https://play.nativescript.org/?template=play-ng&id=LBuyAm)
+
+![custom-route-reuse-strategy](./images/custom-route-reuse-strategy.gif?raw=true)
 
 ## Conclusion
 
