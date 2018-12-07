@@ -9,7 +9,7 @@ Every now and then I am asked to help with various NativeScript challenges. I wa
 
 ## What is happening?
 
-<iframe src="https://giphy.com/embed/FFb9yZK6t0oDu" width="800" height="400" frameBorder="0"></iframe>
+![What is happening](./images/what-is-happening.gif?raw=true)
 
 Before anyone starts a new Twitter war, this **is** the **expected behaviour**. Let me explain:
 
@@ -92,7 +92,9 @@ Even though this works, it is not a great solution, it is a great hack, but not 
 * in 2 weeks you won't even remember why you did that,
 * it probably causes more issues than it solves
 
-<iframe src="https://giphy.com/embed/VZ5gRT17YNkn6" width="480" height="269" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
+
+![Bad solution](./images/bad-solution.gif?raw=true)
+
 
 What if you have more than one details component like that? Are we going to start questioning whether Angular and NativeScript are the right frameworks for the job that we need them for?
 
@@ -106,7 +108,7 @@ What if you have more than one details component like that? Are we going to star
 Then I talked Alex Vakrilov from the NativeScript Core team...
 and he said:
 
-<iframe src="https://giphy.com/embed/j3iGKfXRKlLqw" width="800" height="400" frameBorder="0"></iframe>
+![Nope](./images/slap.gif?raw=true)
 
 OK, so back to the drawing board. Instead, we should **extend** the existing **Custom Route Reuse Strategy**, and make it fulfil the requirements of our app.
 
@@ -236,7 +238,7 @@ You can see the full solution in [Playground](https://play.nativescript.org/?tem
 
 ## Conclusion
 
-<iframe src="https://giphy.com/embed/10b5OIygRa79te" width="800" height="400" frameBorder="0"></iframe>
+![well done](./images/well-done.gif?raw=true)
 
 As you can see, implementing a Custom Route Reuse Strategy, is not only the best solution, but it is also simple and quite elegant. You can very easily add the `noReuse` flag to any path you don't want to reuse, while keeping it for all the other paths.
 
