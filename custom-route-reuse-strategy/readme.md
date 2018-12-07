@@ -158,7 +158,7 @@ shouldReuseRoute(future: ActivatedRouteSnapshot, current: ActivatedRouteSnapshot
 
 This is where we need to focus on the proper solution.
 
-We **MUST ALWAYS** call `shouldReuseRoute()` from the parent, as it handles important operations required to handle the navigation, and also the result will let us know when it intends to reuse the current route.
+We **MUST ALWAYS** call `shouldReuseRoute()` from the parent, as it used to **mark** the activated routes that are page-specific, and also the result will let us know when it intends to reuse the current route.
 
 ```
 let shouldReuse = super.shouldReuseRoute(future, current);
