@@ -181,6 +181,10 @@ Additionally, because Bazel can build all of its dependencies, that means it cou
 This is just a tip of the iceberg.
 
 > Alex Eagle from the Angular team said:
-> "The big thing I want to convey to the community is that we get stuck in this pattern where every bundler or testing tool is a build system. Each needs plugins for every language and a UI for presenting results and a story for incrementality, etc. We believe we can finally break this cycle."
+> "The JavaScript community has gotten into the pattern that every devserver, bundler, or test runner tool has to accept the original program sources as inputs, and that means each tool gradually expands its scope to include a build system. It starts trivial (just call the Babel API) and expands to include ESnext transpilers, CSS preprocessors, framework compilers, html injection, and more.
+We are fortunate to have a community of developers contributing all these plugins to each tool. However, the resulting system inhibits innovation. A new language tool needs to have plugins for every popular builder, and a new builder tool needs to have plugins for every popular language.
+We'd be better served by keeping layering distinct, so that bundlers, devservers, and test runners can re-use a composable build system that already has an ecosystem of language plugins."
 
 You could already use Bazel to build Angular, to learn more check out the [Angular Bazel Example Wiki](https://github.com/angular/angular-bazel-example/wiki). You could also see the [canonical example](https://github.com/alexeagle/angular-bazel-example) maintained by the Angular team at Google.
+
+You can find out more about ABC (Angular Buildtools Convergence) from this [document](http://g.co/ng/abc).
