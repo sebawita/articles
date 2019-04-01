@@ -57,7 +57,7 @@ Let's have a look at some of the most common challenges.
 
 ### Lack of proper acknowledgments
 
-Another important part of human-like interaction mechanism is two-way communication. When you talk to another person, often you will look for clues to see if the other person understood what you are talking about.
+An important part of human-like interaction mechanism is two-way communication. When you talk to another person, often you will look for clues to see if the other person understood what you are talking about.
 
 This is even more important when we interact with machines. So, if a conversation goes as follows:
 
