@@ -16,7 +16,7 @@ The emergence of chatbots brought in a whole new set of possibilities and ways i
 
 Chatbots can help reduce the common reception/call center pain points.
 
-How many customers abandon their call with Customer Service, because they had enough of listening to the same annoying melody on a loop, whilst waiting to speak to an agent? Chatbots never get tired, so you could provide a basic/medium level of service 24/7 and without any delay. As a result you will get a lower drop out rate.
+How many customers abandon their call with Customer Service, because they had enough of listening to the same annoying melody on a loop, whilst waiting to speak to an agent? Chatbots never get tired, so you could provide a basic/medium level of service 24/7 and without any delay. As a result, you will get a lower drop out rate.
 
 Chatbots <!--never get bored and they--> are great at handling repetitive tasks. While the chatbots take care of the most common scenarios, your agents can use their skills for more challenging requests. By relieving you agents of some of the workload, it shortens the queue for customers that want to talk to a person. 
 
@@ -154,9 +154,17 @@ Like this:
 > 
 > User: Wait... What?!? 🙄-->
 
+In this case, the chatbot expects to work in the following fixed steps:
 
-**The Expectation:**
-Allow users to provide your chatbot with the information, in the order that is convenient to them. But also allow them to change their previous answers. Then finally use prompts to guide users on the right path.
+1. Identify the conversation type => Buy Cinema Ticket
+2. Ask for the date
+3. Provide a list of films, and ask to choose one
+4. Provide a list of time slot, and ask to choose one
+5. Complete the booking
+
+So providing the date or a film title, before the chatbot identifies the conversation type, will result in the chatbot ignoring these details. It puts the chatbot in the driving seat, which asks the user for the input at its own convenience. Thus forcing the user into a single rigid flow, which makes it feel artificial, and the overall experience frustrating.
+
+The **expected behavior**, is to allow the users to provide the chatbot with the information, in the order that is convenient to them. But also allow them to change their previous answers. Then finally use prompts to guide users on the right path.
 
 Here is how the previous conversation should be handled:
 
@@ -172,6 +180,12 @@ Here is how the previous conversation should be handled:
 > 
 > Chat: "Today we show Spiderman at: [6PM] and [8PM]." <br\>
 > "What time would you like to watch it?"-->
+
+In general, the chatbot should be able to handle multiple ways of completing the same conversation. The chatbot should be more focused on what information it needs to complete its goals, than the order in which it is provided.
+
+> An advice to all chatbot developers out there:<br/>
+> "Bend, don't break with the ~~wind~~ user input."
+
 
 ### No understanding of business entities
 
@@ -208,7 +222,7 @@ The previous conversation should look like this:
 
 ![business-entities-good](./img/conversations/business-entities-good1.png?raw=true)
 
-Then once we identify the right doctor, we can provide the user with a well informed list of options.
+Then once we identify the right doctor, we can provide the user with a well-informed list of options.
 
 ![business-entities-good](./img/conversations/business-entities-good2.png?raw=true)
 
@@ -327,6 +341,7 @@ KinveyChat comes with a number of great features that will put you ahead of the 
 
 ### Natural Language Processing
 The chatbot can understand more than 72 languages and have a natural conversation with the user.
+With help of NLP now bots can extract every piece of information (entities values) from the utterances and fill the context with required values without the need to walk the user through every single step in hardly coded conversation flow. 
 
 ### Acknowledgements
 Acknowledgments make it easy for your users to understand what the chatbot has recognized.
