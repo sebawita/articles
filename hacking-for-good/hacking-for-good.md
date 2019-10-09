@@ -81,18 +81,18 @@ Each submission was judged based on the following 3 categories:
 **Innovation**
 
 <img alt="innovation lightbulb" src="https://ng-ns.org/assets/img/innovation.svg">
- 
+
 How original is the idea and execution?
 
 **Design**
- 
+
 <img alt="pixels and brushes" src="https://ng-ns.org/assets/img/design.svg">
 
 How good does it look and feel to use?
 
 **Utility**
 
-<img style="float: left;" alt="laptop heart" src="https://ng-ns.org/assets/img/useful.svg">
+<img alt="laptop heart" src="https://ng-ns.org/assets/img/useful.svg">
 
 Is the app offering a service I'd use again and again?
 
@@ -102,9 +102,10 @@ Is the app offering a service I'd use again and again?
 The winner and the second prize have been selected based on the highest score across all 3 categories.
 Additionally, we awarded the prizes for the best submissions in each category.
 
-Stanimira Vlaeva announced the winners at Angular Connect. You can watch it [here](https://youtu.be/lXbjICP6V44?t=3692).
+Stanimira Vlaeva announced the winners at Angular Connect. 
 
-Without any further ado, here are the winners 🎉
+<iframe width="560" height="315" src="https://www.youtube.com/embed/lXbjICP6V44?start=3717" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+Here is a more in depth overview of each winning team, their project and the good cause they set out to help. 🎉
 
 ### The Winner — $2000
 
