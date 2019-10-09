@@ -78,27 +78,23 @@ However, in order to pick the winners, we need clear criteria for us to judge al
 
 Each submission was judged based on the following 3 categories:
 
-<img style="float: left;" alt="innovation lightbulb" src="https://ng-ns.org/assets/img/innovation.svg?raw=true">
- **Innovation**
- How original is the idea and execution?
+**Innovation**
 
+<img alt="innovation lightbulb" src="https://ng-ns.org/assets/img/innovation.svg">
+ 
+How original is the idea and execution?
 
+**Design**
+ 
+<img alt="pixels and brushes" src="https://ng-ns.org/assets/img/design.svg">
 
+How good does it look and feel to use?
 
-
-<img style="float: left;" alt="pixels and brushes" src="https://ng-ns.org/assets/img/design.svg?raw=true">
- **Design**
- How good does it look and feel to use?
-
-
-
-
-
-<img style="float: left;" alt="laptop heart" src="https://ng-ns.org/assets/img/useful.svg?raw=true">
 **Utility**
+
+<img style="float: left;" alt="laptop heart" src="https://ng-ns.org/assets/img/useful.svg">
+
 Is the app offering a service I'd use again and again?
-
-
 
 
 ### Announcement
