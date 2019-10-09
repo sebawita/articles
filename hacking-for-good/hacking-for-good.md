@@ -104,7 +104,13 @@ Additionally, we awarded the prizes for the best submissions in each category.
 
 Stanimira Vlaeva announced the winners at Angular Connect. 
 
+[![Angular Connect Video](./img/AngularConnect.png?raw=true)](https://www.youtube.com/embed/lXbjICP6V44?start=3717 "Angular Connect - Hack for Good")
+
+<!--
+
 <iframe width="560" height="315" src="https://www.youtube.com/embed/lXbjICP6V44?start=3717" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+-->
+
 Here is a more in depth overview of each winning team, their project and the good cause they set out to help. 🎉
 
 ### The Winner — $2000
