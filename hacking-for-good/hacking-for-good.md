@@ -146,10 +146,16 @@ This was project was a very close second. Yet again, we fell in love with an app
 
 It is a project for people, who are keen on plogging. The application shows planned and finished events, teams and users who participated in these events and their result (total collected garbage and results by categories: metal, plastic, glass). You can see results by race, team, runner. If you authorized, you can join the event or team and watch your personal results.
 
+**Do you plan to continue working on this project?**
+
+I'm sure of it. Now, I have only an MVP, that can demonstrate the idea and I am going to develop the full-fledged app.
+
+I've demonstrated this app to the participants of the Belarusian Plogging races. And they liked the idea so much.
+
 
 ### The Innovation Prize — $500
 
-The Innovation Prize was awarded to the Team **Tech4GoodPH** for their Global app helping with Garbage Disposal.
+The Innovation Prize was awarded to the Team **Tech4GoodPH** for their app for **Solid Waste Management** in the Philippines.
 
 <img src="./img/Innovation-1.jpg?raw=true" alt="Innovation - Home Page" height=400> <img src="./img/Innovation-2.jpg?raw=true" alt="Innovation - Home Page" height=400> <img src="./img/Innovation-3.jpg?raw=true" alt="Innovation - Home Page" height=400>
 
@@ -157,10 +163,23 @@ The Innovation Prize was awarded to the Team **Tech4GoodPH** for their Global ap
 
 We liked the idea of using maps to visualise the issues with garbage waste management, and also for looking to solve the problem through a community building a solid data reports, which could be used as solid evidence to move things forward.
 
+Although, the app is aimed at the Philippines, we can see this being used in other locations across the planet.
+
 **The idea**
 
-The Philippines is frequently rated as one of the least disciplined countries on the garbage disposal. This leads to disasters such as flooding and landslides that further endanger millions of lives. Our project, Bayanihan Maps, aims to support NGOs and Local Government Units in their programs and/or policies on Solid Waste Management by enabling users to report locations that need improvement (Bad) and proper locations for garbage disposal (Good). The data that our app collects will be made open and accessible for analysis.
-Future developments will encourage users to report by having gamification in the app and will also be able to generate intelligent insights by having big data analysis on the backend.
+The Philippines is frequently rated as one of the least disciplined countries on garbage disposal. This leads to disasters such as flooding and landslides that further endanger millions of lives. 
+
+Our project, Bayanihan Maps, aims to support NGOs and Local Government Units in their programs and/or policies on Solid Waste Management by enabling users to report locations that need improvement (Bad) and proper locations for garbage disposal (Good). The data that our app collects will be made open and accessible for analysis.
+
+**Do you plan to continue working on this project?**
+
+Yes, we do, and we already have some ideas on what we want to do next.
+
+Future developments will encourage users to report by having some sort of gamification in the app and will also be able to generate intelligent insights by having big data analysis on the backend.
+
+We'll also have a way to mark bad locations as "Resolved", after which the marker and rating will change.
+
+We will also have a feature to facilitate "Clean up drives" where an organiser can specify an area in the map for the drive. The clean up drive can be "Joined" by users who want to join. There will be a "Scoring System" during a drive, and the organisers can "Add Rewards" for categories such as "Highest Score for Resolving Bad Areas" or "Highest Score for Reporting Bad Areas".
 
 ### The Design Prize — $500
 
