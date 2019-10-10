@@ -126,6 +126,8 @@ Here is a more in depth overview of each winning team, their project and the goo
 
 The winning submission came from **Team Alex** with the project for [Plastic Oceans UK](https://plasticoceans.uk/).
 
+[GitHub Repo](https://github.com/Aceman18/ns-ng-hackathon-2019)
+
 <img src="./img/Winner-1.gif?raw=true" alt="Winner Home Page" height=400> <img src="./img/Winner-2.gif?raw=true" alt="Winner Donate Page" height=400> <img src="./img/Winner-3.gif?raw=true" alt="Winner Donate Page" height=400>
 
 **From the judging panel**
@@ -144,6 +146,8 @@ I chose Plastic Oceans UK one because I believe strongly in helping to protect o
 ### The Second Prize — $1000
 
 The Second Prize was awarded to the Team **Bessia** for the app that helps organise [Plogging](https://en.wikipedia.org/wiki/Plogging) events.
+
+[GitHub Repo](https://github.com/hateart/plogging)
 
 <img src="./img/Second-prize-1.png?raw=true" alt="Plogging Home Page" height=400> <img src="./img/Second-prize-2.png?raw=true" alt="Plogging Home Page" height=400>
 
@@ -165,6 +169,8 @@ I've demonstrated this app to the participants of the Belarusian Plogging races.
 ### The Innovation Prize — $500
 
 The Innovation Prize was awarded to the Team **Tech4GoodPH** for their app for **Solid Waste Management** in the Philippines.
+
+[GitHub Repo](https://github.com/tech4GoodPH/ng-ns-tech4goodph)
 
 <img src="./img/Innovation-1.jpg?raw=true" alt="Innovation - Home Page" height=400> <img src="./img/Innovation-2.jpg?raw=true" alt="Innovation - Home Page" height=400> <img src="./img/Innovation-3.jpg?raw=true" alt="Innovation - Home Page" height=400>
 
@@ -194,6 +200,8 @@ We will also have a feature to facilitate "Clean up drives" where an organiser c
 
 The Design Prize was awarded to the Team **William** for their shiny app helping for [TU.TO.R](https://www.tumoritoracicirari.it/).
 
+[GitHub Repo](https://github.com/williamjuan027/nsng-hackforgood)
+
 <img src="./img/Design.gif?raw=true" alt="Design - Home Page" height=400> <img src="./img/Design.png?raw=true" alt="Design - Home Page" height=400>
 
 **From the judging panel**
@@ -207,6 +215,8 @@ Worked on the app for patients to track their activity. Focused mainly on the us
 ### The Utility Prize — $500
 
 The Utility Prize was awarded to the Team **TNS** for their practical app for [Ronald McDonald House Charities](https://rmhc.org.uk/).
+
+*No GitHub repo*
 
 <img src="./img/Utility-1.png?raw=true" alt="Utility - Garbage Map" height=400><img src="./img/Utility-2.png?raw=true" alt="Utility - Show Item" height=400><img src="./img/Utility-3.png?raw=true" alt="Utility - Heat Map" height=400>
 
