@@ -237,7 +237,13 @@ Ronald McDonald House Charities, they supply room and board for families who hav
 Yes! We showed the app to our charity, and they wanted to start using it. We are working with them to improve the styling and making it easier for them to integrate with their workflow.
 
 
-## We shall do it again
+## Final words
+
+Events like this demonstrate the real power of the community and the potential of how much good we can all make when we put our hearts into it.
+
+It is good to get out of our daily jobs and use our skills for something that we all believe and make a real difference to our communities and the planet.
+
+### We shall do it again
 
 We have thoroughly enjoyed this event, the vibe and the apps that the participants built.
 
