@@ -10,6 +10,15 @@ The Angular and NativeScript teams have teamed up to organise [Hack For Good](ht
 [The rules](https://ng-ns.org/rules) were quite simple: starting from Thursday the **12th of September**, participants — **working alone** or **in teams** of up to 4 people — had **96 hours** to build a **Native Mobile App** — using **NativeScript** and **Angular** — for an **NGO** or a **Good Cause** of their choice.
 
 
+
+## NativeScript Angular
+
+![NativeScript + Angular](./img/nativescript-loves-angular.png?raw=true)
+
+[NativeScript](https://www.nativescript.org/) is an Open Source framework for building **truly native** mobile apps with **JavaScript**.
+
+It allows you to use web skills, like: **TypeScript**, **Angular** and **CSS**, and get **native UI** & **performance** on **iOS** and **Android**.
+
 ## The real objective
 
 Even though we didn't expect any of the submissions to be production-ready after 96 hours, we didn't want anyone to build an app for the sake of it. The idea was to encourage as many people out there as possible to use their skills to make a real difference to their communities and to make the world a better place.
