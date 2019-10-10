@@ -1,6 +1,6 @@
 # Hack for Good
 
-<img src="./img/Hack-for-good.png?raw=true" alt="Hack for Good" style="zoom:75%;" />
+<img src="./img/Hack-for-good.png?raw=true" alt="Hack for Good" width=100%/>
 
 The Angular and NativeScript teams have teamed up to organise [Hack For Good](https://ng-ns.org/) — an online hackathon with prizes, where all participants were asked to build mobile apps with [NativeScript Angular](https://www.nativescript.org/nativescript-is-how-you-build-native-mobile-apps-with-angular) for NGOs and in general for the good cause.
 
