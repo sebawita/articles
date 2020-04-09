@@ -13,11 +13,25 @@ Like this one:
 ///VIDEO
 <video src="./media/01-Covid-Demo-fast-750-718.mp4?raw=true"></video>
 
+
+
+### The purpose
+
+The purpose of this article is to provide you with guidance on how to use **NativeChat** with **COVID-19 Q&A** project template.
+
+You will learn:
+
+- how to modify existing Questions and Answers
+- how to add new/remove unwanted Q&As
+- how to add conversation helpers, which display a list of available questions to the user
+
 ## Set up the account
 
 /// TODO: add a link to the registration page
 
-If you are new to NativeChat, and you don't have an account with us yet, you can go to [registration page](), create a new account, which will automatically 
+If you are new to NativeChat, and you don't have an account with us yet, you can create an account using the [nativechat registration page]().
+
+Creating an account should automatically create a new Covid-19 Chatbot project for you.
 
 ##Create a new project
 
