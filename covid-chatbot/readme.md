@@ -10,6 +10,7 @@ We have prepared a sample COVID-19 chatbot, which comes with a predefined set of
 
 Like this one:
 
+///VIDEO
 <video src="./media/01-Covid-Demo-fast-750-718.mp4?raw=true"></video>
 
 ## Set up the account
@@ -54,6 +55,7 @@ And the chatbot will respond with a list of available travel questions.
 
 You chatbot conversation should look like this:
 
+///VIDEO
 <video src="/Users/administrator/github/articles/covid-chatbot/media/Covid-First-Test-630-720.mp4?raw=true"></video>
 
 ## Reviewing existing Questions and Answers
@@ -249,8 +251,6 @@ To do that just click on the trash can icon, and the whole Q&A will be gone.
 > Before you make any major changes, you can export the whole Q&A category to a csv file. Then if you want to go back to where you were, you can import it back.
 
 
-
-/// TODO: Consider if this should be a blogpost on its own
 
 ## List of possible questions
 
@@ -489,6 +489,7 @@ Press the save button, and we should be good to go.
 
 Here is a video of how to complete this whole task:
 
+///VIDEO
 <video src="./media/03-Add-general-qna-1300-1040.mp4?raw=true"></video>
 
 ### Add Conversation Trigger
