@@ -1,0 +1,589 @@
+<!doctype html>
+<html>
+<head>
+<meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
+<title>readme</title><link href='https://fonts.loli.net/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext' rel='stylesheet' type='text/css' /><style type='text/css'>html {overflow-x: initial !important;}:root { --bg-color: #ffffff; --text-color: #333333; --select-text-bg-color: #B5D6FC; --select-text-font-color: auto; --monospace: "Lucida Console",Consolas,"Courier",monospace; }
+html { font-size: 14px; background-color: var(--bg-color); color: var(--text-color); font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
+body { margin: 0px; padding: 0px; height: auto; bottom: 0px; top: 0px; left: 0px; right: 0px; font-size: 1rem; line-height: 1.42857143; overflow-x: hidden; background-image: inherit; background-size: inherit; background-attachment: inherit; background-origin: inherit; background-clip: inherit; background-color: inherit; tab-size: 4; background-position: inherit inherit; background-repeat: inherit inherit; }
+iframe { margin: auto; }
+a.url { word-break: break-all; }
+a:active, a:hover { outline: 0px; }
+.in-text-selection, ::selection { text-shadow: none; background: var(--select-text-bg-color); color: var(--select-text-font-color); }
+#write { margin: 0px auto; height: auto; width: inherit; word-break: normal; word-wrap: break-word; position: relative; white-space: normal; overflow-x: visible; padding-top: 40px; }
+#write.first-line-indent p { text-indent: 2em; }
+#write.first-line-indent li p, #write.first-line-indent p * { text-indent: 0px; }
+#write.first-line-indent li { margin-left: 2em; }
+.for-image #write { padding-left: 8px; padding-right: 8px; }
+body.typora-export { padding-left: 30px; padding-right: 30px; }
+.typora-export .footnote-line, .typora-export li, .typora-export p { white-space: pre-wrap; }
+@media screen and (max-width: 500px) { 
+  body.typora-export { padding-left: 0px; padding-right: 0px; }
+  #write { padding-left: 20px; padding-right: 20px; }
+  .CodeMirror-sizer { margin-left: 0px !important; }
+  .CodeMirror-gutters { display: none !important; }
+}
+#write li > figure:last-child { margin-bottom: 0.5rem; }
+#write ol, #write ul { position: relative; }
+img { max-width: 100%; vertical-align: middle; }
+button, input, select, textarea { color: inherit; font-family: inherit; font-size: inherit; font-style: inherit; font-variant-caps: inherit; font-weight: inherit; font-stretch: inherit; line-height: inherit; }
+input[type="checkbox"], input[type="radio"] { line-height: normal; padding: 0px; }
+*, ::after, ::before { box-sizing: border-box; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p, #write pre { width: inherit; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p { position: relative; }
+p { line-height: inherit; }
+h1, h2, h3, h4, h5, h6 { break-after: avoid-page; break-inside: avoid; orphans: 2; }
+p { orphans: 4; }
+h1 { font-size: 2rem; }
+h2 { font-size: 1.8rem; }
+h3 { font-size: 1.6rem; }
+h4 { font-size: 1.4rem; }
+h5 { font-size: 1.2rem; }
+h6 { font-size: 1rem; }
+.md-math-block, .md-rawblock, h1, h2, h3, h4, h5, h6, p { margin-top: 1rem; margin-bottom: 1rem; }
+.hidden { display: none; }
+.md-blockmeta { color: rgb(204, 204, 204); font-weight: 700; font-style: italic; }
+a { cursor: pointer; }
+sup.md-footnote { padding: 2px 4px; background-color: rgba(238, 238, 238, 0.701961); color: rgb(85, 85, 85); border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px; cursor: pointer; }
+sup.md-footnote a, sup.md-footnote a:hover { color: inherit; text-transform: inherit; text-decoration: inherit; }
+#write input[type="checkbox"] { cursor: pointer; width: inherit; height: inherit; }
+figure { overflow-x: auto; margin: 1.2em 0px; max-width: calc(100% + 16px); padding: 0px; }
+figure > table { margin: 0px !important; }
+tr { break-inside: avoid; break-after: auto; }
+thead { display: table-header-group; }
+table { border-collapse: collapse; border-spacing: 0px; width: 100%; overflow: auto; break-inside: auto; text-align: left; }
+table.md-table td { min-width: 32px; }
+.CodeMirror-gutters { border-right-width: 0px; background-color: inherit; }
+.CodeMirror-linenumber { }
+.CodeMirror { text-align: left; }
+.CodeMirror-placeholder { opacity: 0.3; }
+.CodeMirror pre { padding: 0px 4px; }
+.CodeMirror-lines { padding: 0px; }
+div.hr:focus { cursor: none; }
+#write pre { white-space: pre-wrap; }
+#write.fences-no-line-wrapping pre { white-space: pre; }
+#write pre.ty-contain-cm { white-space: normal; }
+.CodeMirror-gutters { margin-right: 4px; }
+.md-fences { font-size: 0.9rem; display: block; break-inside: avoid; text-align: left; overflow: visible; white-space: pre; background-image: inherit; background-size: inherit; background-attachment: inherit; background-origin: inherit; background-clip: inherit; background-color: inherit; position: relative !important; background-position: inherit inherit; background-repeat: inherit inherit; }
+.md-diagram-panel { width: 100%; margin-top: 10px; text-align: center; padding-top: 0px; padding-bottom: 8px; overflow-x: auto; }
+#write .md-fences.mock-cm { white-space: pre-wrap; }
+.md-fences.md-fences-with-lineno { padding-left: 0px; }
+#write.fences-no-line-wrapping .md-fences.mock-cm { white-space: pre; overflow-x: auto; }
+.md-fences.mock-cm.md-fences-with-lineno { padding-left: 8px; }
+.CodeMirror-line, twitterwidget { break-inside: avoid; }
+.footnotes { opacity: 0.8; font-size: 0.9rem; margin-top: 1em; margin-bottom: 1em; }
+.footnotes + .footnotes { margin-top: 0px; }
+.md-reset { margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: top; text-decoration: none; text-shadow: none; float: none; position: static; width: auto; height: auto; white-space: nowrap; cursor: inherit; line-height: normal; font-weight: 400; text-align: left; box-sizing: content-box; direction: ltr; background-position: 0px 0px; background-repeat: initial initial; }
+li div { padding-top: 0px; }
+blockquote { margin: 1rem 0px; }
+li .mathjax-block, li p { margin: 0.5rem 0px; }
+li { margin: 0px; position: relative; }
+blockquote > :last-child { margin-bottom: 0px; }
+blockquote > :first-child, li > :first-child { margin-top: 0px; }
+.footnotes-area { color: rgb(136, 136, 136); margin-top: 0.714rem; padding-bottom: 0.143rem; white-space: normal; }
+#write .footnote-line { white-space: pre-wrap; }
+@media print { 
+  body, html { border: 1px solid transparent; height: 99%; break-after: avoid; break-before: avoid; }
+  #write { margin-top: 0px; padding-top: 0px; border-color: transparent !important; }
+  .typora-export * { -webkit-print-color-adjust: exact; }
+  html.blink-to-pdf { font-size: 13px; }
+  .typora-export #write { padding-left: 32px; padding-right: 32px; padding-bottom: 0px; break-after: avoid; }
+  .typora-export #write::after { height: 0px; }
+}
+.footnote-line { margin-top: 0.714em; font-size: 0.7em; }
+a img, img a { cursor: pointer; }
+pre.md-meta-block { font-size: 0.8rem; min-height: 0.8rem; white-space: pre-wrap; background-color: rgb(204, 204, 204); display: block; overflow-x: hidden; background-position: initial initial; background-repeat: initial initial; }
+p > .md-image:only-child:not(.md-img-error) img, p > img:only-child { display: block; margin: auto; }
+p > .md-image:only-child { display: inline-block; width: 100%; }
+#write .MathJax_Display { margin: 0.8em 0px 0px; }
+.md-math-block { width: 100%; }
+.md-math-block:not(:empty)::after { display: none; }
+[contenteditable="true"]:active, [contenteditable="true"]:focus, [contenteditable="false"]:active, [contenteditable="false"]:focus { outline: 0px; box-shadow: none; }
+.md-task-list-item { position: relative; list-style-type: none; }
+.task-list-item.md-task-list-item { padding-left: 0px; }
+.md-task-list-item > input { position: absolute; top: 0px; left: 0px; margin-left: -1.2em; margin-top: calc(1em - 10px); border: none; }
+.math { font-size: 1rem; }
+.md-toc { min-height: 3.58rem; position: relative; font-size: 0.9rem; border-top-left-radius: 10px; border-top-right-radius: 10px; border-bottom-right-radius: 10px; border-bottom-left-radius: 10px; }
+.md-toc-content { position: relative; margin-left: 0px; }
+.md-toc-content::after, .md-toc::after { display: none; }
+.md-toc-item { display: block; color: rgb(65, 131, 196); }
+.md-toc-item a { text-decoration: none; }
+.md-toc-inner:hover { text-decoration: underline; }
+.md-toc-inner { display: inline-block; cursor: pointer; }
+.md-toc-h1 .md-toc-inner { margin-left: 0px; font-weight: 700; }
+.md-toc-h2 .md-toc-inner { margin-left: 2em; }
+.md-toc-h3 .md-toc-inner { margin-left: 4em; }
+.md-toc-h4 .md-toc-inner { margin-left: 6em; }
+.md-toc-h5 .md-toc-inner { margin-left: 8em; }
+.md-toc-h6 .md-toc-inner { margin-left: 10em; }
+@media screen and (max-width: 48em) { 
+  .md-toc-h3 .md-toc-inner { margin-left: 3.5em; }
+  .md-toc-h4 .md-toc-inner { margin-left: 5em; }
+  .md-toc-h5 .md-toc-inner { margin-left: 6.5em; }
+  .md-toc-h6 .md-toc-inner { margin-left: 8em; }
+}
+a.md-toc-inner { font-size: inherit; font-style: inherit; font-weight: inherit; line-height: inherit; }
+.footnote-line a:not(.reversefootnote) { color: inherit; }
+.md-attr { display: none; }
+.md-fn-count::after { content: "."; }
+code, pre, samp, tt { font-family: var(--monospace); }
+kbd { margin: 0px 0.1em; padding: 0.1em 0.6em; font-size: 0.8em; color: rgb(36, 39, 41); background-color: rgb(255, 255, 255); border: 1px solid rgb(173, 179, 185); border-top-left-radius: 3px; border-top-right-radius: 3px; border-bottom-right-radius: 3px; border-bottom-left-radius: 3px; box-shadow: rgba(12, 13, 14, 0.2) 0px 1px 0px, rgb(255, 255, 255) 0px 0px 0px 2px inset; white-space: nowrap; vertical-align: middle; background-position: initial initial; background-repeat: initial initial; }
+.md-comment { color: rgb(162, 127, 3); opacity: 0.8; font-family: var(--monospace); }
+code { text-align: left; }
+a.md-print-anchor { white-space: pre !important; border: none !important; display: inline-block !important; position: absolute !important; width: 1px !important; right: 0px !important; outline: 0px !important; text-shadow: initial !important; background-position: 0px 0px !important; background-repeat: initial initial !important; }
+.md-inline-math .MathJax_SVG .noError { display: none !important; }
+.html-for-mac .inline-math-svg .MathJax_SVG { vertical-align: 0.2px; }
+.md-math-block .MathJax_SVG_Display { text-align: center; margin: 0px; position: relative; text-indent: 0px; max-width: none; max-height: none; min-height: 0px; min-width: 100%; width: auto; overflow-y: hidden; display: block !important; }
+.MathJax_SVG_Display, .md-inline-math .MathJax_SVG_Display { width: auto; margin: inherit; display: inline-block !important; }
+.MathJax_SVG .MJX-monospace { font-family: var(--monospace); }
+.MathJax_SVG .MJX-sans-serif { font-family: sans-serif; }
+.MathJax_SVG { display: inline; font-style: normal; font-weight: 400; line-height: normal; zoom: 90%; text-indent: 0px; text-align: left; text-transform: none; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; direction: ltr; max-width: none; max-height: none; min-width: 0px; min-height: 0px; border: 0px; padding: 0px; margin: 0px; }
+.MathJax_SVG * { transition: none; }
+.MathJax_SVG_Display svg { vertical-align: middle !important; margin-bottom: 0px !important; margin-top: 0px !important; }
+.os-windows.monocolor-emoji .md-emoji { font-family: "Segoe UI Symbol", sans-serif; }
+.md-diagram-panel > svg { max-width: 100%; }
+[lang="flow"] svg, [lang="mermaid"] svg { max-width: 100%; height: auto; }
+[lang="mermaid"] .node text { font-size: 1rem; }
+table tr th { border-bottom-width: 0px; }
+video { max-width: 100%; display: block; margin: 0px auto; }
+iframe { max-width: 100%; width: 100%; border: none; }
+.highlight td, .highlight tr { border: 0px; }
+svg[id^="mermaidChart"] { line-height: 1em; }
+mark { background-color: rgb(255, 255, 0); color: rgb(0, 0, 0); background-position: initial initial; background-repeat: initial initial; }
+.md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong { color: inherit; }
+mark .md-meta { color: rgb(0, 0, 0); opacity: 0.3 !important; }
+
+
+.CodeMirror { height: auto; }
+.CodeMirror.cm-s-inner { background-image: inherit; background-size: inherit; background-attachment: inherit; background-origin: inherit; background-clip: inherit; background-color: inherit; background-position: inherit inherit; background-repeat: inherit inherit; }
+.CodeMirror-scroll { overflow-y: hidden; overflow-x: auto; z-index: 3; }
+.CodeMirror-gutter-filler, .CodeMirror-scrollbar-filler { background-color: rgb(255, 255, 255); }
+.CodeMirror-gutters { border-right-width: 1px; border-right-style: solid; border-right-color: rgb(221, 221, 221); background-image: inherit; background-size: inherit; background-attachment: inherit; background-origin: inherit; background-clip: inherit; background-color: inherit; white-space: nowrap; background-position: inherit inherit; background-repeat: inherit inherit; }
+.CodeMirror-linenumber { padding: 0px 3px 0px 5px; text-align: right; color: rgb(153, 153, 153); }
+.cm-s-inner .cm-keyword { color: rgb(119, 0, 136); }
+.cm-s-inner .cm-atom, .cm-s-inner.cm-atom { color: rgb(34, 17, 153); }
+.cm-s-inner .cm-number { color: rgb(17, 102, 68); }
+.cm-s-inner .cm-def { color: rgb(0, 0, 255); }
+.cm-s-inner .cm-variable { color: rgb(0, 0, 0); }
+.cm-s-inner .cm-variable-2 { color: rgb(0, 85, 170); }
+.cm-s-inner .cm-variable-3 { color: rgb(0, 136, 85); }
+.cm-s-inner .cm-string { color: rgb(170, 17, 17); }
+.cm-s-inner .cm-property { color: rgb(0, 0, 0); }
+.cm-s-inner .cm-operator { color: rgb(152, 26, 26); }
+.cm-s-inner .cm-comment, .cm-s-inner.cm-comment { color: rgb(170, 85, 0); }
+.cm-s-inner .cm-string-2 { color: rgb(255, 85, 0); }
+.cm-s-inner .cm-meta { color: rgb(85, 85, 85); }
+.cm-s-inner .cm-qualifier { color: rgb(85, 85, 85); }
+.cm-s-inner .cm-builtin { color: rgb(51, 0, 170); }
+.cm-s-inner .cm-bracket { color: rgb(153, 153, 119); }
+.cm-s-inner .cm-tag { color: rgb(17, 119, 0); }
+.cm-s-inner .cm-attribute { color: rgb(0, 0, 204); }
+.cm-s-inner .cm-header, .cm-s-inner.cm-header { color: rgb(0, 0, 255); }
+.cm-s-inner .cm-quote, .cm-s-inner.cm-quote { color: rgb(0, 153, 0); }
+.cm-s-inner .cm-hr, .cm-s-inner.cm-hr { color: rgb(153, 153, 153); }
+.cm-s-inner .cm-link, .cm-s-inner.cm-link { color: rgb(0, 0, 204); }
+.cm-negative { color: rgb(221, 68, 68); }
+.cm-positive { color: rgb(34, 153, 34); }
+.cm-header, .cm-strong { font-weight: 700; }
+.cm-del { text-decoration: line-through; }
+.cm-em { font-style: italic; }
+.cm-link { text-decoration: underline; }
+.cm-error { color: red; }
+.cm-invalidchar { color: red; }
+.cm-constant { color: rgb(38, 139, 210); }
+.cm-defined { color: rgb(181, 137, 0); }
+div.CodeMirror span.CodeMirror-matchingbracket { color: rgb(0, 255, 0); }
+div.CodeMirror span.CodeMirror-nonmatchingbracket { color: rgb(255, 34, 34); }
+.cm-s-inner .CodeMirror-activeline-background { background-image: inherit; background-size: inherit; background-attachment: inherit; background-origin: inherit; background-clip: inherit; background-color: inherit; background-position: inherit inherit; background-repeat: inherit inherit; }
+.CodeMirror { position: relative; overflow: hidden; }
+.CodeMirror-scroll { height: 100%; outline: 0px; position: relative; box-sizing: content-box; background-image: inherit; background-size: inherit; background-attachment: inherit; background-origin: inherit; background-clip: inherit; background-color: inherit; background-position: inherit inherit; background-repeat: inherit inherit; }
+.CodeMirror-sizer { position: relative; }
+.CodeMirror-gutter-filler, .CodeMirror-hscrollbar, .CodeMirror-scrollbar-filler, .CodeMirror-vscrollbar { position: absolute; z-index: 6; display: none; }
+.CodeMirror-vscrollbar { right: 0px; top: 0px; overflow: hidden; }
+.CodeMirror-hscrollbar { bottom: 0px; left: 0px; overflow: hidden; }
+.CodeMirror-scrollbar-filler { right: 0px; bottom: 0px; }
+.CodeMirror-gutter-filler { left: 0px; bottom: 0px; }
+.CodeMirror-gutters { position: absolute; left: 0px; top: 0px; padding-bottom: 30px; z-index: 3; }
+.CodeMirror-gutter { white-space: normal; height: 100%; box-sizing: content-box; padding-bottom: 30px; margin-bottom: -32px; display: inline-block; }
+.CodeMirror-gutter-wrapper { position: absolute; z-index: 4; border: none !important; background-position: 0px 0px !important; background-repeat: initial initial !important; }
+.CodeMirror-gutter-background { position: absolute; top: 0px; bottom: 0px; z-index: 4; }
+.CodeMirror-gutter-elt { position: absolute; cursor: default; z-index: 4; }
+.CodeMirror-lines { cursor: text; }
+.CodeMirror pre { border-top-left-radius: 0px; border-top-right-radius: 0px; border-bottom-right-radius: 0px; border-bottom-left-radius: 0px; border-width: 0px; font-family: inherit; font-size: inherit; margin: 0px; white-space: pre; word-wrap: normal; color: inherit; z-index: 2; position: relative; overflow: visible; background-position: 0px 0px; background-repeat: initial initial; }
+.CodeMirror-wrap pre { word-wrap: break-word; white-space: pre-wrap; word-break: normal; }
+.CodeMirror-code pre { border-right-width: 30px; border-right-style: solid; border-right-color: transparent; width: fit-content; }
+.CodeMirror-wrap .CodeMirror-code pre { border-right-style: none; width: auto; }
+.CodeMirror-linebackground { position: absolute; left: 0px; right: 0px; top: 0px; bottom: 0px; z-index: 0; }
+.CodeMirror-linewidget { position: relative; z-index: 2; overflow: auto; }
+.CodeMirror-wrap .CodeMirror-scroll { overflow-x: hidden; }
+.CodeMirror-measure { position: absolute; width: 100%; height: 0px; overflow: hidden; visibility: hidden; }
+.CodeMirror-measure pre { position: static; }
+.CodeMirror div.CodeMirror-cursor { position: absolute; visibility: hidden; border-right-style: none; width: 0px; }
+.CodeMirror div.CodeMirror-cursor { visibility: hidden; }
+.CodeMirror-focused div.CodeMirror-cursor { visibility: inherit; }
+.cm-searching { background-color: rgba(255, 255, 0, 0.4); background-position: initial initial; background-repeat: initial initial; }
+@media print { 
+  .CodeMirror div.CodeMirror-cursor { visibility: hidden; }
+}
+
+
+:root {
+    --side-bar-bg-color: #fafafa;
+    --control-text-color: #777;
+}
+
+@include-when-export url(https://fonts.loli.net/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext);
+
+html {
+    font-size: 16px;
+}
+
+body {
+    font-family: "Open Sans","Clear Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
+    color: rgb(51, 51, 51);
+    line-height: 1.6;
+}
+
+#write {
+    max-width: 860px;
+  	margin: 0 auto;
+  	padding: 30px;
+    padding-bottom: 100px;
+}
+#write > ul:first-child,
+#write > ol:first-child{
+    margin-top: 30px;
+}
+
+a {
+    color: #4183C4;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    position: relative;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    font-weight: bold;
+    line-height: 1.4;
+    cursor: text;
+}
+h1:hover a.anchor,
+h2:hover a.anchor,
+h3:hover a.anchor,
+h4:hover a.anchor,
+h5:hover a.anchor,
+h6:hover a.anchor {
+    text-decoration: none;
+}
+h1 tt,
+h1 code {
+    font-size: inherit;
+}
+h2 tt,
+h2 code {
+    font-size: inherit;
+}
+h3 tt,
+h3 code {
+    font-size: inherit;
+}
+h4 tt,
+h4 code {
+    font-size: inherit;
+}
+h5 tt,
+h5 code {
+    font-size: inherit;
+}
+h6 tt,
+h6 code {
+    font-size: inherit;
+}
+h1 {
+    padding-bottom: .3em;
+    font-size: 2.25em;
+    line-height: 1.2;
+    border-bottom: 1px solid #eee;
+}
+h2 {
+   padding-bottom: .3em;
+    font-size: 1.75em;
+    line-height: 1.225;
+    border-bottom: 1px solid #eee;
+}
+h3 {
+    font-size: 1.5em;
+    line-height: 1.43;
+}
+h4 {
+    font-size: 1.25em;
+}
+h5 {
+    font-size: 1em;
+}
+h6 {
+   font-size: 1em;
+    color: #777;
+}
+p,
+blockquote,
+ul,
+ol,
+dl,
+table{
+    margin: 0.8em 0;
+}
+li>ol,
+li>ul {
+    margin: 0 0;
+}
+hr {
+    height: 2px;
+    padding: 0;
+    margin: 16px 0;
+    background-color: #e7e7e7;
+    border: 0 none;
+    overflow: hidden;
+    box-sizing: content-box;
+}
+
+li p.first {
+    display: inline-block;
+}
+ul,
+ol {
+    padding-left: 30px;
+}
+ul:first-child,
+ol:first-child {
+    margin-top: 0;
+}
+ul:last-child,
+ol:last-child {
+    margin-bottom: 0;
+}
+blockquote {
+    border-left: 4px solid #dfe2e5;
+    padding: 0 15px;
+    color: #777777;
+}
+blockquote blockquote {
+    padding-right: 0;
+}
+table {
+    padding: 0;
+    word-break: initial;
+}
+table tr {
+    border-top: 1px solid #dfe2e5;
+    margin: 0;
+    padding: 0;
+}
+table tr:nth-child(2n),
+thead {
+    background-color: #f8f8f8;
+}
+table tr th {
+    font-weight: bold;
+    border: 1px solid #dfe2e5;
+    border-bottom: 0;
+    margin: 0;
+    padding: 6px 13px;
+}
+table tr td {
+    border: 1px solid #dfe2e5;
+    margin: 0;
+    padding: 6px 13px;
+}
+table tr th:first-child,
+table tr td:first-child {
+    margin-top: 0;
+}
+table tr th:last-child,
+table tr td:last-child {
+    margin-bottom: 0;
+}
+
+.CodeMirror-lines {
+    padding-left: 4px;
+}
+
+.code-tooltip {
+    box-shadow: 0 1px 1px 0 rgba(0,28,36,.3);
+    border-top: 1px solid #eef2f2;
+}
+
+.md-fences,
+code,
+tt {
+    border: 1px solid #e7eaed;
+    background-color: #f8f8f8;
+    border-radius: 3px;
+    padding: 0;
+    padding: 2px 4px 0px 4px;
+    font-size: 0.9em;
+}
+
+code {
+    background-color: #f3f4f4;
+    padding: 0 2px 0 2px;
+}
+
+.md-fences {
+    margin-bottom: 15px;
+    margin-top: 15px;
+    padding-top: 8px;
+    padding-bottom: 6px;
+}
+
+
+.md-task-list-item > input {
+  margin-left: -1.3em;
+}
+
+@media print {
+    html {
+        font-size: 13px;
+    }
+    table,
+    pre {
+        page-break-inside: avoid;
+    }
+    pre {
+        word-wrap: break-word;
+    }
+}
+
+.md-fences {
+	background-color: #f8f8f8;
+}
+#write pre.md-meta-block {
+	padding: 1rem;
+    font-size: 85%;
+    line-height: 1.45;
+    background-color: #f7f7f7;
+    border: 0;
+    border-radius: 3px;
+    color: #777777;
+    margin-top: 0 !important;
+}
+
+.mathjax-block>.code-tooltip {
+	bottom: .375rem;
+}
+
+.md-mathjax-midline {
+    background: #fafafa;
+}
+
+#write>h3.md-focus:before{
+	left: -1.5625rem;
+	top: .375rem;
+}
+#write>h4.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+#write>h5.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+#write>h6.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+.md-image>.md-meta {
+    /*border: 1px solid #ddd;*/
+    border-radius: 3px;
+    padding: 2px 0px 0px 4px;
+    font-size: 0.9em;
+    color: inherit;
+}
+
+.md-tag {
+    color: #a7a7a7;
+    opacity: 1;
+}
+
+.md-toc { 
+    margin-top:20px;
+    padding-bottom:20px;
+}
+
+.sidebar-tabs {
+    border-bottom: none;
+}
+
+#typora-quick-open {
+    border: 1px solid #ddd;
+    background-color: #f8f8f8;
+}
+
+#typora-quick-open-item {
+    background-color: #FAFAFA;
+    border-color: #FEFEFE #e5e5e5 #e5e5e5 #eee;
+    border-style: solid;
+    border-width: 1px;
+}
+
+/** focus mode */
+.on-focus-mode blockquote {
+    border-left-color: rgba(85, 85, 85, 0.12);
+}
+
+header, .context-menu, .megamenu-content, footer{
+    font-family: "Segoe UI", "Arial", sans-serif;
+}
+
+.file-node-content:hover .file-node-icon,
+.file-node-content:hover .file-node-open-state{
+    visibility: visible;
+}
+
+.mac-seamless-mode #typora-sidebar {
+    background-color: #fafafa;
+    background-color: var(--side-bar-bg-color);
+}
+
+.md-lang {
+    color: #b4654d;
+}
+
+.html-for-mac .context-menu {
+    --item-hover-bg-color: #E6F0FE;
+}
+
+#md-notification .btn {
+    border: 0;
+}
+
+.dropdown-menu .divider {
+    border-color: #e5e5e5;
+}
+
+.ty-preferences .window-content {
+    background-color: #fafafa;
+}
+
+.ty-preferences .nav-group-item.active {
+    color: white;
+    background: #999;
+}
+
+ .typora-export li, .typora-export p, .typora-export,  .footnote-line {white-space: normal;} 
+</style>
+</head>
+<body class='typora-export' >
+<div  id='write'  class = 'is-mac'><h2><a name="overview" class="md-header-anchor"></a><span>Overview</span></h2><p>&nbsp;</p><p><span>With NativeChat you don’t need to be a developer to create a chatbot capable of answering all questions your employees might have.</span></p><p><span>Give control of the chatbot’s knowledge base to your HR team, and enable them to keep the questions and answers up to date, with no delays.</span></p><p><span>We have prepared a sample COVID-19 chatbot, which comes with a predefined set of Questions and Answers, which you could change to match the needs of your company.</span></p><p><span>Like this one:</span></p><video src="./media/01-Covid-Demo-fast-750-718.mp4?raw=true"></video><h2><a name="set-up-the-account" class="md-header-anchor"></a><span>Set up the account</span></h2><p><span>/// TODO: add a link to the registration page</span></p><p><span>If you are new to NativeChat, and you don&#39;t have an account with us yet, you can go to </span><a href=''><span>registration page</span></a><span>, create a new account, which will automatically </span></p><h2><a name="create-a-new-project" class="md-header-anchor"></a><span>Create a new project</span></h2><p><span>If you don&#39;t have a project yet, you can create it yourself at </span><a href='https://bots.nativechat.com'><span>bots.nativechat.com</span></a><span>.</span></p><p><span>Follow these steps:</span></p><ol start='' ><li><span>Select the </span><strong><span>Coronavirus FAQ</span></strong><span> Sample</span></li><li><span>Give your chatbot a name: </span><strong><span>Coronavirus FAQ</span></strong></li><li><span>Press the </span><strong><span>Create bot</span></strong><span> button</span></li></ol><p>&nbsp;</p><h2><a name="quick-test-of-the-project" class="md-header-anchor"></a><span>Quick test of the project</span></h2><p><span>On the right hand side, there is a test window, which allows you to play with the chatbot.</span></p><p><span>Try asking it some questions like:</span></p><ul><li><em><span>&quot;What is corona?&quot;</span></em><span> </span></li><li><em><span>&quot;Can I work from home?&quot;</span></em></li></ul><p><span>The chatbot should respond with an appropriate answer.</span></p><p>&nbsp;</p><p><span>You can also say:</span></p><ul><li><em><span>&quot;I have a travel question&quot;</span></em></li></ul><p><span>And the chatbot will respond with a list of available travel questions.</span></p><p><span>You chatbot conversation should look like this:</span></p><video src="/Users/administrator/github/articles/covid-chatbot/media/Covid-First-Test-630-720.mp4?raw=true"></video><h2><a name="reviewing-existing-questions-and-answers" class="md-header-anchor"></a><span>Reviewing existing Questions and Answers</span></h2><p><span>The chatbot comes with a predefined set of Question and Answers, which you can review at the </span><strong><span>Question Answering</span></strong><span> page.</span></p><blockquote><p><span>Note. You can find the </span><strong><span>Question Answering</span></strong><span> page by going to Dashboard then click on </span><strong><span>Question Answering</span></strong><span>.</span></p></blockquote><p>&nbsp;</p><p><span>At the </span><strong><span>Question Answering</span></strong><span> page, you should see a list of categories, each containing their own Q&amp;As:</span></p><ul><li><span>Covid19QnA</span></li><li><span>FinanceQnA </span></li><li><span>MeetingsQnA</span></li><li><span>TravelQnA</span></li><li><span>WFHQnA</span></li></ul><blockquote><p><span>There is also a category called </span><strong><span>SmallTalk</span></strong><span>, which is a set of responses to expressions like: </span><em><span>&quot;Hi&quot;</span></em><span>, </span><em><span>&quot;Thanks&quot;</span></em><span>, </span><em><span>&quot;Bye&quot;</span></em><span>. You can ignore it for now.</span></p></blockquote><p>&nbsp;</p><p><span>If you click on </span><strong><span>MeetingsQnA</span></strong><span>, you should see 3 items:</span></p><ul><li><em><span>Attending events</span></em></li><li><em><span>Our events status</span></em></li><li><em><span>In-person meetings</span></em></li></ul><p><span>When you click on each of them, you will see that each has a number of questions. This is because usually there are many ways to ask for the same thing. By adding multiple questions, you make it easier for the chatbot to realise when to provide this answer to the user.</span></p><p><span>Additionally, each item contains a </span><strong><span>Group Name</span></strong><span>, which is a good way to give the general idea of what this question is about.</span></p><p><span>Finally, you have the answer, which is what the chatbot will say to the user, when they ask this question.</span></p><p>&nbsp;</p><blockquote><p><span>Hint. You can click on </span><strong><span>Question Answering</span></strong><span> to go back to the list of Q&amp;A categories.</span></p></blockquote><h2><a name="managing-questions-and-answers" class="md-header-anchor"></a><span>Managing Questions and Answers</span></h2><p><span>Although, the questions and answers that you get out of the box provide you with a good starting point, you need to update them to match your company&#39;s messaging.</span></p><h2><a name="updating-an-existing-qa" class="md-header-anchor"></a><span>Updating an existing Q&amp;A</span></h2><p><span>Updating existing Q&amp;As is really easy, you just pick one, change the values and press save.</span></p><p><span>Let&#39;s try to update the </span><strong><span>Our Events Status</span></strong><span> Q&amp;A.</span></p><p>&nbsp;</p><p><strong><span>Step 1</span></strong><span> — add 2 more triggering questions</span></p><p><span>Select </span><strong><span>Our Events Status</span></strong><span> item.</span></p><p><span>In here you will see 4 different ways to trigger this Q&amp;A.</span></p><p><img src="./media/01-event-status-questions.png?raw=true" alt="01-event-status-questions" style="zoom:50%;" /></p><p>&nbsp;</p><p><span>Click on the empty item and add the following text:</span></p><ul><li><em><span>What happens to ACMEnext?</span></em></li></ul><p><span>Then press </span><strong><span>Enter</span></strong><span> (or the green plus button) — to add another item — and add this text:</span></p><ul><li><em><span>What happens to Sales Kickoff?</span></em></li></ul><p>&nbsp;</p><p><span>Your questions should look like this:</span></p><p><img src="./media/02-event-status-new-questions.png?raw=true" alt="02-event-status-new-questions" style="zoom:50%;" /></p><p>&nbsp;</p><p><span>Finally, save the changes by pressing the </span><strong><span>Save changes</span></strong><span> button.</span></p><p>&nbsp;</p><p><strong><span>Step 2</span></strong><span> — test the new questions</span></p><p><span>Now, you can test the changes by typing:</span></p><ul><li><em><span>What happened to sales kickoff?</span></em></li><li><em><span>Status of ACMEnext</span></em></li></ul><p><span>Your chatbot should respond with:</span></p><p><img src="./media/03-event-status-chatbot-response.png?raw=true" alt="event-status-chatbot-response" style="zoom:50%;" /></p><blockquote><p><span>Note: the chatbot should be able to match to both of the above questions, even if they don&#39;t match exactly to any of the provided questions</span></p></blockquote><p>&nbsp;</p><p><strong><span>Step 3</span></strong><span> — update the answer</span></p><p><span>Next, you should update the answer to match it to your needs.</span></p><p><span>You can find the answer section below the list of questions. Just scroll down and you will see it there.</span></p><p><span>Change the text of the Answer to:</span></p><ul><li><em><span>All upcoming live events are cancelled.</span></newline><span>If you have arranged travel plans, please contact the travel team to get that cancelled.</span></em></li></ul><p><span>Save changes.</span></p><p>&nbsp;</p><blockquote><p><span>Note. You can use </span><strong></newline></strong><span> to split the answer in multiple speach bubbles.</span></p><p><span>You should use </span></newline><span> to break down your answers into more manageable chunks of information.</span></p></blockquote><p>&nbsp;</p><p><strong><span>Step 4</span></strong><span> — test the updated answer</span></p><p><span>Now, you can test the changes by saying:</span></p><ul><li><em><span>What is the status of the upcoming events?</span></em></li></ul><p><span>Your chatbot should respond with:</span></p><p><img src="./media/04-event-status-chatbot-response.png?raw=true" alt="event-status-chatbot-response" style="zoom:50%;" /></p><h3><a name="adding-a-new-qa" class="md-header-anchor"></a><span>Adding a new Q&amp;A</span></h3><p><span>Now that we know how to edit an existing Q&amp;A item, it is time to add a new Q&amp;A to instruct your employees  about your video conferencing tools.</span></p><p>&nbsp;</p><p><strong><span>Step 1</span></strong><span> — add a new Q&amp;A </span></p><p><span>From the </span><strong><span>MeetingsQnA</span></strong><span> category, press the </span><strong><span>+ Add a question</span></strong><span> button.</span></p><p>&nbsp;</p><p><span>Add the following </span><strong><span>Questions</span></strong><span>:</span></p><ul><li><em><span>Video conferencing</span></em></li><li><em><span>What to use for video calls?</span></em></li><li><em><span>How to make a conference call?</span></em></li><li><em><span>Can I use Zoom?</span></em></li><li><em><span>Can I use Microsoft Teams?</span></em></li></ul><p>&nbsp;</p><blockquote><p><span>Note. It is best for the first question to be short and generic .</span></p><p><span>This is because when you ask the chatbot to give you a list of available question it uses the first entry for each Q&amp;A to display the options.</span></p></blockquote><p>&nbsp;</p><p><span>Set the </span><strong><span>Group name</span></strong><span>:</span></p><ul><li><span>video conferencing</span></li></ul><p>&nbsp;</p><p><span>Set the follwing </span><strong><span>Answer</span></strong><span>:</span></p><ul><li><em><span>For all internal voice/video calls you should use Microsoft Teams.</span></newline><span>For external call, you should use Zoom or Microsoft Teams.</span></newline><span>You can find the setup instructions at </span><a href='http://www.mycompany.com/IT/conference-calls' target='_blank' class='url'>www.mycompany.com/IT/conference-calls</a></em></li></ul><p><span>Your new Q&amp;A should look like this:</span></p><p><img src="./media/05-video-conferencing-settings.png?raw=true" alt="video-conferencing-settings" style="zoom:50%;" /></p><p><span>Finally, save the changes by pressing the </span><strong><span>Save changes</span></strong><span> button.</span></p><p>&nbsp;</p><p><strong><span>Step 2</span></strong><span> — test the new Q&amp;A</span></p><p><span>Now, you can test the new Q&amp;A by saying:</span></p><ul><li><em><span>What to use for conference calls?</span></em></li><li><em><span>Can I use zoom?</span></em></li></ul><p><span>Your chatbot should respond with:</span></p><p><img src="./media/06-video-conferencing-response.png?raw=true" alt="video-conferencing-response" style="zoom:50%;" /></p><h3><a name="removing-a-qa" class="md-header-anchor"></a><span>Removing a Q&amp;A</span></h3><p><span>You can easily remove any Q&amp;A from the list.</span>
+<span>To do that just click on the trash can icon, and the whole Q&amp;A will be gone.</span></p><p><img src="./media/07-removing-qna.png?raw=true" alt="removing-qna" style="zoom:50%;" /></p><blockquote><p><span>Note. there is no undo button, so if you delete a Q&amp;A it will be gone forever.</span></p><p><span>Before you make any major changes, you can export the whole Q&amp;A category to a csv file. Then if you want to go back to where you were, you can import it back.</span></p></blockquote><p>&nbsp;</p><p><span>/// TODO: Consider if this should be a blogpost on its own</span></p><h2><a name="list-of-possible-questions" class="md-header-anchor"></a><span>List of possible questions</span></h2><p><span>The COVID-19 Chatbot comes with an interesting feature, which allows the users to type:</span></p><ul><li><em><span>Covid Questions</span></em></li><li><em><span>Travel Questions</span></em></li><li><em><span>Finance Questions</span></em></li><li><em><span>Meetings Questions</span></em></li><li><em><span>WFH Questions</span></em></li></ul><p><span>Each expression will result in displaying a set of available interactive questions. For example:</span></p><p><img src="./media/08-finance-question-list-demo.png?raw=true" alt="finance-question-list-demo" style="zoom:50%;" /></p><p><span>You are probably wondering: &quot;how does the chatbot know what text to display for each item?&quot;</span></p><p><span>If you open the </span><strong><span>FinanceQnA</span></strong><span> category, you will see a list of Q&amp;As. </span>
+<span>The first question for each Q&amp;A is the text used to display the available questions to the user.</span></p><p><img src="./media/09-finance-expenses-settings.png?raw=true" alt="finance-expenses-settings" style="zoom:50%;" /></p><h2><a name="removing-a-qa-category" class="md-header-anchor"></a><span>Removing a Q&amp;A Category</span></h2><p><span>You may choose not to use one of the Q&amp;A Categories provided by the COVID-19 Chatbot.</span></p><p><span>If this is the case for you, you can do that in the following simple steps:</span></p><p>&nbsp;</p><p><strong><span>Step 1</span></strong><span> — remove the unwanted category</span></p><p><span>First, you need to remove the unwanted category and all its&#39; Q&amp;As. </span></p><p><span>Go to the </span><strong><span>Question Answering</span></strong><span> page.</span></p><p><span>Then press the trash can next to the category that you want to remove.</span></p><p>&nbsp;</p><p><strong><span>Step 2</span></strong><span> — remove the conversation trigger</span></p><p><span>Navigate to the </span><strong><span>Conversation Triggers</span></strong><span> tab</span></p><p><img src="./media/10-conversation-trigger-navigation.png?raw=true" alt="conversation-trigger-navigation" style="zoom:50%;" /></p><p>&nbsp;</p><p><span>Here, you need to remove the </span><strong><span>Conversatoin Trigger</span></strong><span> that show a list of available questions for the category that you are removing.</span></p><p>&nbsp;</p><blockquote><p><span>Note. Conversation Trigger is a set of expressions that starts a conversation.</span></p><p><span>For example </span><strong><span>travel-qna</span></strong><span> - shows a list of Travel Questions, when you say something that sounds like:</span></p><ul><li><span>Travel questions</span></li><li><span>I have a Travel question</span></li></ul></blockquote><p><img src="./media/11-conversation-trigger-travel-qna.png?raw=true" alt="conversation-trigger-travel-qna" style="zoom:50%;" /></p><p>&nbsp;</p><p><span>Locate the conversation trigger that is no longer needed, and delete it by clicking the trash icon next to it.</span></p><p>&nbsp;</p><p><strong><span>Step 3</span></strong><span> — Test</span></p><p><span>You can try to ask questions that belonged to the removed category.</span></p><p><span>Additionally, you could ask to show a list of questions for that category.</span></p><p><span>In both cases, the chatbot should respond with: &quot;</span><em><span>Ask me anything</span></em><span>&quot; and a hint.</span></p><p>&nbsp;</p><h2><a name="adding-a-new-question-and-answers-category" class="md-header-anchor"></a><span>Adding a new Question and Answers Category</span></h2><p><span>If you want to add more questions and answers, but you feel like they don&#39;t fit any of the categories provided, you can add a new category.</span></p><p><span>For example let&#39;s add a category for </span><strong><span>General</span></strong><span> questions.</span></p><p>&nbsp;</p><p><strong><span>Step 1</span></strong><span> — Create a new category</span></p><p><span>Navigate to the </span><strong><span>Question Answering</span></strong><span> page, and press the </span><strong><span>+ Add a category</span></strong><span> button.</span></p><p><span>Call the category </span><strong><span>GeneralQnA</span></strong><span>. Like this:</span></p><p><img src="./media/12-add-general-qna.png?raw=true" alt="add-general-qna" style="zoom:50%;" /></p><p><span>Press the </span><strong><span>Create category</span></strong><span> button.</span></p><blockquote><p><span>Note. The QnA at the end it not required, however, it is nice to have consistent naming that makes it clear what you are looking at.</span>
+<span>For any new category that you create, it is best to use this format: </span><strong><span>NameQnA</span></strong></p></blockquote><p><strong><span>Step 2</span></strong><span>  — Add your own Q&amp;As</span></p><p><span>Now you just need to add your own questions to the General category.</span></p><p><span>Let&#39;s add one to answer questions about plants in the office.</span></p><p><span>Press the </span><strong><span>+ Add a question</span></strong><span> button.</span></p><p><span>Add these questions:</span></p><ul><li><em><span>Office plants</span></em></li><li><em><span>Watering office plants</span></em></li><li><em><span>Who is watering the office plants?</span></em></li><li><em><span>Are the plants in the office OK?</span></em></li></ul><p><span>Set category name:</span></p><ul><li><em><span>Office plants</span></em></li></ul><p><span>Answer:</span></p><ul><li><em><span>The facilities team is looking after our beloved plants.</span></em></li></ul><p>&nbsp;</p><p><span>The new Q&amp;A should look like this:</span></p><p><img src="./media/13-general-qna-configuration.png?raw=true" alt="general-qna-configuration" style="zoom:50%;" /></p><p>&nbsp;</p><p><span>Finally, save the changes by pressing the </span><strong><span>Save changes</span></strong><span> button.</span></p><p>&nbsp;</p><p><strong><span>Step 3</span></strong><span> — test the new question</span></p><p><span>Now, you can test the new Q&amp;A by saying:</span></p><ul><li><em><span>Is anyone watering the plants?</span></em></li></ul><p><span>Your chatbot should respond with:</span></p><p><img src="./media/14-general-qna-demo.png?raw=true" alt="general-qna-demo" style="zoom:50%;" /></p><h2><a name="bonus---helpers-for-lists-of-questions" class="md-header-anchor"></a><span>Bonus - helpers for lists of questions</span></h2><p><span>When you add a new Category for Q&amp;As, you will notice that when you ask </span><em><span>&quot;General Questions&quot;</span></em><span>, the chatbot doesn&#39;t give you a list of available questions for that category.</span></p><p><span>This is because we have to tell instruct the chatbot how to do that and what to display.</span></p><p><span>This section is a bit more advanced, however, if you carefully follow the steps below, you should be fine to do it. 😇</span></p><h3><a name="add-conversation-code" class="md-header-anchor"></a><span>Add Conversation Code</span></h3><p><span>First, we need to add the code for a conversation that will display a list of available questions.</span></p><p><span>Don&#39;t worry, you will be given the code you need, and you will just need to make a few tiny modifications.</span></p><blockquote><p><span>Note. If you get lost at any point of this section, at the end of this set instructions, there is a video-recording showing how to complete this task.</span></p></blockquote><p>&nbsp;</p><p><strong><span>Step 1</span></strong><span> — go to the </span><strong><span>Cognitive Flow</span></strong><span> page</span></p><p><span>Click on </span><strong><span>Cognitive Flow</span></strong><span> tab, which will take you to the Cognitive Flow page. </span></p><blockquote><p><span>Note. Cognitive Flow is how we tells our chatbot how to handle various conversations.</span></p></blockquote><p><strong><span>Step 2</span></strong><span> — find the last conversation (wfh-qna)</span></p><p><span>On the right hand side, there is a panel that lists all conversations in this chatbot project. Find the last one before </span><strong><span>Settings</span></strong><span> — it should be </span><strong><span>wfh-qna</span></strong><span> and click on it.</span></p><p><img src="./media/15-cognitive-flow-list-of-conversations.png?raw=true" alt="cognitive-flow-list-of-conversations" style="zoom:25%;" /></p><p>&nbsp;</p><p><span>This will take you to wfh-qna conversation code.</span></p><p><span>Here you should notice the two higlighted curly brackets </span><strong><span>{ }</span></strong><span> . </span></p><p><img src="./media/16-cognitive-flow-wfh-qna.png?raw=true" alt="cognitive-flow-wfh-qna" style="zoom:50%;" /></p><p><strong><span>Step 3</span></strong><span> — add a new conversation code</span></p><p><span>Click on the right hand side of the highlighted closing curly bracket (should be at line 156).</span></p><p><span>Then copy and paste the following code in there.</span></p><pre spellcheck="false" class="md-fences md-end-block ty-contain-cm modeLoaded" lang="json" style="break-inside: unset;"><div class="CodeMirror cm-s-inner CodeMirror-wrap" lang="json"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 0px; left: 8px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation" style=""><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">,<span class="cm-string">"name-qna"</span>: {</span></pre></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;<span class="cm-string cm-property">"type"</span>: <span class="cm-string">"goal"</span>,</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;<span class="cm-string cm-property">"steps"</span>: [</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;  {</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp;<span class="cm-string cm-property">"type"</span>: <span class="cm-string">"question"</span>,</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp;<span class="cm-string cm-property">"entity"</span>: <span class="cm-string">"q"</span>,</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp;<span class="cm-string cm-property">"entity-type"</span>: <span class="cm-string">"NameQnA"</span>,</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp;<span class="cm-string cm-property">"messages"</span>: [</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp;  [</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-string">"Check the Name answers for:"</span>,</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-string">"Hint: To stop repeating questions, say: \"no more questions\" "</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp;  ]</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;  ],</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp;<span class="cm-string cm-property">"display"</span>: {</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-string cm-property">"type"</span>: <span class="cm-string">"quick-reply"</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;  }</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;  }</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">  ]</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">}</span></pre></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom-width: 0px; border-bottom-style: solid; border-bottom-color: transparent; top: 418px;"></div><div class="CodeMirror-gutters" style="display: none; height: 418px;"></div></div></div></pre><p>&nbsp;</p><p><span>Next, we need to change the 3 mentions of the word </span><strong><span>name</span></strong><span> to the name of the Category you want to add.</span>
+<span>In the case of this example, we are replacing </span><strong><span>name</span></strong><span> with </span><strong><span>general</span></strong><span>, like this:</span></p><p><img src="./media/17-cognitive-flow-general-qna.png?raw=true" alt="cognitive-flow-general-qna" style="zoom:50%;" /></p><p><span>It is worth explaining each of the items that you had to update</span></p><ul><li><code>&quot;general-qna&quot;</code>
+<span>— is the name of this conversation. This is used when you need to add a </span><strong><span>Conversation Trigger</span></strong><span> for this </span><strong><span>Conversation</span></strong><span>. Take note of it, as we will need it in the next step</span></li><li><code>&quot;entity-type&quot;: &quot;GeneralQnA&quot;</code>
+<span>— tells the chatbot where to get all the Q&amp;A questions to display to the user. It is important to know that this has to match exactly the name you gave to your Q&amp;A Category (in the Question Answering page)</span></li><li><code>&quot;Check the General answers for:&quot;</code>
+<span>— provides the chatbot with a text to display to the user, so feel free to adjust it to your needs</span></li></ul><p>&nbsp;</p><p><strong><span>Step 4</span></strong><span> — save</span></p><p><span>Press the save button, and we should be good to go.</span></p><p>&nbsp;</p><p><strong><span>Video</span></strong></p><p><span>Here is a video of how to complete this whole task:</span></p><video src="./media/03-Add-general-qna-1300-1040.mp4?raw=true"></video><h3><a name="add-conversation-trigger" class="md-header-anchor"></a><span>Add Conversation Trigger</span></h3><p><span>The final piece of the puzzle 🧩  is to tell the chatbot when to trigger our new </span><strong><span>general-qna</span></strong><span> conversation.</span></p><p><span>This is done from the </span><strong><span>Conversation Triggers</span></strong><span> page.</span></p><p>&nbsp;</p><p><strong><span>Step 1</span></strong><span> — go to </span><strong><span>Conversation Triggers</span></strong><span> page</span></p><p><span>Click on the </span><strong><span>Training</span></strong><span> tab and then click on </span><strong><span>Conversation Triggers</span></strong><span>.</span></p><p>&nbsp;</p><p><strong><span>Step 2</span></strong><span> — add a new conversation trigger</span></p><p><span>Click on the </span><strong><span>+ Add new</span></strong><span> button.</span></p><p><span>Then set the </span><strong><span>Conversation Name</span></strong><span> to:</span></p><ul><li><strong><span>general-qna</span></strong><span> </span></li></ul><blockquote><p><span>Note. It is important that the conversation name in here matches exactly to the name you provide in the Cognitive Flow page.</span></p></blockquote><p><span>Trigger Expressions:</span></p><ul><li><em><span>General Questions</span></em></li><li><em><span>I have a general question</span></em></li></ul><p><span>The new trigger should look like this:</span></p><p><img src="./media/18-conversation-trigger-general-qna-configuration.png?raw=true" alt="conversation-trigger-general-qna-configuration" style="zoom:50%;" /></p><p><strong><span>Step 3</span></strong><span> —save</span></p><p><span>Save the new trigger by pressing the </span><strong><span>Save changes</span></strong><span> button.</span></p><p>&nbsp;</p><p><strong><span>Step 4</span></strong><span> — test</span></p><p><span>Finally, you should be able to test the new conversation in action, by saying</span></p><ul><li><em><span>I have a general question</span></em></li></ul><p><span>Your chatbot should respond with:</span></p><p><img src="./media/19-general-qna-demo.png?raw=true" alt="general-qna-demo" style="zoom:50%;" /></p><h2><a name="final-word" class="md-header-anchor"></a><span>Final word</span></h2><p><span>Congratulations!!! 🎉🥳</span></p><p><span>You have just created your first chatbot. I am sure this chatbot will be very useful to your employees, and over time you will add more questions and change some of the existing ones.</span></p><p><span>In order to make this chatbot available to your employees, you will need to get it published in your internal website. Here is our documentation on </span><a href='https://docs.nativechat.com/docs/1.0/publishing/web.html'><span>Publishing to Web</span></a><span>.</span></p></div>
+</body>
+</html>
